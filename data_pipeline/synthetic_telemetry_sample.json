@@ -1,0 +1,5202 @@
+[
+  {
+    "agent_id": "synthetic-agent-001",
+    "timestamp": "2026-08-27T22:04:14.642369Z",
+    "metrics": {
+      "system": {
+        "cpu": {
+          "usage_percent": 54.4119054704362,
+          "per_cpu": [
+            100,
+            -39.49072863293724,
+            -96.2647359803164,
+            0.6466034421289066
+          ],
+          "count": 4
+        },
+        "memory": {
+          "usage_percent": 47.87755518291715,
+          "available_mb": 4269.870679415427,
+          "used_mb": 3922.1293205845727,
+          "free_mb": 4269.870679415427
+        },
+        "disk": {
+          "read_mbps": 9.404180978387627,
+          "write_mbps": 3.646498212708913,
+          "read_count": 940,
+          "write_count": 364
+        },
+        "network": {
+          "bytes_sent": 1009.4011564458042,
+          "bytes_recv": 1481.7510212737523,
+          "packets_sent": 10,
+          "packets_recv": 14,
+          "errin": 0,
+          "errout": 0,
+          "dropin": 0,
+          "dropout": 0
+        },
+        "uptime": {
+          "timestamp": "2026-08-27T22:04:14.642369Z",
+          "boot_time": "2026-08-27T21:18:59.322183Z",
+          "uptime": 2715.320185539955
+        },
+        "processes": {
+          "count": 71,
+          "running": 56,
+          "sleeping": 10,
+          "zombie": 3,
+          "stopped": 1
+        }
+      }
+    }
+  },
+  {
+    "agent_id": "synthetic-agent-001",
+    "timestamp": "2026-08-27T22:04:24.642369Z",
+    "metrics": {
+      "system": {
+        "cpu": {
+          "usage_percent": 57.594315124830885,
+          "per_cpu": [
+            6.330724610483518,
+            61.35307412417097,
+            100,
+            3.4136268833875363
+          ],
+          "count": 4
+        },
+        "memory": {
+          "usage_percent": 54.47315891252551,
+          "available_mb": 3729.55882188591,
+          "used_mb": 4462.44117811409,
+          "free_mb": 3729.55882188591
+        },
+        "disk": {
+          "read_mbps": 7.317989979867798,
+          "write_mbps": 6.142648555622218,
+          "read_count": 731,
+          "write_count": 614
+        },
+        "network": {
+          "bytes_sent": 1020.3635671828365,
+          "bytes_recv": 1541.785861739672,
+          "packets_sent": 10,
+          "packets_recv": 15,
+          "errin": 0,
+          "errout": 0,
+          "dropin": 0,
+          "dropout": 0
+        },
+        "uptime": {
+          "timestamp": "2026-08-27T22:04:24.642369Z",
+          "boot_time": "2026-08-27T22:04:24.642369Z",
+          "uptime": 0
+        },
+        "processes": {
+          "count": 72,
+          "running": 57,
+          "sleeping": 10,
+          "zombie": 3,
+          "stopped": 1
+        }
+      }
+    }
+  },
+  {
+    "agent_id": "synthetic-agent-001",
+    "timestamp": "2026-08-27T22:04:34.642369Z",
+    "metrics": {
+      "system": {
+        "cpu": {
+          "usage_percent": 51.404368108414204,
+          "per_cpu": [
+            34.82525583484875,
+            100,
+            8.110875899666546,
+            25.27240571241058
+          ],
+          "count": 4
+        },
+        "memory": {
+          "usage_percent": 49.66075941172396,
+          "available_mb": 4123.790588991574,
+          "used_mb": 4068.2094110084267,
+          "free_mb": 4123.790588991574
+        },
+        "disk": {
+          "read_mbps": 8.312868220259395,
+          "write_mbps": 3.1455608416226344,
+          "read_count": 831,
+          "write_count": 314
+        },
+        "network": {
+          "bytes_sent": 1017.7024550324655,
+          "bytes_recv": 1485.081527936067,
+          "packets_sent": 10,
+          "packets_recv": 14,
+          "errin": 0,
+          "errout": 0,
+          "dropin": 0,
+          "dropout": 0
+        },
+        "uptime": {
+          "timestamp": "2026-08-27T22:04:34.642369Z",
+          "boot_time": "2026-08-27T22:04:34.642369Z",
+          "uptime": 0
+        },
+        "processes": {
+          "count": 60,
+          "running": 48,
+          "sleeping": 9,
+          "zombie": 3,
+          "stopped": 1
+        }
+      }
+    }
+  },
+  {
+    "agent_id": "synthetic-agent-001",
+    "timestamp": "2026-08-27T22:04:44.642369Z",
+    "metrics": {
+      "system": {
+        "cpu": {
+          "usage_percent": 55.18391367703204,
+          "per_cpu": [
+            41.33083703421985,
+            100,
+            -101.82481386446192,
+            3.0389862329329986
+          ],
+          "count": 4
+        },
+        "memory": {
+          "usage_percent": 53.9132055740496,
+          "available_mb": 3775.430199373857,
+          "used_mb": 4416.569800626143,
+          "free_mb": 3775.430199373857
+        },
+        "disk": {
+          "read_mbps": 13.675140505742183,
+          "write_mbps": 3.9988726866542503,
+          "read_count": 1367,
+          "write_count": 399
+        },
+        "network": {
+          "bytes_sent": 1030.0563399261523,
+          "bytes_recv": 1622.8785472658772,
+          "packets_sent": 10,
+          "packets_recv": 16,
+          "errin": 0,
+          "errout": 0,
+          "dropin": 0,
+          "dropout": 0
+        },
+        "uptime": {
+          "timestamp": "2026-08-27T22:04:44.642369Z",
+          "boot_time": "2026-08-27T21:01:06.916667Z",
+          "uptime": 3817.7257020799725
+        },
+        "processes": {
+          "count": 72,
+          "running": 57,
+          "sleeping": 10,
+          "zombie": 3,
+          "stopped": 1
+        }
+      }
+    }
+  },
+  {
+    "agent_id": "synthetic-agent-001",
+    "timestamp": "2026-08-27T22:04:54.642369Z",
+    "metrics": {
+      "system": {
+        "cpu": {
+          "usage_percent": 49.8011705560554,
+          "per_cpu": [
+            100,
+            -257.0078289698323,
+            6.032505997508578,
+            100
+          ],
+          "count": 4
+        },
+        "memory": {
+          "usage_percent": 49.93778342024671,
+          "available_mb": 4101.09678221339,
+          "used_mb": 4090.9032177866106,
+          "free_mb": 4101.09678221339
+        },
+        "disk": {
+          "read_mbps": 8.107607304059716,
+          "write_mbps": 3.1797483840789544,
+          "read_count": 810,
+          "write_count": 317
+        },
+        "network": {
+          "bytes_sent": 1097.640088935411,
+          "bytes_recv": 1429.8284277705675,
+          "packets_sent": 10,
+          "packets_recv": 14,
+          "errin": 0,
+          "errout": 0,
+          "dropin": 0,
+          "dropout": 0
+        },
+        "uptime": {
+          "timestamp": "2026-08-27T22:04:54.642369Z",
+          "boot_time": "2026-08-27T22:04:54.642369Z",
+          "uptime": 0
+        },
+        "processes": {
+          "count": 66,
+          "running": 52,
+          "sleeping": 9,
+          "zombie": 3,
+          "stopped": 1
+        }
+      }
+    }
+  },
+  {
+    "agent_id": "synthetic-agent-001",
+    "timestamp": "2026-08-27T22:05:04.642369Z",
+    "metrics": {
+      "system": {
+        "cpu": {
+          "usage_percent": 50.7494082319526,
+          "per_cpu": [
+            100,
+            100,
+            -32.75906655299078,
+            14.711127930218332
+          ],
+          "count": 4
+        },
+        "memory": {
+          "usage_percent": 51.18328166335716,
+          "available_mb": 3999.065566137782,
+          "used_mb": 4192.934433862219,
+          "free_mb": 3999.065566137782
+        },
+        "disk": {
+          "read_mbps": 11.717382858243695,
+          "write_mbps": 7.001158339894381,
+          "read_count": 1171,
+          "write_count": 700
+        },
+        "network": {
+          "bytes_sent": 955.2285516835755,
+          "bytes_recv": 1443.8626580487692,
+          "packets_sent": 9,
+          "packets_recv": 14,
+          "errin": 0,
+          "errout": 0,
+          "dropin": 0,
+          "dropout": 0
+        },
+        "uptime": {
+          "timestamp": "2026-08-27T22:05:04.642369Z",
+          "boot_time": "2026-08-27T22:05:04.642369Z",
+          "uptime": 0
+        },
+        "processes": {
+          "count": 65,
+          "running": 52,
+          "sleeping": 9,
+          "zombie": 3,
+          "stopped": 1
+        }
+      }
+    }
+  },
+  {
+    "agent_id": "synthetic-agent-001",
+    "timestamp": "2026-08-27T22:05:14.642369Z",
+    "metrics": {
+      "system": {
+        "cpu": {
+          "usage_percent": 41.427217568273846,
+          "per_cpu": [
+            100,
+            -133.7156796307047,
+            -1.6514873508828418,
+            0.0
+          ],
+          "count": 4
+        },
+        "memory": {
+          "usage_percent": 54.734224268325136,
+          "available_mb": 3708.1723479388047,
+          "used_mb": 4483.827652061195,
+          "free_mb": 3708.1723479388047
+        },
+        "disk": {
+          "read_mbps": 11.360173253291377,
+          "write_mbps": 6.031144786171016,
+          "read_count": 1136,
+          "write_count": 603
+        },
+        "network": {
+          "bytes_sent": 916.9445116917411,
+          "bytes_recv": 1506.0550562444098,
+          "packets_sent": 9,
+          "packets_recv": 15,
+          "errin": 0,
+          "errout": 0,
+          "dropin": 0,
+          "dropout": 0
+        },
+        "uptime": {
+          "timestamp": "2026-08-27T22:05:14.642369Z",
+          "boot_time": "2026-08-27T22:05:14.642369Z",
+          "uptime": 0
+        },
+        "processes": {
+          "count": 53,
+          "running": 42,
+          "sleeping": 7,
+          "zombie": 2,
+          "stopped": 1
+        }
+      }
+    }
+  },
+  {
+    "agent_id": "synthetic-agent-001",
+    "timestamp": "2026-08-27T22:05:24.642369Z",
+    "metrics": {
+      "system": {
+        "cpu": {
+          "usage_percent": 44.46250565146421,
+          "per_cpu": [
+            100,
+            -231.0535242166513,
+            100,
+            12.793524111221075
+          ],
+          "count": 4
+        },
+        "memory": {
+          "usage_percent": 55.28757573101843,
+          "available_mb": 3662.8417961149703,
+          "used_mb": 4529.158203885029,
+          "free_mb": 3662.8417961149703
+        },
+        "disk": {
+          "read_mbps": 6.5218955403508145,
+          "write_mbps": 6.460955741839909,
+          "read_count": 652,
+          "write_count": 646
+        },
+        "network": {
+          "bytes_sent": 976.4355592498232,
+          "bytes_recv": 1403.607271770079,
+          "packets_sent": 9,
+          "packets_recv": 14,
+          "errin": 0,
+          "errout": 0,
+          "dropin": 0,
+          "dropout": 0
+        },
+        "uptime": {
+          "timestamp": "2026-08-27T22:05:24.642369Z",
+          "boot_time": "2026-08-27T22:05:24.642369Z",
+          "uptime": 0
+        },
+        "processes": {
+          "count": 55,
+          "running": 44,
+          "sleeping": 8,
+          "zombie": 2,
+          "stopped": 1
+        }
+      }
+    }
+  },
+  {
+    "agent_id": "synthetic-agent-001",
+    "timestamp": "2026-08-27T22:05:34.642369Z",
+    "metrics": {
+      "system": {
+        "cpu": {
+          "usage_percent": 58.69484061567952,
+          "per_cpu": [
+            85.5754243585188,
+            100,
+            -31.263146242017033,
+            1.0710068068406782
+          ],
+          "count": 4
+        },
+        "memory": {
+          "usage_percent": 59.30758905582908,
+          "available_mb": 3333.5223045464822,
+          "used_mb": 4858.477695453518,
+          "free_mb": 3333.5223045464822
+        },
+        "disk": {
+          "read_mbps": 8.04300588454249,
+          "write_mbps": 1.4000157202611883,
+          "read_count": 804,
+          "write_count": 140
+        },
+        "network": {
+          "bytes_sent": 989.635302792247,
+          "bytes_recv": 1476.1285783704259,
+          "packets_sent": 9,
+          "packets_recv": 14,
+          "errin": 0,
+          "errout": 0,
+          "dropin": 0,
+          "dropout": 0
+        },
+        "uptime": {
+          "timestamp": "2026-08-27T22:05:34.642369Z",
+          "boot_time": "2026-08-27T22:05:34.642369Z",
+          "uptime": 0
+        },
+        "processes": {
+          "count": 63,
+          "running": 50,
+          "sleeping": 9,
+          "zombie": 3,
+          "stopped": 1
+        }
+      }
+    }
+  },
+  {
+    "agent_id": "synthetic-agent-001",
+    "timestamp": "2026-08-27T22:05:44.642369Z",
+    "metrics": {
+      "system": {
+        "cpu": {
+          "usage_percent": 53.869727376840146,
+          "per_cpu": [
+            60.30078840040063,
+            76.19163172957846,
+            36.914189311962446,
+            42.07230006541906
+          ],
+          "count": 4
+        },
+        "memory": {
+          "usage_percent": 55.47850480583265,
+          "available_mb": 3647.200886306189,
+          "used_mb": 4544.799113693811,
+          "free_mb": 3647.200886306189
+        },
+        "disk": {
+          "read_mbps": 7.810835259230137,
+          "write_mbps": 8.24649756733563,
+          "read_count": 781,
+          "write_count": 824
+        },
+        "network": {
+          "bytes_sent": 1014.3153218334506,
+          "bytes_recv": 1599.2178227901463,
+          "packets_sent": 10,
+          "packets_recv": 15,
+          "errin": 0,
+          "errout": 0,
+          "dropin": 0,
+          "dropout": 0
+        },
+        "uptime": {
+          "timestamp": "2026-08-27T22:05:44.642369Z",
+          "boot_time": "2026-08-27T20:35:12.770500Z",
+          "uptime": 5431.871869227482
+        },
+        "processes": {
+          "count": 70,
+          "running": 56,
+          "sleeping": 10,
+          "zombie": 3,
+          "stopped": 1
+        }
+      }
+    }
+  },
+  {
+    "agent_id": "synthetic-agent-001",
+    "timestamp": "2026-08-27T22:05:54.642369Z",
+    "metrics": {
+      "system": {
+        "cpu": {
+          "usage_percent": 53.23892835500381,
+          "per_cpu": [
+            100,
+            -59.69610503009736,
+            -106.27917415727735,
+            44.461857400110304
+          ],
+          "count": 4
+        },
+        "memory": {
+          "usage_percent": 54.797774953675685,
+          "available_mb": 3702.966275794888,
+          "used_mb": 4489.033724205112,
+          "free_mb": 3702.966275794888
+        },
+        "disk": {
+          "read_mbps": 9.096672816352088,
+          "write_mbps": 2.6655341661127285,
+          "read_count": 909,
+          "write_count": 266
+        },
+        "network": {
+          "bytes_sent": 1054.7812458892859,
+          "bytes_recv": 1518.814817387967,
+          "packets_sent": 10,
+          "packets_recv": 15,
+          "errin": 0,
+          "errout": 0,
+          "dropin": 0,
+          "dropout": 0
+        },
+        "uptime": {
+          "timestamp": "2026-08-27T22:05:54.642369Z",
+          "boot_time": "2026-08-27T21:08:54.954170Z",
+          "uptime": 3419.68819872346
+        },
+        "processes": {
+          "count": 65,
+          "running": 52,
+          "sleeping": 9,
+          "zombie": 3,
+          "stopped": 1
+        }
+      }
+    }
+  },
+  {
+    "agent_id": "synthetic-agent-001",
+    "timestamp": "2026-08-27T22:06:04.642369Z",
+    "metrics": {
+      "system": {
+        "cpu": {
+          "usage_percent": 43.876396554925876,
+          "per_cpu": [
+            22.898514116065886,
+            100,
+            -27.070392574671267,
+            0.0
+          ],
+          "count": 4
+        },
+        "memory": {
+          "usage_percent": 52.42479029598044,
+          "available_mb": 3897.361178953282,
+          "used_mb": 4294.638821046718,
+          "free_mb": 3897.361178953282
+        },
+        "disk": {
+          "read_mbps": 11.371188829259886,
+          "write_mbps": 7.365539626681578,
+          "read_count": 1137,
+          "write_count": 736
+        },
+        "network": {
+          "bytes_sent": 1095.4168104963774,
+          "bytes_recv": 1545.170054942292,
+          "packets_sent": 10,
+          "packets_recv": 15,
+          "errin": 0,
+          "errout": 0,
+          "dropin": 0,
+          "dropout": 0
+        },
+        "uptime": {
+          "timestamp": "2026-08-27T22:06:04.642369Z",
+          "boot_time": "2026-08-27T21:29:11.597002Z",
+          "uptime": 2213.0453666785643
+        },
+        "processes": {
+          "count": 57,
+          "running": 45,
+          "sleeping": 8,
+          "zombie": 2,
+          "stopped": 1
+        }
+      }
+    }
+  },
+  {
+    "agent_id": "synthetic-agent-001",
+    "timestamp": "2026-08-27T22:06:14.642369Z",
+    "metrics": {
+      "system": {
+        "cpu": {
+          "usage_percent": 49.99557569712258,
+          "per_cpu": [
+            100,
+            -27.808488208593477,
+            -7.739585057616771,
+            0.0
+          ],
+          "count": 4
+        },
+        "memory": {
+          "usage_percent": 47.237705531809766,
+          "available_mb": 4322.287162834144,
+          "used_mb": 3869.712837165856,
+          "free_mb": 4322.287162834144
+        },
+        "disk": {
+          "read_mbps": 5.258248508524075,
+          "write_mbps": 4.7103139518277,
+          "read_count": 525,
+          "write_count": 471
+        },
+        "network": {
+          "bytes_sent": 1016.3672824730479,
+          "bytes_recv": 1534.4373986587782,
+          "packets_sent": 10,
+          "packets_recv": 15,
+          "errin": 0,
+          "errout": 0,
+          "dropin": 0,
+          "dropout": 0
+        },
+        "uptime": {
+          "timestamp": "2026-08-27T22:06:14.642369Z",
+          "boot_time": "2026-08-27T22:06:14.642369Z",
+          "uptime": 0
+        },
+        "processes": {
+          "count": 67,
+          "running": 53,
+          "sleeping": 10,
+          "zombie": 3,
+          "stopped": 1
+        }
+      }
+    }
+  },
+  {
+    "agent_id": "synthetic-agent-001",
+    "timestamp": "2026-08-27T22:06:24.642369Z",
+    "metrics": {
+      "system": {
+        "cpu": {
+          "usage_percent": 54.20679032390796,
+          "per_cpu": [
+            100,
+            -119.25281084004183,
+            29.183276592754492,
+            7.235874316834032
+          ],
+          "count": 4
+        },
+        "memory": {
+          "usage_percent": 52.633958751036225,
+          "available_mb": 3880.2260991151124,
+          "used_mb": 4311.773900884888,
+          "free_mb": 3880.2260991151124
+        },
+        "disk": {
+          "read_mbps": 9.585148198359429,
+          "write_mbps": 4.748192870763596,
+          "read_count": 958,
+          "write_count": 474
+        },
+        "network": {
+          "bytes_sent": 1018.112481368794,
+          "bytes_recv": 1512.9756959760282,
+          "packets_sent": 10,
+          "packets_recv": 15,
+          "errin": 0,
+          "errout": 0,
+          "dropin": 0,
+          "dropout": 0
+        },
+        "uptime": {
+          "timestamp": "2026-08-27T22:06:24.642369Z",
+          "boot_time": "2026-08-27T21:39:21.995279Z",
+          "uptime": 1622.6470902993651
+        },
+        "processes": {
+          "count": 66,
+          "running": 52,
+          "sleeping": 9,
+          "zombie": 3,
+          "stopped": 1
+        }
+      }
+    }
+  },
+  {
+    "agent_id": "synthetic-agent-001",
+    "timestamp": "2026-08-27T22:06:34.642369Z",
+    "metrics": {
+      "system": {
+        "cpu": {
+          "usage_percent": 48.91979844731175,
+          "per_cpu": [
+            100,
+            -21.814666825136833,
+            -9.515905192788862,
+            0.0
+          ],
+          "count": 4
+        },
+        "memory": {
+          "usage_percent": 53.140697900836116,
+          "available_mb": 3838.7140279635055,
+          "used_mb": 4353.285972036495,
+          "free_mb": 3838.7140279635055
+        },
+        "disk": {
+          "read_mbps": 11.746210974425372,
+          "write_mbps": 6.6590707043320725,
+          "read_count": 1174,
+          "write_count": 665
+        },
+        "network": {
+          "bytes_sent": 1042.845084263249,
+          "bytes_recv": 1469.0812059435877,
+          "packets_sent": 10,
+          "packets_recv": 14,
+          "errin": 0,
+          "errout": 0,
+          "dropin": 0,
+          "dropout": 0
+        },
+        "uptime": {
+          "timestamp": "2026-08-27T22:06:34.642369Z",
+          "boot_time": "2026-08-27T22:06:34.642369Z",
+          "uptime": 0
+        },
+        "processes": {
+          "count": 65,
+          "running": 52,
+          "sleeping": 9,
+          "zombie": 3,
+          "stopped": 1
+        }
+      }
+    }
+  },
+  {
+    "agent_id": "synthetic-agent-001",
+    "timestamp": "2026-08-27T22:06:44.642369Z",
+    "metrics": {
+      "system": {
+        "cpu": {
+          "usage_percent": 51.75973911337109,
+          "per_cpu": [
+            59.718686387815595,
+            27.366439455516492,
+            100,
+            0.0
+          ],
+          "count": 4
+        },
+        "memory": {
+          "usage_percent": 50.58587307461189,
+          "available_mb": 4048.0052777277942,
+          "used_mb": 4143.994722272206,
+          "free_mb": 4048.0052777277942
+        },
+        "disk": {
+          "read_mbps": 9.088123724689474,
+          "write_mbps": 6.3961040059287075,
+          "read_count": 908,
+          "write_count": 639
+        },
+        "network": {
+          "bytes_sent": 877.1774558074665,
+          "bytes_recv": 1525.7130099682213,
+          "packets_sent": 8,
+          "packets_recv": 15,
+          "errin": 0,
+          "errout": 0,
+          "dropin": 0,
+          "dropout": 0
+        },
+        "uptime": {
+          "timestamp": "2026-08-27T22:06:44.642369Z",
+          "boot_time": "2026-08-27T22:06:44.642369Z",
+          "uptime": 0
+        },
+        "processes": {
+          "count": 62,
+          "running": 49,
+          "sleeping": 9,
+          "zombie": 3,
+          "stopped": 1
+        }
+      }
+    }
+  },
+  {
+    "agent_id": "synthetic-agent-001",
+    "timestamp": "2026-08-27T22:06:54.642369Z",
+    "metrics": {
+      "system": {
+        "cpu": {
+          "usage_percent": 53.37588698584621,
+          "per_cpu": [
+            46.83822186616494,
+            71.45274757227511,
+            95.21257850494479,
+            0.0
+          ],
+          "count": 4
+        },
+        "memory": {
+          "usage_percent": 53.48134424463366,
+          "available_mb": 3810.8082794796105,
+          "used_mb": 4381.19172052039,
+          "free_mb": 3810.8082794796105
+        },
+        "disk": {
+          "read_mbps": 4.555751331244649,
+          "write_mbps": 5.125740391331402,
+          "read_count": 455,
+          "write_count": 512
+        },
+        "network": {
+          "bytes_sent": 963.4037341790523,
+          "bytes_recv": 1479.411779924403,
+          "packets_sent": 9,
+          "packets_recv": 14,
+          "errin": 0,
+          "errout": 0,
+          "dropin": 0,
+          "dropout": 0
+        },
+        "uptime": {
+          "timestamp": "2026-08-27T22:06:54.642369Z",
+          "boot_time": "2026-08-27T21:52:54.951102Z",
+          "uptime": 839.6912666429207
+        },
+        "processes": {
+          "count": 66,
+          "running": 52,
+          "sleeping": 9,
+          "zombie": 3,
+          "stopped": 1
+        }
+      }
+    }
+  },
+  {
+    "agent_id": "synthetic-agent-001",
+    "timestamp": "2026-08-27T22:07:04.642369Z",
+    "metrics": {
+      "system": {
+        "cpu": {
+          "usage_percent": 60.19110098193658,
+          "per_cpu": [
+            35.340381457134846,
+            0.8322077589544921,
+            100,
+            0.0
+          ],
+          "count": 4
+        },
+        "memory": {
+          "usage_percent": 56.48101767069965,
+          "available_mb": 3565.0750324162846,
+          "used_mb": 4626.924967583715,
+          "free_mb": 3565.0750324162846
+        },
+        "disk": {
+          "read_mbps": 7.119085253466224,
+          "write_mbps": 4.079658470173624,
+          "read_count": 711,
+          "write_count": 407
+        },
+        "network": {
+          "bytes_sent": 933.0514268422065,
+          "bytes_recv": 1384.0655432752883,
+          "packets_sent": 9,
+          "packets_recv": 13,
+          "errin": 0,
+          "errout": 0,
+          "dropin": 0,
+          "dropout": 0
+        },
+        "uptime": {
+          "timestamp": "2026-08-27T22:07:04.642369Z",
+          "boot_time": "2026-08-27T22:07:04.642369Z",
+          "uptime": 0
+        },
+        "processes": {
+          "count": 70,
+          "running": 56,
+          "sleeping": 10,
+          "zombie": 3,
+          "stopped": 1
+        }
+      }
+    }
+  },
+  {
+    "agent_id": "synthetic-agent-001",
+    "timestamp": "2026-08-27T22:07:14.642369Z",
+    "metrics": {
+      "system": {
+        "cpu": {
+          "usage_percent": 51.44473948668291,
+          "per_cpu": [
+            100,
+            -125.22445329560065,
+            97.62970036275959,
+            0.0
+          ],
+          "count": 4
+        },
+        "memory": {
+          "usage_percent": 54.04609789384008,
+          "available_mb": 3764.543660536621,
+          "used_mb": 4427.456339463379,
+          "free_mb": 3764.543660536621
+        },
+        "disk": {
+          "read_mbps": 11.455046558725977,
+          "write_mbps": 4.0063423906707465,
+          "read_count": 1145,
+          "write_count": 400
+        },
+        "network": {
+          "bytes_sent": 988.4129503979741,
+          "bytes_recv": 1445.3284936937273,
+          "packets_sent": 9,
+          "packets_recv": 14,
+          "errin": 0,
+          "errout": 0,
+          "dropin": 0,
+          "dropout": 0
+        },
+        "uptime": {
+          "timestamp": "2026-08-27T22:07:14.642369Z",
+          "boot_time": "2026-08-27T21:48:43.049442Z",
+          "uptime": 1111.5929266069118
+        },
+        "processes": {
+          "count": 64,
+          "running": 51,
+          "sleeping": 9,
+          "zombie": 3,
+          "stopped": 1
+        }
+      }
+    }
+  },
+  {
+    "agent_id": "synthetic-agent-001",
+    "timestamp": "2026-08-27T22:07:24.642369Z",
+    "metrics": {
+      "system": {
+        "cpu": {
+          "usage_percent": 47.610986211531895,
+          "per_cpu": [
+            100,
+            -21.699131443964287,
+            -0.23970599188598762,
+            0.0
+          ],
+          "count": 4
+        },
+        "memory": {
+          "usage_percent": 51.87193642606826,
+          "available_mb": 3942.650967976488,
+          "used_mb": 4249.349032023511,
+          "free_mb": 3942.650967976488
+        },
+        "disk": {
+          "read_mbps": 9.557536312979304,
+          "write_mbps": 5.339946712297357,
+          "read_count": 955,
+          "write_count": 533
+        },
+        "network": {
+          "bytes_sent": 1047.7229542348223,
+          "bytes_recv": 1549.2715952135452,
+          "packets_sent": 10,
+          "packets_recv": 15,
+          "errin": 0,
+          "errout": 0,
+          "dropin": 0,
+          "dropout": 0
+        },
+        "uptime": {
+          "timestamp": "2026-08-27T22:07:24.642369Z",
+          "boot_time": "2026-08-27T20:42:28.894050Z",
+          "uptime": 5095.748319376671
+        },
+        "processes": {
+          "count": 74,
+          "running": 59,
+          "sleeping": 11,
+          "zombie": 3,
+          "stopped": 1
+        }
+      }
+    }
+  },
+  {
+    "agent_id": "synthetic-agent-001",
+    "timestamp": "2026-08-27T22:07:34.642369Z",
+    "metrics": {
+      "system": {
+        "cpu": {
+          "usage_percent": 52.89641284438183,
+          "per_cpu": [
+            100,
+            -26.717405158030523,
+            -13.771460694004164,
+            6.273753278276994
+          ],
+          "count": 4
+        },
+        "memory": {
+          "usage_percent": 49.23207772440969,
+          "available_mb": 4158.908192816358,
+          "used_mb": 4033.091807183642,
+          "free_mb": 4158.908192816358
+        },
+        "disk": {
+          "read_mbps": 11.603996891310988,
+          "write_mbps": 2.4412700424922713,
+          "read_count": 1160,
+          "write_count": 244
+        },
+        "network": {
+          "bytes_sent": 934.4125704978964,
+          "bytes_recv": 1514.9992444056472,
+          "packets_sent": 9,
+          "packets_recv": 15,
+          "errin": 0,
+          "errout": 0,
+          "dropin": 0,
+          "dropout": 0
+        },
+        "uptime": {
+          "timestamp": "2026-08-27T22:07:34.642369Z",
+          "boot_time": "2026-08-27T21:39:36.135806Z",
+          "uptime": 1678.5065625793345
+        },
+        "processes": {
+          "count": 68,
+          "running": 54,
+          "sleeping": 10,
+          "zombie": 3,
+          "stopped": 1
+        }
+      }
+    }
+  },
+  {
+    "agent_id": "synthetic-agent-001",
+    "timestamp": "2026-08-27T22:07:44.642369Z",
+    "metrics": {
+      "system": {
+        "cpu": {
+          "usage_percent": 48.90361793482701,
+          "per_cpu": [
+            100,
+            -164.0122977008535,
+            33.93328113531915,
+            0.0
+          ],
+          "count": 4
+        },
+        "memory": {
+          "usage_percent": 51.785233161349,
+          "available_mb": 3949.75369942229,
+          "used_mb": 4242.24630057771,
+          "free_mb": 3949.75369942229
+        },
+        "disk": {
+          "read_mbps": 9.825081121585207,
+          "write_mbps": 5.621538868107047,
+          "read_count": 982,
+          "write_count": 562
+        },
+        "network": {
+          "bytes_sent": 1045.9716419189301,
+          "bytes_recv": 1485.765124131779,
+          "packets_sent": 10,
+          "packets_recv": 14,
+          "errin": 0,
+          "errout": 0,
+          "dropin": 0,
+          "dropout": 0
+        },
+        "uptime": {
+          "timestamp": "2026-08-27T22:07:44.642369Z",
+          "boot_time": "2026-08-27T21:51:48.442674Z",
+          "uptime": 956.1996946560164
+        },
+        "processes": {
+          "count": 64,
+          "running": 51,
+          "sleeping": 9,
+          "zombie": 3,
+          "stopped": 1
+        }
+      }
+    }
+  },
+  {
+    "agent_id": "synthetic-agent-001",
+    "timestamp": "2026-08-27T22:07:54.642369Z",
+    "metrics": {
+      "system": {
+        "cpu": {
+          "usage_percent": 45.99384177676209,
+          "per_cpu": [
+            100,
+            -104.71057921874481,
+            63.817713617433284,
+            0.0
+          ],
+          "count": 4
+        },
+        "memory": {
+          "usage_percent": 59.08730815527006,
+          "available_mb": 3351.567715920277,
+          "used_mb": 4840.432284079723,
+          "free_mb": 3351.567715920277
+        },
+        "disk": {
+          "read_mbps": 7.644960116953273,
+          "write_mbps": 3.638610137496216,
+          "read_count": 764,
+          "write_count": 363
+        },
+        "network": {
+          "bytes_sent": 954.4354300076585,
+          "bytes_recv": 1513.965480786856,
+          "packets_sent": 9,
+          "packets_recv": 15,
+          "errin": 0,
+          "errout": 0,
+          "dropin": 0,
+          "dropout": 0
+        },
+        "uptime": {
+          "timestamp": "2026-08-27T22:07:54.642369Z",
+          "boot_time": "2026-08-27T22:07:54.642369Z",
+          "uptime": 0
+        },
+        "processes": {
+          "count": 64,
+          "running": 51,
+          "sleeping": 9,
+          "zombie": 3,
+          "stopped": 1
+        }
+      }
+    }
+  },
+  {
+    "agent_id": "synthetic-agent-001",
+    "timestamp": "2026-08-27T22:08:04.642369Z",
+    "metrics": {
+      "system": {
+        "cpu": {
+          "usage_percent": 42.68620947676679,
+          "per_cpu": [
+            100,
+            38.066089289394135,
+            -2.2145328310170327,
+            0.0
+          ],
+          "count": 4
+        },
+        "memory": {
+          "usage_percent": 49.29428370067691,
+          "available_mb": 4153.8122792405475,
+          "used_mb": 4038.187720759452,
+          "free_mb": 4153.8122792405475
+        },
+        "disk": {
+          "read_mbps": 12.240512914252895,
+          "write_mbps": 5.981752029188851,
+          "read_count": 1224,
+          "write_count": 598
+        },
+        "network": {
+          "bytes_sent": 933.2050493911577,
+          "bytes_recv": 1497.080304917157,
+          "packets_sent": 9,
+          "packets_recv": 14,
+          "errin": 0,
+          "errout": 0,
+          "dropin": 0,
+          "dropout": 0
+        },
+        "uptime": {
+          "timestamp": "2026-08-27T22:08:04.642369Z",
+          "boot_time": "2026-08-27T22:08:04.642369Z",
+          "uptime": 0
+        },
+        "processes": {
+          "count": 65,
+          "running": 52,
+          "sleeping": 9,
+          "zombie": 3,
+          "stopped": 1
+        }
+      }
+    }
+  },
+  {
+    "agent_id": "synthetic-agent-001",
+    "timestamp": "2026-08-27T22:08:14.642369Z",
+    "metrics": {
+      "system": {
+        "cpu": {
+          "usage_percent": 53.787275836804895,
+          "per_cpu": [
+            100,
+            -18.14243103927889,
+            1.2679132941511522,
+            4.919644512817787
+          ],
+          "count": 4
+        },
+        "memory": {
+          "usage_percent": 54.21368162068858,
+          "available_mb": 3750.8152016331915,
+          "used_mb": 4441.1847983668085,
+          "free_mb": 3750.8152016331915
+        },
+        "disk": {
+          "read_mbps": 9.888628870818252,
+          "write_mbps": 4.888073895389614,
+          "read_count": 988,
+          "write_count": 488
+        },
+        "network": {
+          "bytes_sent": 1132.7954562959621,
+          "bytes_recv": 1419.4216179223351,
+          "packets_sent": 11,
+          "packets_recv": 14,
+          "errin": 0,
+          "errout": 0,
+          "dropin": 0,
+          "dropout": 0
+        },
+        "uptime": {
+          "timestamp": "2026-08-27T22:08:14.642369Z",
+          "boot_time": "2026-08-27T20:18:33.825724Z",
+          "uptime": 6580.816644846168
+        },
+        "processes": {
+          "count": 65,
+          "running": 52,
+          "sleeping": 9,
+          "zombie": 3,
+          "stopped": 1
+        }
+      }
+    }
+  },
+  {
+    "agent_id": "synthetic-agent-001",
+    "timestamp": "2026-08-27T22:08:24.642369Z",
+    "metrics": {
+      "system": {
+        "cpu": {
+          "usage_percent": 53.704690699829,
+          "per_cpu": [
+            79.58536023916065,
+            100,
+            -111.76662811724391,
+            14.224591528172667
+          ],
+          "count": 4
+        },
+        "memory": {
+          "usage_percent": 53.95273095758791,
+          "available_mb": 3772.1922799543986,
+          "used_mb": 4419.807720045602,
+          "free_mb": 3772.1922799543986
+        },
+        "disk": {
+          "read_mbps": 8.097177063820663,
+          "write_mbps": 5.597086983955376,
+          "read_count": 809,
+          "write_count": 559
+        },
+        "network": {
+          "bytes_sent": 1000.322088231694,
+          "bytes_recv": 1513.0348119684986,
+          "packets_sent": 10,
+          "packets_recv": 15,
+          "errin": 0,
+          "errout": 0,
+          "dropin": 0,
+          "dropout": 0
+        },
+        "uptime": {
+          "timestamp": "2026-08-27T22:08:24.642369Z",
+          "boot_time": "2026-08-27T22:08:24.642369Z",
+          "uptime": 0
+        },
+        "processes": {
+          "count": 69,
+          "running": 55,
+          "sleeping": 10,
+          "zombie": 3,
+          "stopped": 1
+        }
+      }
+    }
+  },
+  {
+    "agent_id": "synthetic-agent-001",
+    "timestamp": "2026-08-27T22:08:34.642369Z",
+    "metrics": {
+      "system": {
+        "cpu": {
+          "usage_percent": 50.88072907497769,
+          "per_cpu": [
+            100,
+            -38.88357656314329,
+            -8.237090029666788,
+            0.0
+          ],
+          "count": 4
+        },
+        "memory": {
+          "usage_percent": 57.16460772500747,
+          "available_mb": 3509.075335167388,
+          "used_mb": 4682.924664832612,
+          "free_mb": 3509.075335167388
+        },
+        "disk": {
+          "read_mbps": 15.168514418458795,
+          "write_mbps": 5.456234087226367,
+          "read_count": 1516,
+          "write_count": 545
+        },
+        "network": {
+          "bytes_sent": 936.2495684746132,
+          "bytes_recv": 1540.1573706281079,
+          "packets_sent": 9,
+          "packets_recv": 15,
+          "errin": 0,
+          "errout": 0,
+          "dropin": 0,
+          "dropout": 0
+        },
+        "uptime": {
+          "timestamp": "2026-08-27T22:08:34.642369Z",
+          "boot_time": "2026-08-27T19:59:58.509348Z",
+          "uptime": 7716.133021027616
+        },
+        "processes": {
+          "count": 74,
+          "running": 59,
+          "sleeping": 11,
+          "zombie": 3,
+          "stopped": 1
+        }
+      }
+    }
+  },
+  {
+    "agent_id": "synthetic-agent-001",
+    "timestamp": "2026-08-27T22:08:44.642369Z",
+    "metrics": {
+      "system": {
+        "cpu": {
+          "usage_percent": 53.750100272081305,
+          "per_cpu": [
+            100,
+            100,
+            -86.56421299020731,
+            42.69087808949048
+          ],
+          "count": 4
+        },
+        "memory": {
+          "usage_percent": 55.508733942707146,
+          "available_mb": 3644.7245154134307,
+          "used_mb": 4547.275484586569,
+          "free_mb": 3644.7245154134307
+        },
+        "disk": {
+          "read_mbps": 10.31725506765346,
+          "write_mbps": 5.828029302910023,
+          "read_count": 1031,
+          "write_count": 582
+        },
+        "network": {
+          "bytes_sent": 1047.7961674151243,
+          "bytes_recv": 1504.460703245185,
+          "packets_sent": 10,
+          "packets_recv": 15,
+          "errin": 0,
+          "errout": 0,
+          "dropin": 0,
+          "dropout": 0
+        },
+        "uptime": {
+          "timestamp": "2026-08-27T22:08:44.642369Z",
+          "boot_time": "2026-08-27T22:08:44.642369Z",
+          "uptime": 0
+        },
+        "processes": {
+          "count": 71,
+          "running": 56,
+          "sleeping": 10,
+          "zombie": 3,
+          "stopped": 1
+        }
+      }
+    }
+  },
+  {
+    "agent_id": "synthetic-agent-001",
+    "timestamp": "2026-08-27T22:08:54.642369Z",
+    "metrics": {
+      "system": {
+        "cpu": {
+          "usage_percent": 52.855030139133305,
+          "per_cpu": [
+            100,
+            39.33733581455172,
+            26.78092229773626,
+            9.913578699192264
+          ],
+          "count": 4
+        },
+        "memory": {
+          "usage_percent": 51.052161913484206,
+          "available_mb": 4009.806896047374,
+          "used_mb": 4182.193103952626,
+          "free_mb": 4009.806896047374
+        },
+        "disk": {
+          "read_mbps": 8.549368206438622,
+          "write_mbps": 2.728870759982884,
+          "read_count": 854,
+          "write_count": 272
+        },
+        "network": {
+          "bytes_sent": 942.4729238797204,
+          "bytes_recv": 1531.986208297382,
+          "packets_sent": 9,
+          "packets_recv": 15,
+          "errin": 0,
+          "errout": 0,
+          "dropin": 0,
+          "dropout": 0
+        },
+        "uptime": {
+          "timestamp": "2026-08-27T22:08:54.642369Z",
+          "boot_time": "2026-08-27T21:13:21.093689Z",
+          "uptime": 3333.5486795263027
+        },
+        "processes": {
+          "count": 68,
+          "running": 54,
+          "sleeping": 10,
+          "zombie": 3,
+          "stopped": 1
+        }
+      }
+    }
+  },
+  {
+    "agent_id": "synthetic-agent-001",
+    "timestamp": "2026-08-27T22:09:04.642369Z",
+    "metrics": {
+      "system": {
+        "cpu": {
+          "usage_percent": 51.585877340586414,
+          "per_cpu": [
+            33.99657588626893,
+            100,
+            -21.62997892050202,
+            0.0
+          ],
+          "count": 4
+        },
+        "memory": {
+          "usage_percent": 53.97856926348416,
+          "available_mb": 3770.0756059353776,
+          "used_mb": 4421.924394064623,
+          "free_mb": 3770.0756059353776
+        },
+        "disk": {
+          "read_mbps": 7.291903328409322,
+          "write_mbps": 4.837679927179066,
+          "read_count": 729,
+          "write_count": 483
+        },
+        "network": {
+          "bytes_sent": 1088.4912630853094,
+          "bytes_recv": 1516.597645072642,
+          "packets_sent": 10,
+          "packets_recv": 15,
+          "errin": 0,
+          "errout": 0,
+          "dropin": 0,
+          "dropout": 0
+        },
+        "uptime": {
+          "timestamp": "2026-08-27T22:09:04.642369Z",
+          "boot_time": "2026-08-27T21:56:19.418647Z",
+          "uptime": 765.2237216790063
+        },
+        "processes": {
+          "count": 66,
+          "running": 52,
+          "sleeping": 9,
+          "zombie": 3,
+          "stopped": 1
+        }
+      }
+    }
+  },
+  {
+    "agent_id": "synthetic-agent-001",
+    "timestamp": "2026-08-27T22:09:14.642369Z",
+    "metrics": {
+      "system": {
+        "cpu": {
+          "usage_percent": 38.97801522605819,
+          "per_cpu": [
+            24.228711651938653,
+            100,
+            -69.5507661938635,
+            14.016530571950568
+          ],
+          "count": 4
+        },
+        "memory": {
+          "usage_percent": 47.992348465648135,
+          "available_mb": 4260.4668136941045,
+          "used_mb": 3931.533186305895,
+          "free_mb": 4260.4668136941045
+        },
+        "disk": {
+          "read_mbps": 9.837627058622266,
+          "write_mbps": 4.871472841937316,
+          "read_count": 983,
+          "write_count": 487
+        },
+        "network": {
+          "bytes_sent": 1000.0675453032645,
+          "bytes_recv": 1567.8743866624422,
+          "packets_sent": 10,
+          "packets_recv": 15,
+          "errin": 0,
+          "errout": 0,
+          "dropin": 0,
+          "dropout": 0
+        },
+        "uptime": {
+          "timestamp": "2026-08-27T22:09:14.642369Z",
+          "boot_time": "2026-08-27T21:19:51.734705Z",
+          "uptime": 2962.907663642823
+        },
+        "processes": {
+          "count": 73,
+          "running": 58,
+          "sleeping": 10,
+          "zombie": 3,
+          "stopped": 1
+        }
+      }
+    }
+  },
+  {
+    "agent_id": "synthetic-agent-001",
+    "timestamp": "2026-08-27T22:09:24.642369Z",
+    "metrics": {
+      "system": {
+        "cpu": {
+          "usage_percent": 36.319769231822974,
+          "per_cpu": [
+            22.87402981652344,
+            13.111894464840095,
+            100,
+            0.23181894147197113
+          ],
+          "count": 4
+        },
+        "memory": {
+          "usage_percent": 57.0313487708904,
+          "available_mb": 3519.991908688658,
+          "used_mb": 4672.008091311342,
+          "free_mb": 3519.991908688658
+        },
+        "disk": {
+          "read_mbps": 9.094935968550526,
+          "write_mbps": 3.2647564483650724,
+          "read_count": 909,
+          "write_count": 326
+        },
+        "network": {
+          "bytes_sent": 1029.8555050714535,
+          "bytes_recv": 1609.821967564357,
+          "packets_sent": 10,
+          "packets_recv": 16,
+          "errin": 0,
+          "errout": 0,
+          "dropin": 0,
+          "dropout": 0
+        },
+        "uptime": {
+          "timestamp": "2026-08-27T22:09:24.642369Z",
+          "boot_time": "2026-08-27T22:09:24.642369Z",
+          "uptime": 0
+        },
+        "processes": {
+          "count": 60,
+          "running": 48,
+          "sleeping": 9,
+          "zombie": 3,
+          "stopped": 1
+        }
+      }
+    }
+  },
+  {
+    "agent_id": "synthetic-agent-001",
+    "timestamp": "2026-08-27T22:09:34.642369Z",
+    "metrics": {
+      "system": {
+        "cpu": {
+          "usage_percent": 54.75311291164101,
+          "per_cpu": [
+            100,
+            83.15135712673364,
+            -5.063263198981665,
+            0.0
+          ],
+          "count": 4
+        },
+        "memory": {
+          "usage_percent": 49.02680447435563,
+          "available_mb": 4175.724177460786,
+          "used_mb": 4016.275822539213,
+          "free_mb": 4175.724177460786
+        },
+        "disk": {
+          "read_mbps": 11.784230085521665,
+          "write_mbps": 3.7848021064511563,
+          "read_count": 1178,
+          "write_count": 378
+        },
+        "network": {
+          "bytes_sent": 1019.8645920199042,
+          "bytes_recv": 1547.4516655221869,
+          "packets_sent": 10,
+          "packets_recv": 15,
+          "errin": 0,
+          "errout": 0,
+          "dropin": 0,
+          "dropout": 0
+        },
+        "uptime": {
+          "timestamp": "2026-08-27T22:09:34.642369Z",
+          "boot_time": "2026-08-27T22:09:34.642369Z",
+          "uptime": 0
+        },
+        "processes": {
+          "count": 67,
+          "running": 53,
+          "sleeping": 10,
+          "zombie": 3,
+          "stopped": 1
+        }
+      }
+    }
+  },
+  {
+    "agent_id": "synthetic-agent-001",
+    "timestamp": "2026-08-27T22:09:44.642369Z",
+    "metrics": {
+      "system": {
+        "cpu": {
+          "usage_percent": 55.20927573761715,
+          "per_cpu": [
+            100,
+            35.6916876106793,
+            -9.972537479302684,
+            0.0
+          ],
+          "count": 4
+        },
+        "memory": {
+          "usage_percent": 48.363432309719286,
+          "available_mb": 4230.067625187796,
+          "used_mb": 3961.9323748122038,
+          "free_mb": 4230.067625187796
+        },
+        "disk": {
+          "read_mbps": 7.133293442003152,
+          "write_mbps": 6.95224633032271,
+          "read_count": 713,
+          "write_count": 695
+        },
+        "network": {
+          "bytes_sent": 959.6681332707352,
+          "bytes_recv": 1512.6709213391462,
+          "packets_sent": 9,
+          "packets_recv": 15,
+          "errin": 0,
+          "errout": 0,
+          "dropin": 0,
+          "dropout": 0
+        },
+        "uptime": {
+          "timestamp": "2026-08-27T22:09:44.642369Z",
+          "boot_time": "2026-08-27T21:50:43.204028Z",
+          "uptime": 1141.4383410605383
+        },
+        "processes": {
+          "count": 73,
+          "running": 58,
+          "sleeping": 10,
+          "zombie": 3,
+          "stopped": 1
+        }
+      }
+    }
+  },
+  {
+    "agent_id": "synthetic-agent-001",
+    "timestamp": "2026-08-27T22:09:54.642369Z",
+    "metrics": {
+      "system": {
+        "cpu": {
+          "usage_percent": 50.45998956485005,
+          "per_cpu": [
+            100,
+            -29.783131304542678,
+            -151.5283709897774,
+            63.25717234522682
+          ],
+          "count": 4
+        },
+        "memory": {
+          "usage_percent": 55.16415761929518,
+          "available_mb": 3672.9522078273385,
+          "used_mb": 4519.0477921726615,
+          "free_mb": 3672.9522078273385
+        },
+        "disk": {
+          "read_mbps": 10.375906884183262,
+          "write_mbps": 8.316127213725355,
+          "read_count": 1037,
+          "write_count": 831
+        },
+        "network": {
+          "bytes_sent": 933.5232893694214,
+          "bytes_recv": 1377.363180678084,
+          "packets_sent": 9,
+          "packets_recv": 13,
+          "errin": 0,
+          "errout": 0,
+          "dropin": 0,
+          "dropout": 0
+        },
+        "uptime": {
+          "timestamp": "2026-08-27T22:09:54.642369Z",
+          "boot_time": "2026-08-27T22:09:54.642369Z",
+          "uptime": 0
+        },
+        "processes": {
+          "count": 70,
+          "running": 56,
+          "sleeping": 10,
+          "zombie": 3,
+          "stopped": 1
+        }
+      }
+    }
+  },
+  {
+    "agent_id": "synthetic-agent-001",
+    "timestamp": "2026-08-27T22:10:04.642369Z",
+    "metrics": {
+      "system": {
+        "cpu": {
+          "usage_percent": 55.4368542191726,
+          "per_cpu": [
+            100,
+            -49.99968016246982,
+            25.433358414029914,
+            0.0
+          ],
+          "count": 4
+        },
+        "memory": {
+          "usage_percent": 52.28016486700366,
+          "available_mb": 3909.20889409506,
+          "used_mb": 4282.79110590494,
+          "free_mb": 3909.20889409506
+        },
+        "disk": {
+          "read_mbps": 9.607406079261485,
+          "write_mbps": 3.912700523282524,
+          "read_count": 960,
+          "write_count": 391
+        },
+        "network": {
+          "bytes_sent": 923.8367798489853,
+          "bytes_recv": 1462.222653117062,
+          "packets_sent": 9,
+          "packets_recv": 14,
+          "errin": 0,
+          "errout": 0,
+          "dropin": 0,
+          "dropout": 0
+        },
+        "uptime": {
+          "timestamp": "2026-08-27T22:10:04.642369Z",
+          "boot_time": "2026-08-27T22:10:04.642369Z",
+          "uptime": 0
+        },
+        "processes": {
+          "count": 70,
+          "running": 56,
+          "sleeping": 10,
+          "zombie": 3,
+          "stopped": 1
+        }
+      }
+    }
+  },
+  {
+    "agent_id": "synthetic-agent-001",
+    "timestamp": "2026-08-27T22:10:14.642369Z",
+    "metrics": {
+      "system": {
+        "cpu": {
+          "usage_percent": 47.96142286827451,
+          "per_cpu": [
+            100,
+            -76.80247948637962,
+            57.122568293528914,
+            0.0
+          ],
+          "count": 4
+        },
+        "memory": {
+          "usage_percent": 52.53954837527712,
+          "available_mb": 3887.960197097298,
+          "used_mb": 4304.039802902702,
+          "free_mb": 3887.960197097298
+        },
+        "disk": {
+          "read_mbps": 8.85620734241527,
+          "write_mbps": 7.368697357307159,
+          "read_count": 885,
+          "write_count": 736
+        },
+        "network": {
+          "bytes_sent": 1040.519748737186,
+          "bytes_recv": 1529.457027057156,
+          "packets_sent": 10,
+          "packets_recv": 15,
+          "errin": 0,
+          "errout": 0,
+          "dropin": 0,
+          "dropout": 0
+        },
+        "uptime": {
+          "timestamp": "2026-08-27T22:10:14.642369Z",
+          "boot_time": "2026-08-27T22:10:14.642369Z",
+          "uptime": 0
+        },
+        "processes": {
+          "count": 69,
+          "running": 55,
+          "sleeping": 10,
+          "zombie": 3,
+          "stopped": 1
+        }
+      }
+    }
+  },
+  {
+    "agent_id": "synthetic-agent-001",
+    "timestamp": "2026-08-27T22:10:24.642369Z",
+    "metrics": {
+      "system": {
+        "cpu": {
+          "usage_percent": 56.232013236480654,
+          "per_cpu": [
+            100,
+            3.736774174679967,
+            56.396679478104225,
+            0.0
+          ],
+          "count": 4
+        },
+        "memory": {
+          "usage_percent": 52.06189096311554,
+          "available_mb": 3927.089892301575,
+          "used_mb": 4264.910107698425,
+          "free_mb": 3927.089892301575
+        },
+        "disk": {
+          "read_mbps": 11.808342148673368,
+          "write_mbps": 7.014696639372393,
+          "read_count": 1180,
+          "write_count": 701
+        },
+        "network": {
+          "bytes_sent": 998.7652631992506,
+          "bytes_recv": 1509.802990042586,
+          "packets_sent": 9,
+          "packets_recv": 15,
+          "errin": 0,
+          "errout": 0,
+          "dropin": 0,
+          "dropout": 0
+        },
+        "uptime": {
+          "timestamp": "2026-08-27T22:10:24.642369Z",
+          "boot_time": "2026-08-27T22:10:24.642369Z",
+          "uptime": 0
+        },
+        "processes": {
+          "count": 68,
+          "running": 54,
+          "sleeping": 10,
+          "zombie": 3,
+          "stopped": 1
+        }
+      }
+    }
+  },
+  {
+    "agent_id": "synthetic-agent-001",
+    "timestamp": "2026-08-27T22:10:34.642369Z",
+    "metrics": {
+      "system": {
+        "cpu": {
+          "usage_percent": 50.18073316653228,
+          "per_cpu": [
+            100,
+            -32.89214759160285,
+            3.3161135051255926,
+            0.0
+          ],
+          "count": 4
+        },
+        "memory": {
+          "usage_percent": 55.00905768436375,
+          "available_mb": 3685.657994496921,
+          "used_mb": 4506.342005503078,
+          "free_mb": 3685.657994496921
+        },
+        "disk": {
+          "read_mbps": 11.375394133464718,
+          "write_mbps": 1.0182399464371152,
+          "read_count": 1137,
+          "write_count": 101
+        },
+        "network": {
+          "bytes_sent": 982.9829382190588,
+          "bytes_recv": 1421.5236907568271,
+          "packets_sent": 9,
+          "packets_recv": 14,
+          "errin": 0,
+          "errout": 0,
+          "dropin": 0,
+          "dropout": 0
+        },
+        "uptime": {
+          "timestamp": "2026-08-27T22:10:34.642369Z",
+          "boot_time": "2026-08-27T20:19:35.214711Z",
+          "uptime": 6659.427658285327
+        },
+        "processes": {
+          "count": 73,
+          "running": 58,
+          "sleeping": 10,
+          "zombie": 3,
+          "stopped": 1
+        }
+      }
+    }
+  },
+  {
+    "agent_id": "synthetic-agent-001",
+    "timestamp": "2026-08-27T22:10:44.642369Z",
+    "metrics": {
+      "system": {
+        "cpu": {
+          "usage_percent": 60.7186254619109,
+          "per_cpu": [
+            100,
+            -126.53555327977023,
+            -26.254812674534076,
+            7.178075393796188
+          ],
+          "count": 4
+        },
+        "memory": {
+          "usage_percent": 55.061748898915,
+          "available_mb": 3681.3415302008834,
+          "used_mb": 4510.658469799117,
+          "free_mb": 3681.3415302008834
+        },
+        "disk": {
+          "read_mbps": 15.502443671839519,
+          "write_mbps": 8.84425280667109,
+          "read_count": 1550,
+          "write_count": 884
+        },
+        "network": {
+          "bytes_sent": 1031.2415846508936,
+          "bytes_recv": 1494.6348946530911,
+          "packets_sent": 10,
+          "packets_recv": 14,
+          "errin": 0,
+          "errout": 0,
+          "dropin": 0,
+          "dropout": 0
+        },
+        "uptime": {
+          "timestamp": "2026-08-27T22:10:44.642369Z",
+          "boot_time": "2026-08-27T21:07:02.688276Z",
+          "uptime": 3821.9540931950446
+        },
+        "processes": {
+          "count": 74,
+          "running": 59,
+          "sleeping": 11,
+          "zombie": 3,
+          "stopped": 1
+        }
+      }
+    }
+  },
+  {
+    "agent_id": "synthetic-agent-001",
+    "timestamp": "2026-08-27T22:10:54.642369Z",
+    "metrics": {
+      "system": {
+        "cpu": {
+          "usage_percent": 53.057176727236346,
+          "per_cpu": [
+            100,
+            -0.8887205217505009,
+            0.7806862641450898,
+            0.0
+          ],
+          "count": 4
+        },
+        "memory": {
+          "usage_percent": 55.05656853409224,
+          "available_mb": 3681.7659056871635,
+          "used_mb": 4510.2340943128365,
+          "free_mb": 3681.7659056871635
+        },
+        "disk": {
+          "read_mbps": 10.259102280317924,
+          "write_mbps": 6.1566892651879055,
+          "read_count": 1025,
+          "write_count": 615
+        },
+        "network": {
+          "bytes_sent": 995.8415822752237,
+          "bytes_recv": 1539.7229807195138,
+          "packets_sent": 9,
+          "packets_recv": 15,
+          "errin": 0,
+          "errout": 0,
+          "dropin": 0,
+          "dropout": 0
+        },
+        "uptime": {
+          "timestamp": "2026-08-27T22:10:54.642369Z",
+          "boot_time": "2026-08-27T20:56:37.917678Z",
+          "uptime": 4456.72469095279
+        },
+        "processes": {
+          "count": 77,
+          "running": 61,
+          "sleeping": 11,
+          "zombie": 3,
+          "stopped": 1
+        }
+      }
+    }
+  },
+  {
+    "agent_id": "synthetic-agent-001",
+    "timestamp": "2026-08-27T22:11:04.642369Z",
+    "metrics": {
+      "system": {
+        "cpu": {
+          "usage_percent": 53.17948387715017,
+          "per_cpu": [
+            100,
+            -9.783764505222212,
+            -1.2568653688554647,
+            0.0
+          ],
+          "count": 4
+        },
+        "memory": {
+          "usage_percent": 54.53929188369743,
+          "available_mb": 3724.1412088875063,
+          "used_mb": 4467.858791112493,
+          "free_mb": 3724.1412088875063
+        },
+        "disk": {
+          "read_mbps": 7.523774934320873,
+          "write_mbps": 6.30016611842957,
+          "read_count": 752,
+          "write_count": 630
+        },
+        "network": {
+          "bytes_sent": 936.9549769428455,
+          "bytes_recv": 1463.5100470372904,
+          "packets_sent": 9,
+          "packets_recv": 14,
+          "errin": 0,
+          "errout": 0,
+          "dropin": 0,
+          "dropout": 0
+        },
+        "uptime": {
+          "timestamp": "2026-08-27T22:11:04.642369Z",
+          "boot_time": "2026-08-27T22:11:04.642369Z",
+          "uptime": 0
+        },
+        "processes": {
+          "count": 64,
+          "running": 51,
+          "sleeping": 9,
+          "zombie": 3,
+          "stopped": 1
+        }
+      }
+    }
+  },
+  {
+    "agent_id": "synthetic-agent-001",
+    "timestamp": "2026-08-27T22:11:14.642369Z",
+    "metrics": {
+      "system": {
+        "cpu": {
+          "usage_percent": 61.42936018410933,
+          "per_cpu": [
+            100,
+            96.13694987539908,
+            -18.849408029069938,
+            0.0
+          ],
+          "count": 4
+        },
+        "memory": {
+          "usage_percent": 50.37224245121946,
+          "available_mb": 4065.5058983961017,
+          "used_mb": 4126.494101603898,
+          "free_mb": 4065.5058983961017
+        },
+        "disk": {
+          "read_mbps": 9.305659262619482,
+          "write_mbps": 5.5666606540878965,
+          "read_count": 930,
+          "write_count": 556
+        },
+        "network": {
+          "bytes_sent": 1073.7893771018794,
+          "bytes_recv": 1414.2649747013797,
+          "packets_sent": 10,
+          "packets_recv": 14,
+          "errin": 0,
+          "errout": 0,
+          "dropin": 0,
+          "dropout": 0
+        },
+        "uptime": {
+          "timestamp": "2026-08-27T22:11:14.642369Z",
+          "boot_time": "2026-08-27T22:11:14.642369Z",
+          "uptime": 0
+        },
+        "processes": {
+          "count": 71,
+          "running": 56,
+          "sleeping": 10,
+          "zombie": 3,
+          "stopped": 1
+        }
+      }
+    }
+  },
+  {
+    "agent_id": "synthetic-agent-001",
+    "timestamp": "2026-08-27T22:11:24.642369Z",
+    "metrics": {
+      "system": {
+        "cpu": {
+          "usage_percent": 42.60334403774612,
+          "per_cpu": [
+            28.33947955966591,
+            43.08336889381808,
+            98.99052769750048,
+            0.0
+          ],
+          "count": 4
+        },
+        "memory": {
+          "usage_percent": 55.554309686000174,
+          "available_mb": 3640.9909505228657,
+          "used_mb": 4551.009049477134,
+          "free_mb": 3640.9909505228657
+        },
+        "disk": {
+          "read_mbps": 11.185451544602197,
+          "write_mbps": 0.9160033188789427,
+          "read_count": 1118,
+          "write_count": 91
+        },
+        "network": {
+          "bytes_sent": 1053.4589497905579,
+          "bytes_recv": 1550.9477625922834,
+          "packets_sent": 10,
+          "packets_recv": 15,
+          "errin": 0,
+          "errout": 0,
+          "dropin": 0,
+          "dropout": 0
+        },
+        "uptime": {
+          "timestamp": "2026-08-27T22:11:24.642369Z",
+          "boot_time": "2026-08-27T22:11:24.642369Z",
+          "uptime": 0
+        },
+        "processes": {
+          "count": 60,
+          "running": 48,
+          "sleeping": 9,
+          "zombie": 3,
+          "stopped": 1
+        }
+      }
+    }
+  },
+  {
+    "agent_id": "synthetic-agent-001",
+    "timestamp": "2026-08-27T22:11:34.642369Z",
+    "metrics": {
+      "system": {
+        "cpu": {
+          "usage_percent": 51.31708072688571,
+          "per_cpu": [
+            100,
+            57.18371338627921,
+            29.60007956343617,
+            0.0
+          ],
+          "count": 4
+        },
+        "memory": {
+          "usage_percent": 50.87209919807131,
+          "available_mb": 4024.557633693998,
+          "used_mb": 4167.4423663060015,
+          "free_mb": 4024.557633693998
+        },
+        "disk": {
+          "read_mbps": 10.523640833046363,
+          "write_mbps": 6.696626360035648,
+          "read_count": 1052,
+          "write_count": 669
+        },
+        "network": {
+          "bytes_sent": 1031.9010513095839,
+          "bytes_recv": 1382.4232516747038,
+          "packets_sent": 10,
+          "packets_recv": 13,
+          "errin": 0,
+          "errout": 0,
+          "dropin": 0,
+          "dropout": 0
+        },
+        "uptime": {
+          "timestamp": "2026-08-27T22:11:34.642369Z",
+          "boot_time": "2026-08-27T21:39:00.881297Z",
+          "uptime": 1953.7610723920277
+        },
+        "processes": {
+          "count": 70,
+          "running": 56,
+          "sleeping": 10,
+          "zombie": 3,
+          "stopped": 1
+        }
+      }
+    }
+  },
+  {
+    "agent_id": "synthetic-agent-001",
+    "timestamp": "2026-08-27T22:11:44.642369Z",
+    "metrics": {
+      "system": {
+        "cpu": {
+          "usage_percent": 46.64670848463758,
+          "per_cpu": [
+            100,
+            -109.77374833262003,
+            34.322230385197685,
+            11.43178811042371
+          ],
+          "count": 4
+        },
+        "memory": {
+          "usage_percent": 51.559741362800516,
+          "available_mb": 3968.225987559382,
+          "used_mb": 4223.774012440618,
+          "free_mb": 3968.225987559382
+        },
+        "disk": {
+          "read_mbps": 6.7471720078450925,
+          "write_mbps": 6.239384051063171,
+          "read_count": 674,
+          "write_count": 623
+        },
+        "network": {
+          "bytes_sent": 975.3207056010438,
+          "bytes_recv": 1473.643441009336,
+          "packets_sent": 9,
+          "packets_recv": 14,
+          "errin": 0,
+          "errout": 0,
+          "dropin": 0,
+          "dropout": 0
+        },
+        "uptime": {
+          "timestamp": "2026-08-27T22:11:44.642369Z",
+          "boot_time": "2026-08-27T21:02:28.210194Z",
+          "uptime": 4156.432175463136
+        },
+        "processes": {
+          "count": 66,
+          "running": 52,
+          "sleeping": 9,
+          "zombie": 3,
+          "stopped": 1
+        }
+      }
+    }
+  },
+  {
+    "agent_id": "synthetic-agent-001",
+    "timestamp": "2026-08-27T22:11:54.642369Z",
+    "metrics": {
+      "system": {
+        "cpu": {
+          "usage_percent": 44.27718722457514,
+          "per_cpu": [
+            100,
+            -116.10700946821616,
+            53.161245624115345,
+            0.0
+          ],
+          "count": 4
+        },
+        "memory": {
+          "usage_percent": 53.55149115598786,
+          "available_mb": 3805.0618445014743,
+          "used_mb": 4386.938155498526,
+          "free_mb": 3805.0618445014743
+        },
+        "disk": {
+          "read_mbps": 12.855055700562424,
+          "write_mbps": 4.617430299579317,
+          "read_count": 1285,
+          "write_count": 461
+        },
+        "network": {
+          "bytes_sent": 1127.6244198771428,
+          "bytes_recv": 1558.3734941221137,
+          "packets_sent": 11,
+          "packets_recv": 15,
+          "errin": 0,
+          "errout": 0,
+          "dropin": 0,
+          "dropout": 0
+        },
+        "uptime": {
+          "timestamp": "2026-08-27T22:11:54.642369Z",
+          "boot_time": "2026-08-27T22:11:54.642369Z",
+          "uptime": 0
+        },
+        "processes": {
+          "count": 67,
+          "running": 53,
+          "sleeping": 10,
+          "zombie": 3,
+          "stopped": 1
+        }
+      }
+    }
+  },
+  {
+    "agent_id": "synthetic-agent-001",
+    "timestamp": "2026-08-27T22:12:04.642369Z",
+    "metrics": {
+      "system": {
+        "cpu": {
+          "usage_percent": 43.97835191264926,
+          "per_cpu": [
+            100,
+            -0.6745351367185841,
+            -2.412010681716026,
+            0.6699644357088577
+          ],
+          "count": 4
+        },
+        "memory": {
+          "usage_percent": 54.4918974428205,
+          "available_mb": 3728.0237614841444,
+          "used_mb": 4463.976238515856,
+          "free_mb": 3728.0237614841444
+        },
+        "disk": {
+          "read_mbps": 9.968608570597175,
+          "write_mbps": 4.985260188567808,
+          "read_count": 996,
+          "write_count": 498
+        },
+        "network": {
+          "bytes_sent": 1020.0788248094104,
+          "bytes_recv": 1498.1226810621095,
+          "packets_sent": 10,
+          "packets_recv": 14,
+          "errin": 0,
+          "errout": 0,
+          "dropin": 0,
+          "dropout": 0
+        },
+        "uptime": {
+          "timestamp": "2026-08-27T22:12:04.642369Z",
+          "boot_time": "2026-08-27T21:44:31.229856Z",
+          "uptime": 1653.4125127904585
+        },
+        "processes": {
+          "count": 66,
+          "running": 52,
+          "sleeping": 9,
+          "zombie": 3,
+          "stopped": 1
+        }
+      }
+    }
+  },
+  {
+    "agent_id": "synthetic-agent-001",
+    "timestamp": "2026-08-27T22:12:14.642369Z",
+    "metrics": {
+      "system": {
+        "cpu": {
+          "usage_percent": 45.00046748479541,
+          "per_cpu": [
+            100,
+            -126.07062432883858,
+            -53.83200310737012,
+            21.66829297682299
+          ],
+          "count": 4
+        },
+        "memory": {
+          "usage_percent": 59.88615482623918,
+          "available_mb": 3286.1261966344864,
+          "used_mb": 4905.873803365514,
+          "free_mb": 3286.1261966344864
+        },
+        "disk": {
+          "read_mbps": 12.41894214953728,
+          "write_mbps": 4.520424339238358,
+          "read_count": 1241,
+          "write_count": 452
+        },
+        "network": {
+          "bytes_sent": 1045.1480224192167,
+          "bytes_recv": 1508.5432839044397,
+          "packets_sent": 10,
+          "packets_recv": 15,
+          "errin": 0,
+          "errout": 0,
+          "dropin": 0,
+          "dropout": 0
+        },
+        "uptime": {
+          "timestamp": "2026-08-27T22:12:14.642369Z",
+          "boot_time": "2026-08-27T21:49:05.868483Z",
+          "uptime": 1388.773886241801
+        },
+        "processes": {
+          "count": 72,
+          "running": 57,
+          "sleeping": 10,
+          "zombie": 3,
+          "stopped": 1
+        }
+      }
+    }
+  },
+  {
+    "agent_id": "synthetic-agent-001",
+    "timestamp": "2026-08-27T22:12:24.642369Z",
+    "metrics": {
+      "system": {
+        "cpu": {
+          "usage_percent": 43.23202263447798,
+          "per_cpu": [
+            19.792682047951523,
+            93.73473175368862,
+            37.14300913665531,
+            22.257667599616454
+          ],
+          "count": 4
+        },
+        "memory": {
+          "usage_percent": 54.68967749703806,
+          "available_mb": 3711.821619442642,
+          "used_mb": 4480.178380557358,
+          "free_mb": 3711.821619442642
+        },
+        "disk": {
+          "read_mbps": 11.002510228467761,
+          "write_mbps": 9.007584736408441,
+          "read_count": 1100,
+          "write_count": 900
+        },
+        "network": {
+          "bytes_sent": 881.9968003712463,
+          "bytes_recv": 1532.934101132351,
+          "packets_sent": 8,
+          "packets_recv": 15,
+          "errin": 0,
+          "errout": 0,
+          "dropin": 0,
+          "dropout": 0
+        },
+        "uptime": {
+          "timestamp": "2026-08-27T22:12:24.642369Z",
+          "boot_time": "2026-08-27T22:12:24.642369Z",
+          "uptime": 0
+        },
+        "processes": {
+          "count": 70,
+          "running": 56,
+          "sleeping": 10,
+          "zombie": 3,
+          "stopped": 1
+        }
+      }
+    }
+  },
+  {
+    "agent_id": "synthetic-agent-001",
+    "timestamp": "2026-08-27T22:12:34.642369Z",
+    "metrics": {
+      "system": {
+        "cpu": {
+          "usage_percent": 55.55098634762979,
+          "per_cpu": [
+            100,
+            -19.148241075558435,
+            10.32335943327193,
+            0.0
+          ],
+          "count": 4
+        },
+        "memory": {
+          "usage_percent": 52.37682783968471,
+          "available_mb": 3901.2902633730287,
+          "used_mb": 4290.709736626971,
+          "free_mb": 3901.2902633730287
+        },
+        "disk": {
+          "read_mbps": 10.432201880825025,
+          "write_mbps": 4.577555966632676,
+          "read_count": 1043,
+          "write_count": 457
+        },
+        "network": {
+          "bytes_sent": 1019.8114193564443,
+          "bytes_recv": 1571.5522738488742,
+          "packets_sent": 10,
+          "packets_recv": 15,
+          "errin": 0,
+          "errout": 0,
+          "dropin": 0,
+          "dropout": 0
+        },
+        "uptime": {
+          "timestamp": "2026-08-27T22:12:34.642369Z",
+          "boot_time": "2026-08-27T22:12:34.642369Z",
+          "uptime": 0
+        },
+        "processes": {
+          "count": 69,
+          "running": 55,
+          "sleeping": 10,
+          "zombie": 3,
+          "stopped": 1
+        }
+      }
+    }
+  },
+  {
+    "agent_id": "synthetic-agent-001",
+    "timestamp": "2026-08-27T22:12:44.642369Z",
+    "metrics": {
+      "system": {
+        "cpu": {
+          "usage_percent": 53.68662957049312,
+          "per_cpu": [
+            100,
+            65.56504617006495,
+            -4.726185654257992,
+            0.0
+          ],
+          "count": 4
+        },
+        "memory": {
+          "usage_percent": 53.359349770534784,
+          "available_mb": 3820.8020667977903,
+          "used_mb": 4371.197933202209,
+          "free_mb": 3820.8020667977903
+        },
+        "disk": {
+          "read_mbps": 12.10641179994382,
+          "write_mbps": 2.9954508847428287,
+          "read_count": 1210,
+          "write_count": 299
+        },
+        "network": {
+          "bytes_sent": 988.1004171473219,
+          "bytes_recv": 1508.7919809340956,
+          "packets_sent": 9,
+          "packets_recv": 15,
+          "errin": 0,
+          "errout": 0,
+          "dropin": 0,
+          "dropout": 0
+        },
+        "uptime": {
+          "timestamp": "2026-08-27T22:12:44.642369Z",
+          "boot_time": "2026-08-27T20:47:33.319272Z",
+          "uptime": 5111.32309667979
+        },
+        "processes": {
+          "count": 72,
+          "running": 57,
+          "sleeping": 10,
+          "zombie": 3,
+          "stopped": 1
+        }
+      }
+    }
+  },
+  {
+    "agent_id": "synthetic-agent-001",
+    "timestamp": "2026-08-27T22:12:54.642369Z",
+    "metrics": {
+      "system": {
+        "cpu": {
+          "usage_percent": 47.125843827405596,
+          "per_cpu": [
+            100,
+            -92.86465189911944,
+            40.440774675728214,
+            0.0
+          ],
+          "count": 4
+        },
+        "memory": {
+          "usage_percent": 54.75441618403787,
+          "available_mb": 3706.5182262036174,
+          "used_mb": 4485.481773796382,
+          "free_mb": 3706.5182262036174
+        },
+        "disk": {
+          "read_mbps": 10.81005036074647,
+          "write_mbps": 8.205291077234065,
+          "read_count": 1081,
+          "write_count": 820
+        },
+        "network": {
+          "bytes_sent": 1087.9712243391145,
+          "bytes_recv": 1455.6567509818506,
+          "packets_sent": 10,
+          "packets_recv": 14,
+          "errin": 0,
+          "errout": 0,
+          "dropin": 0,
+          "dropout": 0
+        },
+        "uptime": {
+          "timestamp": "2026-08-27T22:12:54.642369Z",
+          "boot_time": "2026-08-27T22:12:54.642369Z",
+          "uptime": 0
+        },
+        "processes": {
+          "count": 69,
+          "running": 55,
+          "sleeping": 10,
+          "zombie": 3,
+          "stopped": 1
+        }
+      }
+    }
+  },
+  {
+    "agent_id": "synthetic-agent-001",
+    "timestamp": "2026-08-27T22:13:04.642369Z",
+    "metrics": {
+      "system": {
+        "cpu": {
+          "usage_percent": 48.52896164635192,
+          "per_cpu": [
+            100,
+            -171.06723425732025,
+            54.392076013998285,
+            0.0
+          ],
+          "count": 4
+        },
+        "memory": {
+          "usage_percent": 53.54043845514947,
+          "available_mb": 3805.9672817541555,
+          "used_mb": 4386.032718245845,
+          "free_mb": 3805.9672817541555
+        },
+        "disk": {
+          "read_mbps": 13.841747586716789,
+          "write_mbps": 4.9524015930727945,
+          "read_count": 1384,
+          "write_count": 495
+        },
+        "network": {
+          "bytes_sent": 1035.1445541227351,
+          "bytes_recv": 1455.2115949613979,
+          "packets_sent": 10,
+          "packets_recv": 14,
+          "errin": 0,
+          "errout": 0,
+          "dropin": 0,
+          "dropout": 0
+        },
+        "uptime": {
+          "timestamp": "2026-08-27T22:13:04.642369Z",
+          "boot_time": "2026-08-27T22:13:04.642369Z",
+          "uptime": 0
+        },
+        "processes": {
+          "count": 58,
+          "running": 46,
+          "sleeping": 8,
+          "zombie": 2,
+          "stopped": 1
+        }
+      }
+    }
+  },
+  {
+    "agent_id": "synthetic-agent-001",
+    "timestamp": "2026-08-27T22:13:14.642369Z",
+    "metrics": {
+      "system": {
+        "cpu": {
+          "usage_percent": 49.86710157028653,
+          "per_cpu": [
+            74.53681394479588,
+            68.77344263164123,
+            10.820006307693962,
+            45.338143397015045
+          ],
+          "count": 4
+        },
+        "memory": {
+          "usage_percent": 50.1597312968826,
+          "available_mb": 4082.9148121593776,
+          "used_mb": 4109.085187840622,
+          "free_mb": 4082.9148121593776
+        },
+        "disk": {
+          "read_mbps": 15.761938764149443,
+          "write_mbps": 4.522213212892863,
+          "read_count": 1576,
+          "write_count": 452
+        },
+        "network": {
+          "bytes_sent": 978.730935952003,
+          "bytes_recv": 1498.3984321144092,
+          "packets_sent": 9,
+          "packets_recv": 14,
+          "errin": 0,
+          "errout": 0,
+          "dropin": 0,
+          "dropout": 0
+        },
+        "uptime": {
+          "timestamp": "2026-08-27T22:13:14.642369Z",
+          "boot_time": "2026-08-27T22:13:14.642369Z",
+          "uptime": 0
+        },
+        "processes": {
+          "count": 67,
+          "running": 53,
+          "sleeping": 10,
+          "zombie": 3,
+          "stopped": 1
+        }
+      }
+    }
+  },
+  {
+    "agent_id": "synthetic-agent-001",
+    "timestamp": "2026-08-27T22:13:24.642369Z",
+    "metrics": {
+      "system": {
+        "cpu": {
+          "usage_percent": 61.99825729232067,
+          "per_cpu": [
+            100,
+            -1.2757173582682264,
+            -11.862951114562573,
+            0.0
+          ],
+          "count": 4
+        },
+        "memory": {
+          "usage_percent": 53.713929090476114,
+          "available_mb": 3791.7549289081967,
+          "used_mb": 4400.245071091803,
+          "free_mb": 3791.7549289081967
+        },
+        "disk": {
+          "read_mbps": 8.540726173589137,
+          "write_mbps": 5.3210032227265245,
+          "read_count": 854,
+          "write_count": 532
+        },
+        "network": {
+          "bytes_sent": 1024.5169119642119,
+          "bytes_recv": 1519.7197570722935,
+          "packets_sent": 10,
+          "packets_recv": 15,
+          "errin": 0,
+          "errout": 0,
+          "dropin": 0,
+          "dropout": 0
+        },
+        "uptime": {
+          "timestamp": "2026-08-27T22:13:24.642369Z",
+          "boot_time": "2026-08-27T19:31:11.923820Z",
+          "uptime": 9732.718548575307
+        },
+        "processes": {
+          "count": 65,
+          "running": 52,
+          "sleeping": 9,
+          "zombie": 3,
+          "stopped": 1
+        }
+      }
+    }
+  },
+  {
+    "agent_id": "synthetic-agent-001",
+    "timestamp": "2026-08-27T22:13:34.642369Z",
+    "metrics": {
+      "system": {
+        "cpu": {
+          "usage_percent": 45.893505499437985,
+          "per_cpu": [
+            100,
+            24.19638413451957,
+            38.543994577650906,
+            0.0
+          ],
+          "count": 4
+        },
+        "memory": {
+          "usage_percent": 58.62377693632485,
+          "available_mb": 3389.5401933762682,
+          "used_mb": 4802.459806623732,
+          "free_mb": 3389.5401933762682
+        },
+        "disk": {
+          "read_mbps": 13.422995180635771,
+          "write_mbps": 8.079044720417846,
+          "read_count": 1342,
+          "write_count": 807
+        },
+        "network": {
+          "bytes_sent": 952.5651063882234,
+          "bytes_recv": 1450.2991911165386,
+          "packets_sent": 9,
+          "packets_recv": 14,
+          "errin": 0,
+          "errout": 0,
+          "dropin": 0,
+          "dropout": 0
+        },
+        "uptime": {
+          "timestamp": "2026-08-27T22:13:34.642369Z",
+          "boot_time": "2026-08-27T21:18:47.217678Z",
+          "uptime": 3287.4246913737475
+        },
+        "processes": {
+          "count": 65,
+          "running": 52,
+          "sleeping": 9,
+          "zombie": 3,
+          "stopped": 1
+        }
+      }
+    }
+  },
+  {
+    "agent_id": "synthetic-agent-001",
+    "timestamp": "2026-08-27T22:13:44.642369Z",
+    "metrics": {
+      "system": {
+        "cpu": {
+          "usage_percent": 52.83286177219226,
+          "per_cpu": [
+            100,
+            100,
+            -35.651974608936946,
+            0.0
+          ],
+          "count": 4
+        },
+        "memory": {
+          "usage_percent": 51.93478955837443,
+          "available_mb": 3937.5020393779664,
+          "used_mb": 4254.497960622033,
+          "free_mb": 3937.5020393779664
+        },
+        "disk": {
+          "read_mbps": 10.709527667595026,
+          "write_mbps": 5.12250950688428,
+          "read_count": 1070,
+          "write_count": 512
+        },
+        "network": {
+          "bytes_sent": 998.4353942715819,
+          "bytes_recv": 1476.1350081036103,
+          "packets_sent": 9,
+          "packets_recv": 14,
+          "errin": 0,
+          "errout": 0,
+          "dropin": 0,
+          "dropout": 0
+        },
+        "uptime": {
+          "timestamp": "2026-08-27T22:13:44.642369Z",
+          "boot_time": "2026-08-27T22:02:30.956167Z",
+          "uptime": 673.6862022289524
+        },
+        "processes": {
+          "count": 58,
+          "running": 46,
+          "sleeping": 8,
+          "zombie": 2,
+          "stopped": 1
+        }
+      }
+    }
+  },
+  {
+    "agent_id": "synthetic-agent-001",
+    "timestamp": "2026-08-27T22:13:54.642369Z",
+    "metrics": {
+      "system": {
+        "cpu": {
+          "usage_percent": 58.96657082161181,
+          "per_cpu": [
+            100,
+            52.866862773425375,
+            74.10034269657419,
+            0.0
+          ],
+          "count": 4
+        },
+        "memory": {
+          "usage_percent": 54.388526037600066,
+          "available_mb": 3736.4919469998026,
+          "used_mb": 4455.508053000198,
+          "free_mb": 3736.4919469998026
+        },
+        "disk": {
+          "read_mbps": 12.739087959270117,
+          "write_mbps": 5.348335651607626,
+          "read_count": 1273,
+          "write_count": 534
+        },
+        "network": {
+          "bytes_sent": 934.7641621399127,
+          "bytes_recv": 1486.4325590539265,
+          "packets_sent": 9,
+          "packets_recv": 14,
+          "errin": 0,
+          "errout": 0,
+          "dropin": 0,
+          "dropout": 0
+        },
+        "uptime": {
+          "timestamp": "2026-08-27T22:13:54.642369Z",
+          "boot_time": "2026-08-27T22:13:54.642369Z",
+          "uptime": 0
+        },
+        "processes": {
+          "count": 64,
+          "running": 51,
+          "sleeping": 9,
+          "zombie": 3,
+          "stopped": 1
+        }
+      }
+    }
+  },
+  {
+    "agent_id": "synthetic-agent-001",
+    "timestamp": "2026-08-27T22:14:04.642369Z",
+    "metrics": {
+      "system": {
+        "cpu": {
+          "usage_percent": 50.072094472910685,
+          "per_cpu": [
+            100,
+            -277.48906835013315,
+            100,
+            0.0
+          ],
+          "count": 4
+        },
+        "memory": {
+          "usage_percent": 55.10351668546421,
+          "available_mb": 3677.9199131267724,
+          "used_mb": 4514.080086873228,
+          "free_mb": 3677.9199131267724
+        },
+        "disk": {
+          "read_mbps": 10.367983023545953,
+          "write_mbps": 6.602638864065185,
+          "read_count": 1036,
+          "write_count": 660
+        },
+        "network": {
+          "bytes_sent": 991.0257455624088,
+          "bytes_recv": 1540.0524549480965,
+          "packets_sent": 9,
+          "packets_recv": 15,
+          "errin": 0,
+          "errout": 0,
+          "dropin": 0,
+          "dropout": 0
+        },
+        "uptime": {
+          "timestamp": "2026-08-27T22:14:04.642369Z",
+          "boot_time": "2026-08-27T20:17:40.664583Z",
+          "uptime": 6983.97778562462
+        },
+        "processes": {
+          "count": 69,
+          "running": 55,
+          "sleeping": 10,
+          "zombie": 3,
+          "stopped": 1
+        }
+      }
+    }
+  },
+  {
+    "agent_id": "synthetic-agent-001",
+    "timestamp": "2026-08-27T22:14:14.642369Z",
+    "metrics": {
+      "system": {
+        "cpu": {
+          "usage_percent": 51.09990687795304,
+          "per_cpu": [
+            100,
+            -87.07199655453041,
+            -90.969933122287,
+            45.2720055192036
+          ],
+          "count": 4
+        },
+        "memory": {
+          "usage_percent": 53.34575358892697,
+          "available_mb": 3821.9158659951026,
+          "used_mb": 4370.084134004897,
+          "free_mb": 3821.9158659951026
+        },
+        "disk": {
+          "read_mbps": 12.852002952071485,
+          "write_mbps": 7.205971995782368,
+          "read_count": 1285,
+          "write_count": 720
+        },
+        "network": {
+          "bytes_sent": 964.419547293929,
+          "bytes_recv": 1458.8602293216316,
+          "packets_sent": 9,
+          "packets_recv": 14,
+          "errin": 0,
+          "errout": 0,
+          "dropin": 0,
+          "dropout": 0
+        },
+        "uptime": {
+          "timestamp": "2026-08-27T22:14:14.642369Z",
+          "boot_time": "2026-08-27T21:04:58.428829Z",
+          "uptime": 4156.21354034747
+        },
+        "processes": {
+          "count": 67,
+          "running": 53,
+          "sleeping": 10,
+          "zombie": 3,
+          "stopped": 1
+        }
+      }
+    }
+  },
+  {
+    "agent_id": "synthetic-agent-001",
+    "timestamp": "2026-08-27T22:14:24.642369Z",
+    "metrics": {
+      "system": {
+        "cpu": {
+          "usage_percent": 46.150090029002584,
+          "per_cpu": [
+            100,
+            47.516906325685696,
+            19.489469002789725,
+            0.0
+          ],
+          "count": 4
+        },
+        "memory": {
+          "usage_percent": 55.15051107477774,
+          "available_mb": 3674.0701327542074,
+          "used_mb": 4517.929867245793,
+          "free_mb": 3674.0701327542074
+        },
+        "disk": {
+          "read_mbps": 7.827064862821757,
+          "write_mbps": 8.795620119383559,
+          "read_count": 782,
+          "write_count": 879
+        },
+        "network": {
+          "bytes_sent": 998.1766101928821,
+          "bytes_recv": 1472.7421236902162,
+          "packets_sent": 9,
+          "packets_recv": 14,
+          "errin": 0,
+          "errout": 0,
+          "dropin": 0,
+          "dropout": 0
+        },
+        "uptime": {
+          "timestamp": "2026-08-27T22:14:24.642369Z",
+          "boot_time": "2026-08-27T22:14:24.642369Z",
+          "uptime": 0
+        },
+        "processes": {
+          "count": 67,
+          "running": 53,
+          "sleeping": 10,
+          "zombie": 3,
+          "stopped": 1
+        }
+      }
+    }
+  },
+  {
+    "agent_id": "synthetic-agent-001",
+    "timestamp": "2026-08-27T22:14:34.642369Z",
+    "metrics": {
+      "system": {
+        "cpu": {
+          "usage_percent": 51.916179667399895,
+          "per_cpu": [
+            100,
+            19.522329333589905,
+            18.59734316737477,
+            24.305789825855744
+          ],
+          "count": 4
+        },
+        "memory": {
+          "usage_percent": 59.62982339114863,
+          "available_mb": 3307.124867797104,
+          "used_mb": 4884.875132202896,
+          "free_mb": 3307.124867797104
+        },
+        "disk": {
+          "read_mbps": 5.979597802822007,
+          "write_mbps": 6.051143574327968,
+          "read_count": 597,
+          "write_count": 605
+        },
+        "network": {
+          "bytes_sent": 1036.6723098381199,
+          "bytes_recv": 1577.9342989381312,
+          "packets_sent": 10,
+          "packets_recv": 15,
+          "errin": 0,
+          "errout": 0,
+          "dropin": 0,
+          "dropout": 0
+        },
+        "uptime": {
+          "timestamp": "2026-08-27T22:14:34.642369Z",
+          "boot_time": "2026-08-27T22:14:34.642369Z",
+          "uptime": 0
+        },
+        "processes": {
+          "count": 62,
+          "running": 49,
+          "sleeping": 9,
+          "zombie": 3,
+          "stopped": 1
+        }
+      }
+    }
+  },
+  {
+    "agent_id": "synthetic-agent-001",
+    "timestamp": "2026-08-27T22:14:44.642369Z",
+    "metrics": {
+      "system": {
+        "cpu": {
+          "usage_percent": 43.89695806019573,
+          "per_cpu": [
+            65.81982937110821,
+            50.64801130389426,
+            15.769991957985912,
+            43.34999960779453
+          ],
+          "count": 4
+        },
+        "memory": {
+          "usage_percent": 53.58745203953854,
+          "available_mb": 3802.1159289210027,
+          "used_mb": 4389.884071078997,
+          "free_mb": 3802.1159289210027
+        },
+        "disk": {
+          "read_mbps": 11.629251359248522,
+          "write_mbps": 7.619997376856074,
+          "read_count": 1162,
+          "write_count": 761
+        },
+        "network": {
+          "bytes_sent": 1148.2395900894135,
+          "bytes_recv": 1505.6089666237585,
+          "packets_sent": 11,
+          "packets_recv": 15,
+          "errin": 0,
+          "errout": 0,
+          "dropin": 0,
+          "dropout": 0
+        },
+        "uptime": {
+          "timestamp": "2026-08-27T22:14:44.642369Z",
+          "boot_time": "2026-08-27T21:58:44.539440Z",
+          "uptime": 960.1029285478247
+        },
+        "processes": {
+          "count": 68,
+          "running": 54,
+          "sleeping": 10,
+          "zombie": 3,
+          "stopped": 1
+        }
+      }
+    }
+  },
+  {
+    "agent_id": "synthetic-agent-001",
+    "timestamp": "2026-08-27T22:14:54.642369Z",
+    "metrics": {
+      "system": {
+        "cpu": {
+          "usage_percent": 48.3029048414165,
+          "per_cpu": [
+            62.63481873391122,
+            55.022880712090036,
+            75.55391991966476,
+            0.0
+          ],
+          "count": 4
+        },
+        "memory": {
+          "usage_percent": 61.30209403054395,
+          "available_mb": 3170.13245701784,
+          "used_mb": 5021.867542982161,
+          "free_mb": 3170.13245701784
+        },
+        "disk": {
+          "read_mbps": 7.6756892770310365,
+          "write_mbps": 4.492869706804882,
+          "read_count": 767,
+          "write_count": 449
+        },
+        "network": {
+          "bytes_sent": 894.8122295999606,
+          "bytes_recv": 1455.4837803851387,
+          "packets_sent": 8,
+          "packets_recv": 14,
+          "errin": 0,
+          "errout": 0,
+          "dropin": 0,
+          "dropout": 0
+        },
+        "uptime": {
+          "timestamp": "2026-08-27T22:14:54.642369Z",
+          "boot_time": "2026-08-27T20:20:39.191848Z",
+          "uptime": 6855.4505208506225
+        },
+        "processes": {
+          "count": 74,
+          "running": 59,
+          "sleeping": 11,
+          "zombie": 3,
+          "stopped": 1
+        }
+      }
+    }
+  },
+  {
+    "agent_id": "synthetic-agent-001",
+    "timestamp": "2026-08-27T22:15:04.642369Z",
+    "metrics": {
+      "system": {
+        "cpu": {
+          "usage_percent": 54.83646684547267,
+          "per_cpu": [
+            100,
+            61.08180613132266,
+            -56.30022877702036,
+            26.81806788863389
+          ],
+          "count": 4
+        },
+        "memory": {
+          "usage_percent": 50.26390102993603,
+          "available_mb": 4074.3812276276403,
+          "used_mb": 4117.61877237236,
+          "free_mb": 4074.3812276276403
+        },
+        "disk": {
+          "read_mbps": 10.107649605292746,
+          "write_mbps": 7.1636534699468974,
+          "read_count": 1010,
+          "write_count": 716
+        },
+        "network": {
+          "bytes_sent": 950.7887831227491,
+          "bytes_recv": 1578.8892201093922,
+          "packets_sent": 9,
+          "packets_recv": 15,
+          "errin": 0,
+          "errout": 0,
+          "dropin": 0,
+          "dropout": 0
+        },
+        "uptime": {
+          "timestamp": "2026-08-27T22:15:04.642369Z",
+          "boot_time": "2026-08-27T21:16:24.407728Z",
+          "uptime": 3520.234640994867
+        },
+        "processes": {
+          "count": 63,
+          "running": 50,
+          "sleeping": 9,
+          "zombie": 3,
+          "stopped": 1
+        }
+      }
+    }
+  },
+  {
+    "agent_id": "synthetic-agent-001",
+    "timestamp": "2026-08-27T22:15:14.642369Z",
+    "metrics": {
+      "system": {
+        "cpu": {
+          "usage_percent": 52.185811681977654,
+          "per_cpu": [
+            100,
+            -135.40989869187828,
+            38.51979557016843,
+            0.0
+          ],
+          "count": 4
+        },
+        "memory": {
+          "usage_percent": 55.129501412378325,
+          "available_mb": 3675.7912442979678,
+          "used_mb": 4516.208755702032,
+          "free_mb": 3675.7912442979678
+        },
+        "disk": {
+          "read_mbps": 9.448499784341918,
+          "write_mbps": 7.421128767191887,
+          "read_count": 944,
+          "write_count": 742
+        },
+        "network": {
+          "bytes_sent": 962.7543108306721,
+          "bytes_recv": 1478.6552471720036,
+          "packets_sent": 9,
+          "packets_recv": 14,
+          "errin": 0,
+          "errout": 0,
+          "dropin": 0,
+          "dropout": 0
+        },
+        "uptime": {
+          "timestamp": "2026-08-27T22:15:14.642369Z",
+          "boot_time": "2026-08-27T22:15:14.642369Z",
+          "uptime": 0
+        },
+        "processes": {
+          "count": 72,
+          "running": 57,
+          "sleeping": 10,
+          "zombie": 3,
+          "stopped": 1
+        }
+      }
+    }
+  },
+  {
+    "agent_id": "synthetic-agent-001",
+    "timestamp": "2026-08-27T22:15:24.642369Z",
+    "metrics": {
+      "system": {
+        "cpu": {
+          "usage_percent": 49.70450176491721,
+          "per_cpu": [
+            100,
+            31.616247435701727,
+            -20.958972364750043,
+            9.142936176294867
+          ],
+          "count": 4
+        },
+        "memory": {
+          "usage_percent": 55.733102707035975,
+          "available_mb": 3626.344226239613,
+          "used_mb": 4565.655773760387,
+          "free_mb": 3626.344226239613
+        },
+        "disk": {
+          "read_mbps": 14.208789909266057,
+          "write_mbps": 3.735109492446103,
+          "read_count": 1420,
+          "write_count": 373
+        },
+        "network": {
+          "bytes_sent": 1027.0237962007566,
+          "bytes_recv": 1452.7711618256385,
+          "packets_sent": 10,
+          "packets_recv": 14,
+          "errin": 0,
+          "errout": 0,
+          "dropin": 0,
+          "dropout": 0
+        },
+        "uptime": {
+          "timestamp": "2026-08-27T22:15:24.642369Z",
+          "boot_time": "2026-08-27T21:44:34.586702Z",
+          "uptime": 1850.0556673634203
+        },
+        "processes": {
+          "count": 62,
+          "running": 49,
+          "sleeping": 9,
+          "zombie": 3,
+          "stopped": 1
+        }
+      }
+    }
+  },
+  {
+    "agent_id": "synthetic-agent-001",
+    "timestamp": "2026-08-27T22:15:34.642369Z",
+    "metrics": {
+      "system": {
+        "cpu": {
+          "usage_percent": 60.06280846872407,
+          "per_cpu": [
+            100,
+            -64.94698682711979,
+            39.37584069931116,
+            0.0
+          ],
+          "count": 4
+        },
+        "memory": {
+          "usage_percent": 54.67408899034137,
+          "available_mb": 3713.098629911235,
+          "used_mb": 4478.901370088764,
+          "free_mb": 3713.098629911235
+        },
+        "disk": {
+          "read_mbps": 8.664659902667937,
+          "write_mbps": 6.448529242780056,
+          "read_count": 866,
+          "write_count": 644
+        },
+        "network": {
+          "bytes_sent": 1072.5325896877853,
+          "bytes_recv": 1536.1443654974175,
+          "packets_sent": 10,
+          "packets_recv": 15,
+          "errin": 0,
+          "errout": 0,
+          "dropin": 0,
+          "dropout": 0
+        },
+        "uptime": {
+          "timestamp": "2026-08-27T22:15:34.642369Z",
+          "boot_time": "2026-08-27T22:15:34.642369Z",
+          "uptime": 0
+        },
+        "processes": {
+          "count": 71,
+          "running": 56,
+          "sleeping": 10,
+          "zombie": 3,
+          "stopped": 1
+        }
+      }
+    }
+  },
+  {
+    "agent_id": "synthetic-agent-001",
+    "timestamp": "2026-08-27T22:15:44.642369Z",
+    "metrics": {
+      "system": {
+        "cpu": {
+          "usage_percent": 42.298077650024794,
+          "per_cpu": [
+            100,
+            -41.7908894568125,
+            -12.769486093563257,
+            0.0
+          ],
+          "count": 4
+        },
+        "memory": {
+          "usage_percent": 54.46816882495176,
+          "available_mb": 3729.9676098599516,
+          "used_mb": 4462.032390140048,
+          "free_mb": 3729.9676098599516
+        },
+        "disk": {
+          "read_mbps": 10.752729853348297,
+          "write_mbps": 3.0057327786580506,
+          "read_count": 1075,
+          "write_count": 300
+        },
+        "network": {
+          "bytes_sent": 964.8134063898965,
+          "bytes_recv": 1591.0919154221565,
+          "packets_sent": 9,
+          "packets_recv": 15,
+          "errin": 0,
+          "errout": 0,
+          "dropin": 0,
+          "dropout": 0
+        },
+        "uptime": {
+          "timestamp": "2026-08-27T22:15:44.642369Z",
+          "boot_time": "2026-08-27T22:03:27.032308Z",
+          "uptime": 737.6100611497576
+        },
+        "processes": {
+          "count": 67,
+          "running": 53,
+          "sleeping": 10,
+          "zombie": 3,
+          "stopped": 1
+        }
+      }
+    }
+  },
+  {
+    "agent_id": "synthetic-agent-001",
+    "timestamp": "2026-08-27T22:15:54.642369Z",
+    "metrics": {
+      "system": {
+        "cpu": {
+          "usage_percent": 48.809255274124865,
+          "per_cpu": [
+            38.85237206098873,
+            100,
+            -107.24333568270468,
+            10.487614900436128
+          ],
+          "count": 4
+        },
+        "memory": {
+          "usage_percent": 53.44322300754077,
+          "available_mb": 3813.9311712222598,
+          "used_mb": 4378.06882877774,
+          "free_mb": 3813.9311712222598
+        },
+        "disk": {
+          "read_mbps": 9.498204591731234,
+          "write_mbps": 8.958688792254396,
+          "read_count": 949,
+          "write_count": 895
+        },
+        "network": {
+          "bytes_sent": 1001.097941352321,
+          "bytes_recv": 1443.0434789762671,
+          "packets_sent": 10,
+          "packets_recv": 14,
+          "errin": 0,
+          "errout": 0,
+          "dropin": 0,
+          "dropout": 0
+        },
+        "uptime": {
+          "timestamp": "2026-08-27T22:15:54.642369Z",
+          "boot_time": "2026-08-27T22:15:54.642369Z",
+          "uptime": 0
+        },
+        "processes": {
+          "count": 66,
+          "running": 52,
+          "sleeping": 9,
+          "zombie": 3,
+          "stopped": 1
+        }
+      }
+    }
+  },
+  {
+    "agent_id": "synthetic-agent-001",
+    "timestamp": "2026-08-27T22:16:04.642369Z",
+    "metrics": {
+      "system": {
+        "cpu": {
+          "usage_percent": 61.616519042991314,
+          "per_cpu": [
+            100,
+            -101.19053654842517,
+            14.612500457519358,
+            30.944101153923327
+          ],
+          "count": 4
+        },
+        "memory": {
+          "usage_percent": 52.898387794922606,
+          "available_mb": 3858.56407183994,
+          "used_mb": 4333.43592816006,
+          "free_mb": 3858.56407183994
+        },
+        "disk": {
+          "read_mbps": 10.015048588591672,
+          "write_mbps": 2.641187209604369,
+          "read_count": 1001,
+          "write_count": 264
+        },
+        "network": {
+          "bytes_sent": 1057.6757820690664,
+          "bytes_recv": 1381.8556411372876,
+          "packets_sent": 10,
+          "packets_recv": 13,
+          "errin": 0,
+          "errout": 0,
+          "dropin": 0,
+          "dropout": 0
+        },
+        "uptime": {
+          "timestamp": "2026-08-27T22:16:04.642369Z",
+          "boot_time": "2026-08-27T21:45:22.750461Z",
+          "uptime": 1841.891908130362
+        },
+        "processes": {
+          "count": 70,
+          "running": 56,
+          "sleeping": 10,
+          "zombie": 3,
+          "stopped": 1
+        }
+      }
+    }
+  },
+  {
+    "agent_id": "synthetic-agent-001",
+    "timestamp": "2026-08-27T22:16:14.642369Z",
+    "metrics": {
+      "system": {
+        "cpu": {
+          "usage_percent": 52.732947561199936,
+          "per_cpu": [
+            100,
+            -32.858616310255506,
+            -24.74700850943764,
+            0.0
+          ],
+          "count": 4
+        },
+        "memory": {
+          "usage_percent": 49.11776717565008,
+          "available_mb": 4168.272512970745,
+          "used_mb": 4023.7274870292545,
+          "free_mb": 4168.272512970745
+        },
+        "disk": {
+          "read_mbps": 6.1068518481161025,
+          "write_mbps": 4.511192950858643,
+          "read_count": 610,
+          "write_count": 451
+        },
+        "network": {
+          "bytes_sent": 958.5913485062349,
+          "bytes_recv": 1406.0355423076485,
+          "packets_sent": 9,
+          "packets_recv": 14,
+          "errin": 0,
+          "errout": 0,
+          "dropin": 0,
+          "dropout": 0
+        },
+        "uptime": {
+          "timestamp": "2026-08-27T22:16:14.642369Z",
+          "boot_time": "2026-08-27T21:09:21.732589Z",
+          "uptime": 4012.909779815889
+        },
+        "processes": {
+          "count": 66,
+          "running": 52,
+          "sleeping": 9,
+          "zombie": 3,
+          "stopped": 1
+        }
+      }
+    }
+  },
+  {
+    "agent_id": "synthetic-agent-001",
+    "timestamp": "2026-08-27T22:16:24.642369Z",
+    "metrics": {
+      "system": {
+        "cpu": {
+          "usage_percent": 57.05897490676709,
+          "per_cpu": [
+            0.9312244324204764,
+            100,
+            -41.7236487032616,
+            0.0
+          ],
+          "count": 4
+        },
+        "memory": {
+          "usage_percent": 54.03204677965878,
+          "available_mb": 3765.694727810353,
+          "used_mb": 4426.305272189647,
+          "free_mb": 3765.694727810353
+        },
+        "disk": {
+          "read_mbps": 10.784692771036926,
+          "write_mbps": 5.722015814976866,
+          "read_count": 1078,
+          "write_count": 572
+        },
+        "network": {
+          "bytes_sent": 994.6069344046964,
+          "bytes_recv": 1544.5383782020763,
+          "packets_sent": 9,
+          "packets_recv": 15,
+          "errin": 0,
+          "errout": 0,
+          "dropin": 0,
+          "dropout": 0
+        },
+        "uptime": {
+          "timestamp": "2026-08-27T22:16:24.642369Z",
+          "boot_time": "2026-08-27T21:58:46.906618Z",
+          "uptime": 1057.735750755421
+        },
+        "processes": {
+          "count": 72,
+          "running": 57,
+          "sleeping": 10,
+          "zombie": 3,
+          "stopped": 1
+        }
+      }
+    }
+  },
+  {
+    "agent_id": "synthetic-agent-001",
+    "timestamp": "2026-08-27T22:16:34.642369Z",
+    "metrics": {
+      "system": {
+        "cpu": {
+          "usage_percent": 56.56605210572374,
+          "per_cpu": [
+            100,
+            -5.930479222114983,
+            -27.645081339937146,
+            0.0
+          ],
+          "count": 4
+        },
+        "memory": {
+          "usage_percent": 49.089396187422324,
+          "available_mb": 4170.596664326364,
+          "used_mb": 4021.403335673637,
+          "free_mb": 4170.596664326364
+        },
+        "disk": {
+          "read_mbps": 8.934914674755465,
+          "write_mbps": 2.99429731618096,
+          "read_count": 893,
+          "write_count": 299
+        },
+        "network": {
+          "bytes_sent": 1054.5785948722707,
+          "bytes_recv": 1519.016186574165,
+          "packets_sent": 10,
+          "packets_recv": 15,
+          "errin": 0,
+          "errout": 0,
+          "dropin": 0,
+          "dropout": 0
+        },
+        "uptime": {
+          "timestamp": "2026-08-27T22:16:34.642369Z",
+          "boot_time": "2026-08-27T21:48:48.655565Z",
+          "uptime": 1665.9868041900722
+        },
+        "processes": {
+          "count": 70,
+          "running": 56,
+          "sleeping": 10,
+          "zombie": 3,
+          "stopped": 1
+        }
+      }
+    }
+  },
+  {
+    "agent_id": "synthetic-agent-001",
+    "timestamp": "2026-08-27T22:16:44.642369Z",
+    "metrics": {
+      "system": {
+        "cpu": {
+          "usage_percent": 52.34373345309036,
+          "per_cpu": [
+            100,
+            -53.69124488339134,
+            20.026284004286115,
+            5.909425757421534
+          ],
+          "count": 4
+        },
+        "memory": {
+          "usage_percent": 55.661511068083556,
+          "available_mb": 3632.209013302595,
+          "used_mb": 4559.790986697405,
+          "free_mb": 3632.209013302595
+        },
+        "disk": {
+          "read_mbps": 11.374153193536369,
+          "write_mbps": 7.38499894967034,
+          "read_count": 1137,
+          "write_count": 738
+        },
+        "network": {
+          "bytes_sent": 1000.5518888029862,
+          "bytes_recv": 1544.7705376062931,
+          "packets_sent": 10,
+          "packets_recv": 15,
+          "errin": 0,
+          "errout": 0,
+          "dropin": 0,
+          "dropout": 0
+        },
+        "uptime": {
+          "timestamp": "2026-08-27T22:16:44.642369Z",
+          "boot_time": "2026-08-27T21:09:38.371512Z",
+          "uptime": 4026.270857210141
+        },
+        "processes": {
+          "count": 75,
+          "running": 60,
+          "sleeping": 11,
+          "zombie": 3,
+          "stopped": 1
+        }
+      }
+    }
+  },
+  {
+    "agent_id": "synthetic-agent-001",
+    "timestamp": "2026-08-27T22:16:54.642369Z",
+    "metrics": {
+      "system": {
+        "cpu": {
+          "usage_percent": 51.217289917566475,
+          "per_cpu": [
+            100,
+            -120.04092168938271,
+            1.7456805298132403,
+            5.204414752030418
+          ],
+          "count": 4
+        },
+        "memory": {
+          "usage_percent": 59.93851629486961,
+          "available_mb": 3281.8367451242816,
+          "used_mb": 4910.163254875718,
+          "free_mb": 3281.8367451242816
+        },
+        "disk": {
+          "read_mbps": 12.731462111198644,
+          "write_mbps": 8.139012745332153,
+          "read_count": 1273,
+          "write_count": 813
+        },
+        "network": {
+          "bytes_sent": 1027.441702831629,
+          "bytes_recv": 1572.1596476687587,
+          "packets_sent": 10,
+          "packets_recv": 15,
+          "errin": 0,
+          "errout": 0,
+          "dropin": 0,
+          "dropout": 0
+        },
+        "uptime": {
+          "timestamp": "2026-08-27T22:16:54.642369Z",
+          "boot_time": "2026-08-27T22:16:54.642369Z",
+          "uptime": 0
+        },
+        "processes": {
+          "count": 69,
+          "running": 55,
+          "sleeping": 10,
+          "zombie": 3,
+          "stopped": 1
+        }
+      }
+    }
+  },
+  {
+    "agent_id": "synthetic-agent-001",
+    "timestamp": "2026-08-27T22:17:04.642369Z",
+    "metrics": {
+      "system": {
+        "cpu": {
+          "usage_percent": 49.29778055059933,
+          "per_cpu": [
+            100,
+            -290.79736061633423,
+            7.7515868042225184,
+            100
+          ],
+          "count": 4
+        },
+        "memory": {
+          "usage_percent": 53.59154075727071,
+          "available_mb": 3801.780981164384,
+          "used_mb": 4390.219018835616,
+          "free_mb": 3801.780981164384
+        },
+        "disk": {
+          "read_mbps": 10.617613158575884,
+          "write_mbps": 6.825985022020516,
+          "read_count": 1061,
+          "write_count": 682
+        },
+        "network": {
+          "bytes_sent": 981.8686342497627,
+          "bytes_recv": 1437.7777487746137,
+          "packets_sent": 9,
+          "packets_recv": 14,
+          "errin": 0,
+          "errout": 0,
+          "dropin": 0,
+          "dropout": 0
+        },
+        "uptime": {
+          "timestamp": "2026-08-27T22:17:04.642369Z",
+          "boot_time": "2026-08-27T20:57:27.653078Z",
+          "uptime": 4776.98929083066
+        },
+        "processes": {
+          "count": 64,
+          "running": 51,
+          "sleeping": 9,
+          "zombie": 3,
+          "stopped": 1
+        }
+      }
+    }
+  },
+  {
+    "agent_id": "synthetic-agent-001",
+    "timestamp": "2026-08-27T22:17:14.642369Z",
+    "metrics": {
+      "system": {
+        "cpu": {
+          "usage_percent": 37.71850447537001,
+          "per_cpu": [
+            0.7774788550566779,
+            86.07080003991432,
+            64.02573900650904,
+            0.0
+          ],
+          "count": 4
+        },
+        "memory": {
+          "usage_percent": 59.299502275734014,
+          "available_mb": 3334.1847735718698,
+          "used_mb": 4857.815226428131,
+          "free_mb": 3334.1847735718698
+        },
+        "disk": {
+          "read_mbps": 8.366797585908547,
+          "write_mbps": 7.63308482048765,
+          "read_count": 836,
+          "write_count": 763
+        },
+        "network": {
+          "bytes_sent": 1006.2777124815595,
+          "bytes_recv": 1406.2564511705925,
+          "packets_sent": 10,
+          "packets_recv": 14,
+          "errin": 0,
+          "errout": 0,
+          "dropin": 0,
+          "dropout": 0
+        },
+        "uptime": {
+          "timestamp": "2026-08-27T22:17:14.642369Z",
+          "boot_time": "2026-08-27T21:52:33.169778Z",
+          "uptime": 1481.4725914545777
+        },
+        "processes": {
+          "count": 72,
+          "running": 57,
+          "sleeping": 10,
+          "zombie": 3,
+          "stopped": 1
+        }
+      }
+    }
+  },
+  {
+    "agent_id": "synthetic-agent-001",
+    "timestamp": "2026-08-27T22:17:24.642369Z",
+    "metrics": {
+      "system": {
+        "cpu": {
+          "usage_percent": 45.174598169244646,
+          "per_cpu": [
+            100,
+            100,
+            -53.469439226076716,
+            0.0
+          ],
+          "count": 4
+        },
+        "memory": {
+          "usage_percent": 54.68980020092511,
+          "available_mb": 3711.8115675402146,
+          "used_mb": 4480.188432459785,
+          "free_mb": 3711.8115675402146
+        },
+        "disk": {
+          "read_mbps": 13.61155402100791,
+          "write_mbps": 4.078551055465335,
+          "read_count": 1361,
+          "write_count": 407
+        },
+        "network": {
+          "bytes_sent": 976.1598967243353,
+          "bytes_recv": 1530.1912730472402,
+          "packets_sent": 9,
+          "packets_recv": 15,
+          "errin": 0,
+          "errout": 0,
+          "dropin": 0,
+          "dropout": 0
+        },
+        "uptime": {
+          "timestamp": "2026-08-27T22:17:24.642369Z",
+          "boot_time": "2026-08-27T21:24:37.403883Z",
+          "uptime": 3167.238486058424
+        },
+        "processes": {
+          "count": 76,
+          "running": 60,
+          "sleeping": 11,
+          "zombie": 3,
+          "stopped": 1
+        }
+      }
+    }
+  },
+  {
+    "agent_id": "synthetic-agent-001",
+    "timestamp": "2026-08-27T22:17:34.642369Z",
+    "metrics": {
+      "system": {
+        "cpu": {
+          "usage_percent": 50.41425047024663,
+          "per_cpu": [
+            100,
+            -10.6572210111248,
+            0.2738155353485895,
+            1.3827198688932434
+          ],
+          "count": 4
+        },
+        "memory": {
+          "usage_percent": 53.64039262639449,
+          "available_mb": 3797.779036045764,
+          "used_mb": 4394.220963954236,
+          "free_mb": 3797.779036045764
+        },
+        "disk": {
+          "read_mbps": 9.169895449997997,
+          "write_mbps": 5.395564813865159,
+          "read_count": 916,
+          "write_count": 539
+        },
+        "network": {
+          "bytes_sent": 969.2840436545655,
+          "bytes_recv": 1404.746349728256,
+          "packets_sent": 9,
+          "packets_recv": 14,
+          "errin": 0,
+          "errout": 0,
+          "dropin": 0,
+          "dropout": 0
+        },
+        "uptime": {
+          "timestamp": "2026-08-27T22:17:34.642369Z",
+          "boot_time": "2026-08-27T22:01:17.416145Z",
+          "uptime": 977.2262235497384
+        },
+        "processes": {
+          "count": 63,
+          "running": 50,
+          "sleeping": 9,
+          "zombie": 3,
+          "stopped": 1
+        }
+      }
+    }
+  },
+  {
+    "agent_id": "synthetic-agent-001",
+    "timestamp": "2026-08-27T22:17:44.642369Z",
+    "metrics": {
+      "system": {
+        "cpu": {
+          "usage_percent": 46.22759749066918,
+          "per_cpu": [
+            100,
+            33.999701990325455,
+            24.912296122661875,
+            0.0
+          ],
+          "count": 4
+        },
+        "memory": {
+          "usage_percent": 49.24402072764879,
+          "available_mb": 4157.9298219910115,
+          "used_mb": 4034.070178008989,
+          "free_mb": 4157.9298219910115
+        },
+        "disk": {
+          "read_mbps": 9.966951535034877,
+          "write_mbps": 6.739100503076021,
+          "read_count": 996,
+          "write_count": 673
+        },
+        "network": {
+          "bytes_sent": 1102.303999207547,
+          "bytes_recv": 1532.3575495126101,
+          "packets_sent": 11,
+          "packets_recv": 15,
+          "errin": 0,
+          "errout": 0,
+          "dropin": 0,
+          "dropout": 0
+        },
+        "uptime": {
+          "timestamp": "2026-08-27T22:17:44.642369Z",
+          "boot_time": "2026-08-27T20:04:55.422589Z",
+          "uptime": 7969.219780423871
+        },
+        "processes": {
+          "count": 72,
+          "running": 57,
+          "sleeping": 10,
+          "zombie": 3,
+          "stopped": 1
+        }
+      }
+    }
+  },
+  {
+    "agent_id": "synthetic-agent-001",
+    "timestamp": "2026-08-27T22:17:54.642369Z",
+    "metrics": {
+      "system": {
+        "cpu": {
+          "usage_percent": 47.01658653610921,
+          "per_cpu": [
+            43.59776787293348,
+            100,
+            35.57512320965631,
+            0.0
+          ],
+          "count": 4
+        },
+        "memory": {
+          "usage_percent": 58.31381456001112,
+          "available_mb": 3414.932311243889,
+          "used_mb": 4777.06768875611,
+          "free_mb": 3414.932311243889
+        },
+        "disk": {
+          "read_mbps": 10.675655975059499,
+          "write_mbps": 5.931199810919398,
+          "read_count": 1067,
+          "write_count": 593
+        },
+        "network": {
+          "bytes_sent": 1056.668109641781,
+          "bytes_recv": 1557.08774329253,
+          "packets_sent": 10,
+          "packets_recv": 15,
+          "errin": 0,
+          "errout": 0,
+          "dropin": 0,
+          "dropout": 0
+        },
+        "uptime": {
+          "timestamp": "2026-08-27T22:17:54.642369Z",
+          "boot_time": "2026-08-27T21:56:04.012220Z",
+          "uptime": 1310.63014924294
+        },
+        "processes": {
+          "count": 68,
+          "running": 54,
+          "sleeping": 10,
+          "zombie": 3,
+          "stopped": 1
+        }
+      }
+    }
+  },
+  {
+    "agent_id": "synthetic-agent-001",
+    "timestamp": "2026-08-27T22:18:04.642369Z",
+    "metrics": {
+      "system": {
+        "cpu": {
+          "usage_percent": 52.74774274590575,
+          "per_cpu": [
+            87.74267628954337,
+            88.39620961398863,
+            19.944583584325734,
+            14.907501495765253
+          ],
+          "count": 4
+        },
+        "memory": {
+          "usage_percent": 56.43786326914936,
+          "available_mb": 3568.610240991284,
+          "used_mb": 4623.389759008715,
+          "free_mb": 3568.610240991284
+        },
+        "disk": {
+          "read_mbps": 10.09725183758841,
+          "write_mbps": 4.267671063922827,
+          "read_count": 1009,
+          "write_count": 426
+        },
+        "network": {
+          "bytes_sent": 1046.235080194404,
+          "bytes_recv": 1475.6156679534408,
+          "packets_sent": 10,
+          "packets_recv": 14,
+          "errin": 0,
+          "errout": 0,
+          "dropin": 0,
+          "dropout": 0
+        },
+        "uptime": {
+          "timestamp": "2026-08-27T22:18:04.642369Z",
+          "boot_time": "2026-08-27T21:42:43.527707Z",
+          "uptime": 2121.114662145984
+        },
+        "processes": {
+          "count": 71,
+          "running": 56,
+          "sleeping": 10,
+          "zombie": 3,
+          "stopped": 1
+        }
+      }
+    }
+  },
+  {
+    "agent_id": "synthetic-agent-001",
+    "timestamp": "2026-08-27T22:18:14.642369Z",
+    "metrics": {
+      "system": {
+        "cpu": {
+          "usage_percent": 55.39917304543003,
+          "per_cpu": [
+            50.35035101137546,
+            100,
+            -128.0453440368483,
+            4.1576387210966175
+          ],
+          "count": 4
+        },
+        "memory": {
+          "usage_percent": 49.62407840095322,
+          "available_mb": 4126.795497393912,
+          "used_mb": 4065.204502606088,
+          "free_mb": 4126.795497393912
+        },
+        "disk": {
+          "read_mbps": 9.667941351398083,
+          "write_mbps": 4.691645595432374,
+          "read_count": 966,
+          "write_count": 469
+        },
+        "network": {
+          "bytes_sent": 1001.6763427804102,
+          "bytes_recv": 1499.250347663746,
+          "packets_sent": 10,
+          "packets_recv": 14,
+          "errin": 0,
+          "errout": 0,
+          "dropin": 0,
+          "dropout": 0
+        },
+        "uptime": {
+          "timestamp": "2026-08-27T22:18:14.642369Z",
+          "boot_time": "2026-08-27T21:27:49.623275Z",
+          "uptime": 3025.0190937878083
+        },
+        "processes": {
+          "count": 64,
+          "running": 51,
+          "sleeping": 9,
+          "zombie": 3,
+          "stopped": 1
+        }
+      }
+    }
+  },
+  {
+    "agent_id": "synthetic-agent-001",
+    "timestamp": "2026-08-27T22:18:24.642369Z",
+    "metrics": {
+      "system": {
+        "cpu": {
+          "usage_percent": 48.173273282256844,
+          "per_cpu": [
+            100,
+            -147.67229419042715,
+            -1.4290834003228534,
+            0.0
+          ],
+          "count": 4
+        },
+        "memory": {
+          "usage_percent": 48.46829966213264,
+          "available_mb": 4221.476891678094,
+          "used_mb": 3970.5231083219055,
+          "free_mb": 4221.476891678094
+        },
+        "disk": {
+          "read_mbps": 11.210957055880389,
+          "write_mbps": 1.3867026692458544,
+          "read_count": 1121,
+          "write_count": 138
+        },
+        "network": {
+          "bytes_sent": 965.1633386405178,
+          "bytes_recv": 1420.0740654989443,
+          "packets_sent": 9,
+          "packets_recv": 14,
+          "errin": 0,
+          "errout": 0,
+          "dropin": 0,
+          "dropout": 0
+        },
+        "uptime": {
+          "timestamp": "2026-08-27T22:18:24.642369Z",
+          "boot_time": "2026-08-27T22:18:24.642369Z",
+          "uptime": 0
+        },
+        "processes": {
+          "count": 59,
+          "running": 47,
+          "sleeping": 8,
+          "zombie": 2,
+          "stopped": 1
+        }
+      }
+    }
+  },
+  {
+    "agent_id": "synthetic-agent-001",
+    "timestamp": "2026-08-27T22:18:34.642369Z",
+    "metrics": {
+      "system": {
+        "cpu": {
+          "usage_percent": 56.18190381600945,
+          "per_cpu": [
+            100,
+            -43.03290175112923,
+            11.493085011118575,
+            2.1686241197408034
+          ],
+          "count": 4
+        },
+        "memory": {
+          "usage_percent": 54.149609110482814,
+          "available_mb": 3756.0640216692477,
+          "used_mb": 4435.935978330752,
+          "free_mb": 3756.0640216692477
+        },
+        "disk": {
+          "read_mbps": 8.178926780101868,
+          "write_mbps": 6.033262378488415,
+          "read_count": 817,
+          "write_count": 603
+        },
+        "network": {
+          "bytes_sent": 1091.4350333583325,
+          "bytes_recv": 1428.0842276477922,
+          "packets_sent": 10,
+          "packets_recv": 14,
+          "errin": 0,
+          "errout": 0,
+          "dropin": 0,
+          "dropout": 0
+        },
+        "uptime": {
+          "timestamp": "2026-08-27T22:18:34.642369Z",
+          "boot_time": "2026-08-27T20:43:44.486853Z",
+          "uptime": 5690.155516425363
+        },
+        "processes": {
+          "count": 71,
+          "running": 56,
+          "sleeping": 10,
+          "zombie": 3,
+          "stopped": 1
+        }
+      }
+    }
+  },
+  {
+    "agent_id": "synthetic-agent-001",
+    "timestamp": "2026-08-27T22:18:44.642369Z",
+    "metrics": {
+      "system": {
+        "cpu": {
+          "usage_percent": 50.04135472588487,
+          "per_cpu": [
+            100,
+            2.390064902133233,
+            1.692484960702595,
+            1.0742447845525527
+          ],
+          "count": 4
+        },
+        "memory": {
+          "usage_percent": 55.196987218044775,
+          "available_mb": 3670.262807097772,
+          "used_mb": 4521.737192902228,
+          "free_mb": 3670.262807097772
+        },
+        "disk": {
+          "read_mbps": 12.964381945491375,
+          "write_mbps": 3.8247524696605564,
+          "read_count": 1296,
+          "write_count": 382
+        },
+        "network": {
+          "bytes_sent": 1058.5813237091595,
+          "bytes_recv": 1531.4726689535694,
+          "packets_sent": 10,
+          "packets_recv": 15,
+          "errin": 0,
+          "errout": 0,
+          "dropin": 0,
+          "dropout": 0
+        },
+        "uptime": {
+          "timestamp": "2026-08-27T22:18:44.642369Z",
+          "boot_time": "2026-08-27T22:18:44.642369Z",
+          "uptime": 0
+        },
+        "processes": {
+          "count": 64,
+          "running": 51,
+          "sleeping": 9,
+          "zombie": 3,
+          "stopped": 1
+        }
+      }
+    }
+  },
+  {
+    "agent_id": "synthetic-agent-001",
+    "timestamp": "2026-08-27T22:18:54.642369Z",
+    "metrics": {
+      "system": {
+        "cpu": {
+          "usage_percent": 59.45430413755512,
+          "per_cpu": [
+            100,
+            100,
+            -16.819878987050874,
+            6.204184746726586
+          ],
+          "count": 4
+        },
+        "memory": {
+          "usage_percent": 53.62871080869237,
+          "available_mb": 3798.736010551921,
+          "used_mb": 4393.263989448079,
+          "free_mb": 3798.736010551921
+        },
+        "disk": {
+          "read_mbps": 9.063947838930341,
+          "write_mbps": 3.4473925850241294,
+          "read_count": 906,
+          "write_count": 344
+        },
+        "network": {
+          "bytes_sent": 1049.2818774104303,
+          "bytes_recv": 1468.733128442045,
+          "packets_sent": 10,
+          "packets_recv": 14,
+          "errin": 0,
+          "errout": 0,
+          "dropin": 0,
+          "dropout": 0
+        },
+        "uptime": {
+          "timestamp": "2026-08-27T22:18:54.642369Z",
+          "boot_time": "2026-08-27T21:09:09.943097Z",
+          "uptime": 4184.699272148899
+        },
+        "processes": {
+          "count": 69,
+          "running": 55,
+          "sleeping": 10,
+          "zombie": 3,
+          "stopped": 1
+        }
+      }
+    }
+  },
+  {
+    "agent_id": "synthetic-agent-001",
+    "timestamp": "2026-08-27T22:19:04.642369Z",
+    "metrics": {
+      "system": {
+        "cpu": {
+          "usage_percent": 56.319664095302116,
+          "per_cpu": [
+            53.79911540406926,
+            100,
+            -3.715784663472281,
+            0.0
+          ],
+          "count": 4
+        },
+        "memory": {
+          "usage_percent": 47.3272015501939,
+          "available_mb": 4314.955649008116,
+          "used_mb": 3877.044350991884,
+          "free_mb": 4314.955649008116
+        },
+        "disk": {
+          "read_mbps": 8.431105213589229,
+          "write_mbps": 2.0344597972803986,
+          "read_count": 843,
+          "write_count": 203
+        },
+        "network": {
+          "bytes_sent": 957.0200347959784,
+          "bytes_recv": 1453.6910545994224,
+          "packets_sent": 9,
+          "packets_recv": 14,
+          "errin": 0,
+          "errout": 0,
+          "dropin": 0,
+          "dropout": 0
+        },
+        "uptime": {
+          "timestamp": "2026-08-27T22:19:04.642369Z",
+          "boot_time": "2026-08-27T21:00:22.363259Z",
+          "uptime": 4722.279110228218
+        },
+        "processes": {
+          "count": 68,
+          "running": 54,
+          "sleeping": 10,
+          "zombie": 3,
+          "stopped": 1
+        }
+      }
+    }
+  },
+  {
+    "agent_id": "synthetic-agent-001",
+    "timestamp": "2026-08-27T22:19:14.642369Z",
+    "metrics": {
+      "system": {
+        "cpu": {
+          "usage_percent": 53.93024836130653,
+          "per_cpu": [
+            100,
+            -16.96373380666402,
+            -12.655820691164497,
+            0.0
+          ],
+          "count": 4
+        },
+        "memory": {
+          "usage_percent": 53.79893097199605,
+          "available_mb": 3784.7915747740835,
+          "used_mb": 4407.2084252259165,
+          "free_mb": 3784.7915747740835
+        },
+        "disk": {
+          "read_mbps": 11.887918466196995,
+          "write_mbps": 8.360388681611267,
+          "read_count": 1188,
+          "write_count": 836
+        },
+        "network": {
+          "bytes_sent": 973.6402543867697,
+          "bytes_recv": 1459.17611337602,
+          "packets_sent": 9,
+          "packets_recv": 14,
+          "errin": 0,
+          "errout": 0,
+          "dropin": 0,
+          "dropout": 0
+        },
+        "uptime": {
+          "timestamp": "2026-08-27T22:19:14.642369Z",
+          "boot_time": "2026-08-27T21:56:45.028408Z",
+          "uptime": 1349.6139613308521
+        },
+        "processes": {
+          "count": 63,
+          "running": 50,
+          "sleeping": 9,
+          "zombie": 3,
+          "stopped": 1
+        }
+      }
+    }
+  },
+  {
+    "agent_id": "synthetic-agent-001",
+    "timestamp": "2026-08-27T22:19:24.642369Z",
+    "metrics": {
+      "system": {
+        "cpu": {
+          "usage_percent": 52.79202931223718,
+          "per_cpu": [
+            100,
+            -89.32841507666933,
+            4.531008974100012,
+            4.913683420596192
+          ],
+          "count": 4
+        },
+        "memory": {
+          "usage_percent": 52.32353722212133,
+          "available_mb": 3905.6558307638206,
+          "used_mb": 4286.344169236179,
+          "free_mb": 3905.6558307638206
+        },
+        "disk": {
+          "read_mbps": 13.454732835081394,
+          "write_mbps": 4.81652291925685,
+          "read_count": 1345,
+          "write_count": 481
+        },
+        "network": {
+          "bytes_sent": 1028.6573889038707,
+          "bytes_recv": 1548.4366101209184,
+          "packets_sent": 10,
+          "packets_recv": 15,
+          "errin": 0,
+          "errout": 0,
+          "dropin": 0,
+          "dropout": 0
+        },
+        "uptime": {
+          "timestamp": "2026-08-27T22:19:24.642369Z",
+          "boot_time": "2026-08-27T22:19:24.642369Z",
+          "uptime": 0
+        },
+        "processes": {
+          "count": 62,
+          "running": 49,
+          "sleeping": 9,
+          "zombie": 3,
+          "stopped": 1
+        }
+      }
+    }
+  },
+  {
+    "agent_id": "synthetic-agent-001",
+    "timestamp": "2026-08-27T22:19:34.642369Z",
+    "metrics": {
+      "system": {
+        "cpu": {
+          "usage_percent": 46.09726541925066,
+          "per_cpu": [
+            100,
+            100,
+            -52.621241822097396,
+            0.0
+          ],
+          "count": 4
+        },
+        "memory": {
+          "usage_percent": 52.99434771231573,
+          "available_mb": 3850.7030354070953,
+          "used_mb": 4341.296964592904,
+          "free_mb": 3850.7030354070953
+        },
+        "disk": {
+          "read_mbps": 10.433230944290687,
+          "write_mbps": 2.2550997910989543,
+          "read_count": 1043,
+          "write_count": 225
+        },
+        "network": {
+          "bytes_sent": 1014.1230731603083,
+          "bytes_recv": 1530.2927105172162,
+          "packets_sent": 10,
+          "packets_recv": 15,
+          "errin": 0,
+          "errout": 0,
+          "dropin": 0,
+          "dropout": 0
+        },
+        "uptime": {
+          "timestamp": "2026-08-27T22:19:34.642369Z",
+          "boot_time": "2026-08-27T20:35:11.275577Z",
+          "uptime": 6263.366791901989
+        },
+        "processes": {
+          "count": 72,
+          "running": 57,
+          "sleeping": 10,
+          "zombie": 3,
+          "stopped": 1
+        }
+      }
+    }
+  },
+  {
+    "agent_id": "synthetic-agent-001",
+    "timestamp": "2026-08-27T22:19:44.642369Z",
+    "metrics": {
+      "system": {
+        "cpu": {
+          "usage_percent": 56.05247079752345,
+          "per_cpu": [
+            13.48848826847786,
+            2.008535798160027,
+            55.625237086102345,
+            100
+          ],
+          "count": 4
+        },
+        "memory": {
+          "usage_percent": 57.685857647285886,
+          "available_mb": 3466.37454153434,
+          "used_mb": 4725.62545846566,
+          "free_mb": 3466.37454153434
+        },
+        "disk": {
+          "read_mbps": 5.746722211641058,
+          "write_mbps": 3.050722397093975,
+          "read_count": 574,
+          "write_count": 305
+        },
+        "network": {
+          "bytes_sent": 928.439053982771,
+          "bytes_recv": 1606.8521979123475,
+          "packets_sent": 9,
+          "packets_recv": 16,
+          "errin": 0,
+          "errout": 0,
+          "dropin": 0,
+          "dropout": 0
+        },
+        "uptime": {
+          "timestamp": "2026-08-27T22:19:44.642369Z",
+          "boot_time": "2026-08-27T22:19:44.642369Z",
+          "uptime": 0
+        },
+        "processes": {
+          "count": 66,
+          "running": 52,
+          "sleeping": 9,
+          "zombie": 3,
+          "stopped": 1
+        }
+      }
+    }
+  },
+  {
+    "agent_id": "synthetic-agent-001",
+    "timestamp": "2026-08-27T22:19:54.642369Z",
+    "metrics": {
+      "system": {
+        "cpu": {
+          "usage_percent": 56.583205792680594,
+          "per_cpu": [
+            100,
+            69.23792515983205,
+            -0.272434836731595,
+            0.12120782619104303
+          ],
+          "count": 4
+        },
+        "memory": {
+          "usage_percent": 54.59858328046313,
+          "available_mb": 3719.2840576644603,
+          "used_mb": 4472.71594233554,
+          "free_mb": 3719.2840576644603
+        },
+        "disk": {
+          "read_mbps": 15.897645211386354,
+          "write_mbps": 5.95375485920416,
+          "read_count": 1589,
+          "write_count": 595
+        },
+        "network": {
+          "bytes_sent": 963.4908162800075,
+          "bytes_recv": 1479.121211798387,
+          "packets_sent": 9,
+          "packets_recv": 14,
+          "errin": 0,
+          "errout": 0,
+          "dropin": 0,
+          "dropout": 0
+        },
+        "uptime": {
+          "timestamp": "2026-08-27T22:19:54.642369Z",
+          "boot_time": "2026-08-27T22:19:54.642369Z",
+          "uptime": 0
+        },
+        "processes": {
+          "count": 70,
+          "running": 56,
+          "sleeping": 10,
+          "zombie": 3,
+          "stopped": 1
+        }
+      }
+    }
+  },
+  {
+    "agent_id": "synthetic-agent-001",
+    "timestamp": "2026-08-27T22:20:04.642369Z",
+    "metrics": {
+      "system": {
+        "cpu": {
+          "usage_percent": 61.932720826922946,
+          "per_cpu": [
+            9.398261135200483,
+            100,
+            -23.388251660869177,
+            0.0
+          ],
+          "count": 4
+        },
+        "memory": {
+          "usage_percent": 54.33787840871134,
+          "available_mb": 3740.641000758367,
+          "used_mb": 4451.358999241633,
+          "free_mb": 3740.641000758367
+        },
+        "disk": {
+          "read_mbps": 12.186423330684429,
+          "write_mbps": 10.483717563129154,
+          "read_count": 1218,
+          "write_count": 1048
+        },
+        "network": {
+          "bytes_sent": 940.7210896154179,
+          "bytes_recv": 1534.8693885177256,
+          "packets_sent": 9,
+          "packets_recv": 15,
+          "errin": 0,
+          "errout": 0,
+          "dropin": 0,
+          "dropout": 0
+        },
+        "uptime": {
+          "timestamp": "2026-08-27T22:20:04.642369Z",
+          "boot_time": "2026-08-27T21:04:28.759498Z",
+          "uptime": 4535.882871348853
+        },
+        "processes": {
+          "count": 61,
+          "running": 48,
+          "sleeping": 9,
+          "zombie": 3,
+          "stopped": 1
+        }
+      }
+    }
+  },
+  {
+    "agent_id": "synthetic-agent-001",
+    "timestamp": "2026-08-27T22:20:14.642369Z",
+    "metrics": {
+      "system": {
+        "cpu": {
+          "usage_percent": 49.209267707886056,
+          "per_cpu": [
+            100,
+            -73.97137181739599,
+            -25.103620635346868,
+            0.0
+          ],
+          "count": 4
+        },
+        "memory": {
+          "usage_percent": 57.133491817139905,
+          "available_mb": 3511.624350339899,
+          "used_mb": 4680.375649660101,
+          "free_mb": 3511.624350339899
+        },
+        "disk": {
+          "read_mbps": 9.25411459337379,
+          "write_mbps": 7.579112024890254,
+          "read_count": 925,
+          "write_count": 757
+        },
+        "network": {
+          "bytes_sent": 980.667005965245,
+          "bytes_recv": 1531.9661683297386,
+          "packets_sent": 9,
+          "packets_recv": 15,
+          "errin": 0,
+          "errout": 0,
+          "dropin": 0,
+          "dropout": 0
+        },
+        "uptime": {
+          "timestamp": "2026-08-27T22:20:14.642369Z",
+          "boot_time": "2026-08-27T21:15:36.721201Z",
+          "uptime": 3877.921167911214
+        },
+        "processes": {
+          "count": 61,
+          "running": 48,
+          "sleeping": 9,
+          "zombie": 3,
+          "stopped": 1
+        }
+      }
+    }
+  },
+  {
+    "agent_id": "synthetic-agent-001",
+    "timestamp": "2026-08-27T22:20:24.642369Z",
+    "metrics": {
+      "system": {
+        "cpu": {
+          "usage_percent": 58.827312210872634,
+          "per_cpu": [
+            10.954737363900957,
+            38.1771984093922,
+            69.24132734273839,
+            100
+          ],
+          "count": 4
+        },
+        "memory": {
+          "usage_percent": 59.510043264342336,
+          "available_mb": 3316.9372557850756,
+          "used_mb": 4875.062744214924,
+          "free_mb": 3316.9372557850756
+        },
+        "disk": {
+          "read_mbps": 9.752256684439436,
+          "write_mbps": 4.128740212176298,
+          "read_count": 975,
+          "write_count": 412
+        },
+        "network": {
+          "bytes_sent": 967.0292172639602,
+          "bytes_recv": 1538.7694749585496,
+          "packets_sent": 9,
+          "packets_recv": 15,
+          "errin": 0,
+          "errout": 0,
+          "dropin": 0,
+          "dropout": 0
+        },
+        "uptime": {
+          "timestamp": "2026-08-27T22:20:24.642369Z",
+          "boot_time": "2026-08-27T22:20:24.642369Z",
+          "uptime": 0
+        },
+        "processes": {
+          "count": 59,
+          "running": 47,
+          "sleeping": 8,
+          "zombie": 2,
+          "stopped": 1
+        }
+      }
+    }
+  },
+  {
+    "agent_id": "synthetic-agent-001",
+    "timestamp": "2026-08-27T22:20:34.642369Z",
+    "metrics": {
+      "system": {
+        "cpu": {
+          "usage_percent": 48.563122104811605,
+          "per_cpu": [
+            100,
+            -182.08215899464506,
+            100,
+            0.0
+          ],
+          "count": 4
+        },
+        "memory": {
+          "usage_percent": 57.4776365248384,
+          "available_mb": 3483.432015885238,
+          "used_mb": 4708.567984114762,
+          "free_mb": 3483.432015885238
+        },
+        "disk": {
+          "read_mbps": 10.403394176975084,
+          "write_mbps": 2.5899173650219556,
+          "read_count": 1040,
+          "write_count": 258
+        },
+        "network": {
+          "bytes_sent": 976.6816123521269,
+          "bytes_recv": 1494.1598054269916,
+          "packets_sent": 9,
+          "packets_recv": 14,
+          "errin": 0,
+          "errout": 0,
+          "dropin": 0,
+          "dropout": 0
+        },
+        "uptime": {
+          "timestamp": "2026-08-27T22:20:34.642369Z",
+          "boot_time": "2026-08-27T22:20:34.642369Z",
+          "uptime": 0
+        },
+        "processes": {
+          "count": 78,
+          "running": 62,
+          "sleeping": 11,
+          "zombie": 3,
+          "stopped": 1
+        }
+      }
+    }
+  },
+  {
+    "agent_id": "synthetic-agent-001",
+    "timestamp": "2026-08-27T22:20:44.642369Z",
+    "metrics": {
+      "system": {
+        "cpu": {
+          "usage_percent": 45.67375213906612,
+          "per_cpu": [
+            100,
+            -60.47777839439904,
+            -111.89328284799392,
+            45.05974007923297
+          ],
+          "count": 4
+        },
+        "memory": {
+          "usage_percent": 50.80185540217339,
+          "available_mb": 4030.312005453956,
+          "used_mb": 4161.687994546044,
+          "free_mb": 4030.312005453956
+        },
+        "disk": {
+          "read_mbps": 10.296942838936609,
+          "write_mbps": 6.298746977727245,
+          "read_count": 1029,
+          "write_count": 629
+        },
+        "network": {
+          "bytes_sent": 951.6756702380236,
+          "bytes_recv": 1531.2902101275683,
+          "packets_sent": 9,
+          "packets_recv": 15,
+          "errin": 0,
+          "errout": 0,
+          "dropin": 0,
+          "dropout": 0
+        },
+        "uptime": {
+          "timestamp": "2026-08-27T22:20:44.642369Z",
+          "boot_time": "2026-08-27T22:20:44.642369Z",
+          "uptime": 0
+        },
+        "processes": {
+          "count": 76,
+          "running": 60,
+          "sleeping": 11,
+          "zombie": 3,
+          "stopped": 1
+        }
+      }
+    }
+  }
+]

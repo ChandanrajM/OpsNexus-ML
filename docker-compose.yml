@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  opsnexus-ml:
+    build: .
+    ports:
+      - "5000:5000"
+    environment:
+      - OPSNEXUS_ML_ENV=development
+      - FLASK_ENV=development
+    volumes:
+      - ./models:/app/models
+      - ./data_pipeline:/app/data_pipeline
+    restart: unless-stopped
