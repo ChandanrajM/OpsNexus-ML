@@ -1,3 +1,1 @@
-"""
-OpsNexus-ML Models Package
-"""
+from .isolation_forest_detector import IsolationForestDetector, create_and_train_detector
