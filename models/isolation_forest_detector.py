@@ -156,6 +156,75 @@ class IsolationForestDetector:
 
         return importance_dict
 
+    def explain_anomaly(self, X: np.ndarray, sample_idx: int = None, top_n: int = 5) -> Optional[Dict]:
+        """
+        Explain anomaly detection results for a specific sample or all samples
+
+        Args:
+            X: Feature matrix (n_samples, n_features)
+            sample_idx: Index of sample to explain (if None, returns explanation for all samples)
+            top_n: Number of top contributing features to return
+
+        Returns:
+            Dictionary with explanation details or None if not trained
+        """
+        if not self.is_trained:
+            return None
+
+        if self.feature_names is None:
+            return None
+
+        # Get anomaly scores and decision function values
+        raw_scores = self.estimator.decision_function(X)
+        anomaly_scores = self.predict_anomaly_score(X)
+
+        if sample_idx is not None:
+            # Explain specific sample
+            if sample_idx >= len(X) or sample_idx < 0:
+                return None
+
+            # For Isolation Forest, we can approximate feature contributions
+            # by looking at how much each feature deviates from the norm
+            # This is a simplified explanation - in practice, you might use SHAP values
+            sample = X[sample_idx]
+
+            # Calculate z-score like deviation for each feature (simplified approach)
+            feature_means = np.mean(X, axis=0)
+            feature_stds = np.std(X, axis=0)
+            feature_stds = np.where(feature_stds == 0, 1, feature_stds)  # Avoid division by zero
+
+            deviations = np.abs((sample - feature_means) / feature_stds)
+
+            # Get top contributing features
+            top_indices = np.argsort(deviations)[::-1][:top_n]
+
+            contributing_factors = []
+            for idx in top_indices:
+                contributing_factors.append({
+                    'feature': self.feature_names[idx],
+                    'deviation_score': float(deviations[idx]),
+                    'value': float(sample[idx]),
+                    'importance': float(self.get_feature_importance().get(self.feature_names[idx], 0.0)) if self.get_feature_importance() else 0.0
+                })
+
+            return {
+                'sample_index': int(sample_idx),
+                'anomaly_score': float(anomaly_scores[sample_idx]),
+                'is_anomaly': bool(anomaly_scores[sample_idx] >= 0.7),  # Using default threshold
+                'raw_score': float(raw_scores[sample_idx]),
+                'top_contributing_factors': contributing_factors
+            }
+        else:
+            # Explain all samples (return summary)
+            return {
+                'n_samples': int(len(X)),
+                'anomaly_score_mean': float(np.mean(anomaly_scores)),
+                'anomaly_score_std': float(np.std(anomaly_scores)),
+                'n_anomalies': int(np.sum(anomaly_scores >= 0.7)),
+                'anomaly_percentage': float(np.sum(anomaly_scores >= 0.7) / len(X) * 100),
+                'feature_importance': self.get_feature_importance()
+            }
+
     def save_model(self, filepath: Optional[str] = None) -> None:
         """
         Save the trained model to disk
