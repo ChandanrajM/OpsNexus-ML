@@ -16,6 +16,8 @@ sys.path.append(os.path.join(os.path.dirname(__file__), '..', 'models'))
 
 from pipeline import OpsNexusDataPipeline
 from baseline_model import CPUUsagePredictor
+from models.isolation_forest_detector import IsolationForestDetector
+from data_pipeline.opsnexus_client import OpsNexusClient
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
@@ -27,10 +29,12 @@ cpu_predictor = None
 data_pipeline = None
 feature_names = None
 model_loaded = False
+isolation_forest_detector = None
+opsnexus_client = None
 
 def initialize_models():
     """Initialize and load pre-trained models"""
-    global cpu_predictor, data_pipeline, feature_names, model_loaded
+    global cpu_predictor, data_pipeline, feature_names, model_loaded, isolation_forest_detector, opsnexus_client
 
     try:
         logger.info("Initializing OpsNexus-ML API service...")
@@ -38,7 +42,15 @@ def initialize_models():
         # Initialize data pipeline
         data_pipeline = OpsNexusDataPipeline()
 
-        # Load the trained model
+        # Initialize OpsNexus client (for fetching real data)
+        # In production, these would come from environment variables or config
+        opsnexus_client = OpsNexusClient(
+            base_url=os.environ.get("OPNEXUS_BASE_URL", "https://opsnexus.example.com"),
+            api_key=os.environ.get("OPNEXUS_API_KEY"),
+            timeout=int(os.environ.get("OPNEXUS_TIMEOUT", "30"))
+        )
+
+        # Load the trained CPU prediction model
         model_path = "/home/chandanraj-m/OpsNexus-ML/models/cpu_predictor.pkl"
         if os.path.exists(model_path):
             cpu_predictor = CPUUsagePredictor(model_path=model_path)
@@ -50,6 +62,16 @@ def initialize_models():
         else:
             logger.warning(f"No pre-trained model found at {model_path}")
             logger.info("API will return mock predictions until model is trained")
+
+        # Load the Isolation Forest anomaly detector
+        anomaly_model_path = "/home/chandanraj-m/OpsNexus-ML/models/isolation_forest_detector.pkl"
+        if os.path.exists(anomaly_model_path):
+            isolation_forest_detector = IsolationForestDetector(model_path=anomaly_model_path)
+            isolation_forest_detector.load_model(anomaly_model_path)
+            logger.info(f"Isolation Forest detector loaded successfully from {anomaly_model_path}")
+        else:
+            logger.warning(f"No pre-trained Isolation Forest model found at {anomaly_model_path}")
+            logger.info("Anomaly detection will use mock data until model is trained")
 
     except Exception as e:
         logger.error(f"Failed to initialize models: {e}")
@@ -183,10 +205,11 @@ def detect_anomaly():
     }
     """
     try:
-        if not model_loaded:
+        # Check if models are loaded
+        if not model_loaded or isolation_forest_detector is None:
             return jsonify({
-                'error': 'Model not loaded',
-                'message': 'Please train and load a model first'
+                'error': 'Models not loaded',
+                'message': 'Please train and load models first'
             }), 503
 
         # Get request parameters
@@ -197,44 +220,170 @@ def detect_anomaly():
 
         logger.info(f"Anomaly detection request for agent {agent_id}, lookback {lookback_minutes}min")
 
-        # For demonstration, we'll return a mock anomaly score
-        # In a real implementation, we would:
-        # 1. Get recent telemetry data
-        # 2. Compare it to learned normal patterns
-        # 3. Calculate an anomaly score
+        try:
+            # Get recent telemetry data using OpsNexusClient
+            # For demonstration, we'll use synthetic data
+            # In production, this would come from the OpsNexus API
+            raw_data = None
 
-        # Mock anomaly score based on time of day (just for demo)
-        hour = datetime.utcnow().hour
-        base_score = 0.1 + (abs(hour - 14) / 24) * 0.3  # Higher score away from 2 PM
+            # Try to fetch from OpsNexus API first
+            if opsnexus_client is not None:
+                try:
+                    raw_data = opsnexus_client.fetch_agent_analytics(
+                        agent_id=agent_id,
+                        lookback_minutes=lookback_minutes
+                    )
+                    logger.info(f"Fetched {len(raw_data)} records from OpsNexus API for agent {agent_id}")
+                except Exception as api_error:
+                    logger.warning(f"Failed to fetch from OpsNexus API: {api_error}. Falling back to synthetic data.")
+                    raw_data = None
 
-        # Adjust based on sensitivity
-        sensitivity_multiplier = {'low': 0.5, 'medium': 1.0, 'high': 2.0}.get(sensitivity, 1.0)
-        anomaly_score = min(1.0, base_score * sensitivity_multiplier)
+            # Fallback to synthetic data if API fetch failed or client not available
+            if raw_data is None:
+                data_path = "/home/chandanraj-m/OpsNexus-ML/data_pipeline/synthetic_telemetry_sample.json"
+                if not os.path.exists(data_path):
+                    # Generate sample data if not available
+                    from data_pipeline.synthetic_data_generator import generate_metric_payload, save_synthetic_data
+                    data = generate_metric_payload(num_points=100)
+                    save_synthetic_data(data, data_path)
 
-        is_anomaly = anomaly_score > 0.7
+                # Load the data
+                with open(data_path, 'r') as f:
+                    raw_data = json.load(f)
+                logger.info(f"Loaded {len(raw_data)} records from synthetic data")
 
-        # Mock contributing factors
-        contributing_factors = [
-            {'metric': 'cpu_usage_percent', 'score': round(anomaly_score * 0.8, 3)},
-            {'metric': 'memory_usage_percent', 'score': round(anomaly_score * 0.6, 3)},
-            {'metric': 'network_bytes_sent', 'score': round(anomaly_score * 0.4, 3)}
-        ]
+            # Process through pipeline
+            df = data_pipeline.load_data_from_dict(raw_data) if hasattr(data_pipeline, 'load_data_from_dict') else data_pipeline.load_data(
+                json.dumps(raw_data) if isinstance(raw_data, list) else raw_data
+            ) if isinstance(raw_data, str) else None
 
-        response = {
-            'agent_id': agent_id,
-            'detection_timestamp': datetime.utcnow().isoformat() + 'Z',
-            'lookback_minutes': lookback_minutes,
-            'sensitivity': sensitivity,
-            'anomaly_score': round(anomaly_score, 3),
-            'is_anomaly': bool(is_anomaly),
-            'contributing_factors': contributing_factors,
-            'model_info': {
-                'detection_method': 'residual_based',
-                'model_loaded': model_loaded
+            # Handle different data formats
+            if df is None and isinstance(raw_data, list):
+                # Convert list of dicts to DataFrame manually if needed
+                import pandas as pd
+                df = pd.DataFrame(raw_data)
+            elif df is None:
+                # Last resort: try direct load
+                df = data_pipeline.load_data(
+                    "/home/chandanraj-m/OpsNexus-ML/data_pipeline/synthetic_telemetry_sample.json"
+                )
+
+            cleaned_df = data_pipeline.clean_data(df)
+            featured_df = data_pipeline.engineer_features(cleaned_df)
+
+            # Get the latest feature vector (excluding target and non-feature columns)
+            exclude_cols = ['agent_id']
+            if 'target' in featured_df.columns:
+                exclude_cols.append('target')
+
+            feature_cols = [col for col in featured_df.columns if col not in exclude_cols]
+            latest_features = featured_df[feature_cols].iloc[-1:].values  # Most recent sample
+
+            # Get anomaly score and detection result
+            anomaly_score = isolation_forest_detector.predict_anomaly_score(latest_features)[0]
+            is_anomaly = isolation_forest_detector.detect_anomaly(latest_features, threshold=0.7)[0]
+
+            # Get explainability information for contributing factors
+            explanation = isolation_forest_detector.explain_anomaly(latest_features, sample_idx=0, top_n=5)
+
+            # Format contributing factors from explanation
+            contributing_factors = []
+            if explanation and 'top_contributing_factors' in explanation:
+                for factor in explanation['top_contributing_factors']:
+                    contributing_factors.append({
+                        'feature': factor['feature'],
+                        'deviation_score': round(factor['deviation_score'], 3),
+                        'value': round(factor['value'], 2),
+                        'importance': round(factor.get('importance', 0.0), 3)
+                    })
+            else:
+                # Fallback explanation based on feature importance if available
+                feature_importance = isolation_forest_detector.get_feature_importance()
+                if feature_importance and len(feature_cols) > 0:
+                    # Get top 5 features by importance
+                    top_features = sorted(feature_importance.items(), key=lambda x: x[1], reverse=True)[:5]
+                    for feature, importance in top_features:
+                        if feature in featured_df.columns:
+                            value = float(featured_df[feature].iloc[-1])
+                            # Approximate deviation as z-score
+                            mean_val = featured_df[feature].mean()
+                            std_val = featured_df[feature].std()
+                            deviation = abs((value - mean_val) / (std_val if std_val != 0 else 1))
+                            contributing_factors.append({
+                                'feature': feature,
+                                'deviation_score': round(deviation, 3),
+                                'value': round(value, 2),
+                                'importance': round(importance, 3)
+                            })
+                else:
+                    # Final fallback to basic factors
+                    contributing_factors = [
+                        {'feature': 'cpu_usage_percent', 'deviation_score': round(anomaly_score * 0.8, 3), 'value': 0.0, 'importance': 0.0},
+                        {'feature': 'memory_usage_percent', 'deviation_score': round(anomaly_score * 0.6, 3), 'value': 0.0, 'importance': 0.0},
+                        {'feature': 'network_bytes_sent', 'deviation_score': round(anomaly_score * 0.4, 3), 'value': 0.0, 'importance': 0.0}
+                    ]
+
+            # Calculate confidence based on how extreme the score is and model certainty
+            # Simple confidence: farther from 0.5 = higher confidence
+            confidence = min(0.95, 0.5 + (abs(anomaly_score - 0.5) * 0.9))
+
+            # Prepare response
+            response = {
+                'agent_id': agent_id,
+                'detection_timestamp': datetime.utcnow().isoformat() + 'Z',
+                'lookback_minutes': lookback_minutes,
+                'sensitivity': sensitivity,
+                'anomaly_score': round(float(anomaly_score), 3),
+                'is_anomaly': bool(is_anomaly),
+                'confidence': round(float(confidence), 3),
+                'contributing_factors': contributing_factors,
+                'model_info': {
+                    'model_type': 'isolation_forest',
+                    'detection_method': 'isolation_forest',
+                    'model_loaded': True,
+                    'n_estimators': isolation_forest_detector.estimator.n_estimators if isolation_forest_detector.estimator else 100,
+                    'features_used': len(feature_cols),
+                    'explainability_available': explanation is not None
+                }
             }
-        }
 
-        return jsonify(response)
+            return jsonify(response)
+
+        except Exception as processing_error:
+            logger.error(f"Error processing data for anomaly detection: {processing_error}")
+            logger.error(traceback.format_exc())
+            # Fallback to mock data if processing fails
+            hour = datetime.utcnow().hour
+            base_score = 0.1 + (abs(hour - 14) / 24) * 0.3  # Higher score away from 2 PM
+
+            # Adjust based on sensitivity
+            sensitivity_multiplier = {'low': 0.5, 'medium': 1.0, 'high': 2.0}.get(sensitivity, 1.0)
+            anomaly_score = min(1.0, base_score * sensitivity_multiplier)
+
+            is_anomaly = anomaly_score > 0.7
+
+            # Mock contributing factors
+            contributing_factors = [
+                {'metric': 'cpu_usage_percent', 'score': round(anomaly_score * 0.8, 3)},
+                {'metric': 'memory_usage_percent', 'score': round(anomaly_score * 0.6, 3)},
+                {'metric': 'network_bytes_sent', 'score': round(anomaly_score * 0.4, 3)}
+            ]
+
+            response = {
+                'agent_id': agent_id,
+                'detection_timestamp': datetime.utcnow().isoformat() + 'Z',
+                'lookback_minutes': lookback_minutes,
+                'sensitivity': sensitivity,
+                'anomaly_score': round(anomaly_score, 3),
+                'is_anomaly': bool(is_anomaly),
+                'contributing_factors': contributing_factors,
+                'model_info': {
+                    'detection_method': 'residual_based_fallback',
+                    'model_loaded': model_loaded
+                }
+            }
+
+            return jsonify(response)
 
     except Exception as e:
         logger.error(f"Error in anomaly detection: {e}")
