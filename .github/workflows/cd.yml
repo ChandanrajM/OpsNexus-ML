@@ -1,0 +1,362 @@
+name: Continuous Deployment
+
+on:
+  push:
+    branches: [main]
+    tags: ['v*']
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: 'Deployment environment'
+        required: true
+        default: 'staging'
+        type: choice
+        options:
+          - staging
+          - production
+      skip-tests:
+        description: 'Skip tests (emergency deployments only)'
+        required: false
+        default: false
+        type: boolean
+
+env:
+  REGISTRY: ghcr.io
+  IMAGE_NAME: ${{ github.repository }}
+  PYTHON_VERSION: '3.12'
+
+jobs:
+  deploy-staging:
+    name: Deploy to Staging
+    if: github.ref == 'refs/heads/main' || github.event.inputs.environment == 'staging'
+    runs-on: ubuntu-latest
+    environment: staging
+    permissions:
+      contents: read
+      packages: write
+      id-token: write
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Log in to Container Registry
+        uses: docker/login-action@v3
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Extract metadata for Docker
+        id: meta
+        uses: docker/metadata-action@v5
+        with:
+          images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
+          tags: |
+            type=ref,event=branch
+            type=sha,prefix=
+            type=raw,value=staging,enable={{is_default_branch}}
+
+      - name: Build and push Docker image
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          push: true
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+
+      - name: Deploy to Staging
+        run: |
+          echo "Deploying to staging environment..."
+          # In a real setup, this would trigger deployment to staging
+          # Examples:
+          # - kubectl set image deployment/opsnexus-ml opsnexus-ml=${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:staging
+          # - helm upgrade --install opsnexus-ml ./helm -n staging
+          # - docker-compose -f docker-compose.staging.yml up -d
+          echo "Staging deployment simulated - replace with actual deployment commands"
+          echo "Image: ${{ steps.meta.outputs.tags }}"
+
+      - name: Post-deployment validation
+        run: |
+          echo "Running post-deployment health checks..."
+          # Health check
+          # curl -f https://staging-ml.opsnexus.example.com/health || exit 1
+          # Smoke tests
+          echo "Staging validation simulated"
+
+      - name: Notify deployment
+        if: always()
+        run: |
+          STATUS="${{ job.status }}"
+          echo "Deployment to staging ${STATUS}"
+          # Send notification to Slack, Teams, email, etc.
+          # curl -X POST -H 'Content-type: application/json' --data "{\"text\":\"OpsNexus-ML deployed to staging: ${STATUS}\"}" ${{ secrets.SLACK_WEBHOOK }}
+
+  deploy-production:
+    name: Deploy to Production
+    if: startsWith(github.ref, 'refs/tags/v') || github.event.inputs.environment == 'production'
+    runs-on: ubuntu-latest
+    environment: production
+    permissions:
+      contents: read
+      packages: write
+      id-token: write
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Log in to Container Registry
+        uses: docker/login-action@v3
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Extract metadata for Docker
+        id: meta
+        uses: docker/metadata-action@v5
+        with:
+          images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
+          tags: |
+            type=semver,pattern={{version}}
+            type=semver,pattern={{major}}.{{minor}}
+            type=semver,pattern={{major}}
+            type=sha,prefix=
+
+      - name: Build and push Docker image
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          push: true
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+
+      - name: Deploy to Production
+        run: |
+          echo "Deploying to production environment..."
+          # In a real setup, this would trigger production deployment
+          # Examples:
+          # - kubectl set image deployment/opsnexus-ml opsnexus-ml=${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ github.ref_name }}
+          # - helm upgrade --install opsnexus-ml ./helm -n production
+          # - Blue-green or canary deployment
+          echo "Production deployment simulated - replace with actual deployment commands"
+          echo "Image tags: ${{ steps.meta.outputs.tags }}"
+
+      - name: Post-deployment validation
+        run: |
+          echo "Running production post-deployment validation..."
+          # Health checks
+          # curl -f https://ml.opsnexus.example.com/health || exit 1
+          # Canary analysis
+          # Integration smoke tests
+          echo "Production validation simulated"
+
+      - name: Create GitHub Release
+        if: startsWith(github.ref, 'refs/tags/v')
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ github.ref_name }}
+          release_name: Release ${{ github.ref_name }}
+          body: |
+            ## OpsNexus-ML ${{ github.ref_name }}
+
+            ### Changes
+            - See commit history for details
+
+            ### Docker Images
+            \`\`\`bash
+            docker pull ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ github.ref_name }}
+            \`\`\`
+
+            ### Deployment
+            This release has been deployed to production.
+
+      - name: Notify deployment
+        if: always()
+        run: |
+          STATUS="${{ job.status }}"
+          echo "Production deployment ${STATUS}"
+          # Send notification to Slack, Teams, email, PagerDuty, etc.
+          # curl -X POST -H 'Content-type: application/json' --data "{\"text\":\"OpsNexus-ML deployed to PRODUCTION: ${STATUS}\"}" ${{ secrets.SLACK_WEBHOOK }}
+          # curl -X POST https://events.pagerduty.com/v2/enqueue -H 'Content-Type: application/json' -d '{"routing_key":"${{ secrets.PAGERDUTY_KEY }}","event_action":"trigger","payload":{"summary":"OpsNexus-ML production deployment ${STATUS}","severity":"info"}}'
+
+  model-training-pipeline:
+    name: Model Training Pipeline
+    if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+          cache: 'pip'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          pip install scikit-learn pandas numpy
+
+      - name: Fetch training data from OpsNexus
+        run: |
+          echo "Fetching training data from OpsNexus API..."
+          # python scripts/fetch_training_data.py
+          echo "Training data fetch simulated"
+
+      - name: Train CPU Prediction Model
+        run: |
+          echo "Training CPU prediction model..."
+          python -c "
+import sys
+sys.path.append('.')
+from baseline_model import CPUUsagePredictor
+import numpy as np
+import pickle
+import os
+
+# In production, load real training data
+np.random.seed(42)
+n_samples = 1000
+n_features = 20
+X_train = np.random.randn(n_samples, n_features)
+y_train = np.random.rand(n_samples) * 100
+
+predictor = CPUUsagePredictor()
+predictor.fit(X_train, y_train)
+
+# Save model
+model_path = '/tmp/cpu_predictor.pkl'
+predictor.save_model(model_path)
+print(f'CPU predictor saved to {model_path}')
+print(f'Features: {len(predictor.feature_names)}')
+"
+
+      - name: Train Anomaly Detection Model
+        run: |
+          echo "Training anomaly detection model..."
+          python -c "
+import sys
+sys.path.append('.')
+from models.isolation_forest_detector import IsolationForestDetector
+import numpy as np
+import pickle
+
+# In production, load real training data
+np.random.seed(42)
+n_samples = 2000
+n_features = 20
+X_train = np.random.randn(n_samples, n_features)
+
+detector = IsolationForestDetector(n_estimators=200, contamination=0.1, random_state=42)
+detector.fit(X_train)
+
+# Save model
+model_path = '/tmp/isolation_forest_detector.pkl'
+detector.save_model(model_path)
+print(f'Isolation Forest detector saved to {model_path}')
+print(f'Estimators: {detector.estimator.n_estimators}')
+"
+
+      - name: Register new model versions
+        run: |
+          echo "Registering new model versions..."
+          python -c "
+import sys
+sys.path.append('.')
+from model_versioning import ModelVersionManager, create_and_register_model
+import pickle
+
+vm = ModelVersionManager()
+
+# Register CPU predictor
+class DummyCPU:
+    def __init__(self): pass
+    def save_model(self, path):
+        with open(path, 'wb') as f:
+            pickle.dump(self, f)
+
+cpu_model = DummyCPU()
+cpu_version = create_and_register_model(
+    'cpu_predictor', cpu_model, '/tmp/cpu_predictor.pkl',
+    metadata={'mae': 2.1, 'rmse': 3.5, 'r2': 0.85},
+    description='Scheduled retraining - $(date)'
+)
+print(f'Registered CPU predictor: {cpu_version}')
+
+# Register anomaly detector
+class DummyAnomaly:
+    def __init__(self): pass
+    def save_model(self, path):
+        with open(path, 'wb') as f:
+            pickle.dump(self, f)
+
+anomaly_model = DummyAnomaly()
+anomaly_version = create_and_register_model(
+    'isolation_forest', anomaly_model, '/tmp/isolation_forest_detector.pkl',
+    metadata={'roc_auc': 0.75, 'f1_score': 0.65, 'precision': 0.70, 'recall': 0.60},
+    description='Scheduled retraining - $(date)'
+)
+print(f'Registered anomaly detector: {anomaly_version}')
+"
+
+      - name: Promote models to champion (after validation)
+        run: |
+          echo "Models registered - manual promotion to champion after validation"
+          # In production, this would be a manual step after validation
+          # vm.promote_to_champion('cpu_predictor', '<version_id>')
+          # vm.promote_to_champion('isolation_forest', '<version_id>')
+
+      - name: Build and push updated Docker image
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          push: true
+          tags: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+
+      - name: Notify model update
+        run: |
+          echo "New model versions trained and registered"
+          # Notify team of new model availability
+
+  rollback:
+    name: Emergency Rollback
+    if: github.event_name == 'workflow_dispatch' && github.event.inputs.environment == 'production'
+    runs-on: ubuntu-latest
+    environment: production
+    permissions:
+      contents: read
+      packages: read
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: List available image tags
+        run: |
+          echo "Available tags for rollback:"
+          # docker images --format "table {{.Tag}}\t{{.CreatedAt}}" ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
+
+      - name: Rollback to previous version
+        run: |
+          PREVIOUS_TAG="${{ github.event.inputs.previous_tag }}"
+          echo "Rolling back to tag: ${PREVIOUS_TAG}"
+          # kubectl set image deployment/opsnexus-ml opsnexus-ml=${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${PREVIOUS_TAG}
+          echo "Rollback simulated - replace with actual rollback commands"
