@@ -13,11 +13,13 @@ import traceback
 # Add project directories to path
 sys.path.append(os.path.join(os.path.dirname(__file__), '..', 'data_pipeline'))
 sys.path.append(os.path.join(os.path.dirname(__file__), '..', 'models'))
+sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
 
 from pipeline import OpsNexusDataPipeline
 from baseline_model import CPUUsagePredictor
 from models.isolation_forest_detector import IsolationForestDetector
 from data_pipeline.opsnexus_client import OpsNexusClient
+from model_versioning import ModelVersionManager
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
@@ -33,7 +35,7 @@ isolation_forest_detector = None
 opsnexus_client = None
 
 def initialize_models():
-    """Initialize and load pre-trained models"""
+    """Initialize and load pre-trained models using model versioning system"""
     global cpu_predictor, data_pipeline, feature_names, model_loaded, isolation_forest_detector, opsnexus_client
 
     try:
@@ -50,28 +52,52 @@ def initialize_models():
             timeout=int(os.environ.get("OPNEXUS_TIMEOUT", "30"))
         )
 
-        # Load the trained CPU prediction model
-        model_path = "/home/chandanraj-m/OpsNexus-ML/models/cpu_predictor.pkl"
-        if os.path.exists(model_path):
-            cpu_predictor = CPUUsagePredictor(model_path=model_path)
-            cpu_predictor.load_model(model_path)
+        # Initialize model versioning system
+        model_version_manager = ModelVersionManager()
+
+        # Load the latest CPU prediction model using versioning system
+        try:
+            cpu_model_path = model_version_manager.get_latest_model_path("cpu_predictor")
+            cpu_predictor = CPUUsagePredictor(model_path=cpu_model_path)
+            cpu_predictor.load_model(cpu_model_path)
             feature_names = cpu_predictor.feature_names
             model_loaded = True
-            logger.info(f"Model loaded successfully from {model_path}")
+            logger.info(f"CPU prediction model loaded successfully from {cpu_model_path}")
             logger.info(f"Model features: {len(feature_names) if feature_names else 0}")
-        else:
-            logger.warning(f"No pre-trained model found at {model_path}")
-            logger.info("API will return mock predictions until model is trained")
+        except Exception as e:
+            logger.warning(f"Could not load CPU prediction model from versioning system: {e}")
+            logger.info("Falling back to direct model loading")
+            # Fallback to original method
+            model_path = "/home/chandanraj-m/OpsNexus-ML/models/cpu_predictor.pkl"
+            if os.path.exists(model_path):
+                cpu_predictor = CPUUsagePredictor(model_path=model_path)
+                cpu_predictor.load_model(model_path)
+                feature_names = cpu_predictor.feature_names
+                model_loaded = True
+                logger.info(f"Model loaded successfully from {model_path}")
+                logger.info(f"Model features: {len(feature_names) if feature_names else 0}")
+            else:
+                logger.warning(f"No pre-trained model found at {model_path}")
+                logger.info("API will return mock predictions until model is trained")
 
-        # Load the Isolation Forest anomaly detector
-        anomaly_model_path = "/home/chandanraj-m/OpsNexus-ML/models/isolation_forest_detector.pkl"
-        if os.path.exists(anomaly_model_path):
+        # Load the latest Isolation Forest anomaly detector using versioning system
+        try:
+            anomaly_model_path = model_version_manager.get_latest_model_path("isolation_forest")
             isolation_forest_detector = IsolationForestDetector(model_path=anomaly_model_path)
             isolation_forest_detector.load_model(anomaly_model_path)
             logger.info(f"Isolation Forest detector loaded successfully from {anomaly_model_path}")
-        else:
-            logger.warning(f"No pre-trained Isolation Forest model found at {anomaly_model_path}")
-            logger.info("Anomaly detection will use mock data until model is trained")
+        except Exception as e:
+            logger.warning(f"Could not load Isolation Forest model from versioning system: {e}")
+            logger.info("Falling back to direct model loading")
+            # Fallback to original method
+            anomaly_model_path = "/home/chandanraj-m/OpsNexus-ML/models/isolation_forest_detector.pkl"
+            if os.path.exists(anomaly_model_path):
+                isolation_forest_detector = IsolationForestDetector(model_path=anomaly_model_path)
+                isolation_forest_detector.load_model(anomaly_model_path)
+                logger.info(f"Isolation Forest detector loaded successfully from {anomaly_model_path}")
+            else:
+                logger.warning(f"No pre-trained Isolation Forest model found at {anomaly_model_path}")
+                logger.info("Anomaly detection will use mock data until model is trained")
 
     except Exception as e:
         logger.error(f"Failed to initialize models: {e}")
