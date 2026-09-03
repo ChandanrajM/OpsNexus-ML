@@ -224,97 +224,97 @@ jobs:
         run: |
           echo "Training CPU prediction model..."
           python -c "
-import sys
-sys.path.append('.')
-from baseline_model import CPUUsagePredictor
-import numpy as np
-import pickle
-import os
+          import sys
+          sys.path.append('.')
+          from baseline_model import CPUUsagePredictor
+          import numpy as np
+          import pickle
+          import os
 
-# In production, load real training data
-np.random.seed(42)
-n_samples = 1000
-n_features = 20
-X_train = np.random.randn(n_samples, n_features)
-y_train = np.random.rand(n_samples) * 100
+          # In production, load real training data
+          np.random.seed(42)
+          n_samples = 1000
+          n_features = 20
+          X_train = np.random.randn(n_samples, n_features)
+          y_train = np.random.rand(n_samples) * 100
 
-predictor = CPUUsagePredictor()
-predictor.fit(X_train, y_train)
+          predictor = CPUUsagePredictor()
+          predictor.fit(X_train, y_train)
 
-# Save model
-model_path = '/tmp/cpu_predictor.pkl'
-predictor.save_model(model_path)
-print(f'CPU predictor saved to {model_path}')
-print(f'Features: {len(predictor.feature_names)}')
-"
+          # Save model
+          model_path = '/tmp/cpu_predictor.pkl'
+          predictor.save_model(model_path)
+          print(f'CPU predictor saved to {model_path}')
+          print(f'Features: {len(predictor.feature_names)}')
+          "
 
       - name: Train Anomaly Detection Model
         run: |
           echo "Training anomaly detection model..."
           python -c "
-import sys
-sys.path.append('.')
-from models.isolation_forest_detector import IsolationForestDetector
-import numpy as np
-import pickle
+          import sys
+          sys.path.append('.')
+          from models.isolation_forest_detector import IsolationForestDetector
+          import numpy as np
+          import pickle
 
-# In production, load real training data
-np.random.seed(42)
-n_samples = 2000
-n_features = 20
-X_train = np.random.randn(n_samples, n_features)
+          # In production, load real training data
+          np.random.seed(42)
+          n_samples = 2000
+          n_features = 20
+          X_train = np.random.randn(n_samples, n_features)
 
-detector = IsolationForestDetector(n_estimators=200, contamination=0.1, random_state=42)
-detector.fit(X_train)
+          detector = IsolationForestDetector(n_estimators=200, contamination=0.1, random_state=42)
+          detector.fit(X_train)
 
-# Save model
-model_path = '/tmp/isolation_forest_detector.pkl'
-detector.save_model(model_path)
-print(f'Isolation Forest detector saved to {model_path}')
-print(f'Estimators: {detector.estimator.n_estimators}')
-"
+          # Save model
+          model_path = '/tmp/isolation_forest_detector.pkl'
+          detector.save_model(model_path)
+          print(f'Isolation Forest detector saved to {model_path}')
+          print(f'Estimators: {detector.estimator.n_estimators}')
+          "
 
       - name: Register new model versions
         run: |
           echo "Registering new model versions..."
           python -c "
-import sys
-sys.path.append('.')
-from model_versioning import ModelVersionManager, create_and_register_model
-import pickle
+          import sys
+          sys.path.append('.')
+          from model_versioning import ModelVersionManager, create_and_register_model
+          import pickle
 
-vm = ModelVersionManager()
+          vm = ModelVersionManager()
 
-# Register CPU predictor
-class DummyCPU:
-    def __init__(self): pass
-    def save_model(self, path):
-        with open(path, 'wb') as f:
-            pickle.dump(self, f)
+          # Register CPU predictor
+          class DummyCPU:
+              def __init__(self): pass
+              def save_model(self, path):
+                  with open(path, 'wb') as f:
+                      pickle.dump(self, f)
 
-cpu_model = DummyCPU()
-cpu_version = create_and_register_model(
-    'cpu_predictor', cpu_model, '/tmp/cpu_predictor.pkl',
-    metadata={'mae': 2.1, 'rmse': 3.5, 'r2': 0.85},
-    description='Scheduled retraining - $(date)'
-)
-print(f'Registered CPU predictor: {cpu_version}')
+          cpu_model = DummyCPU()
+          cpu_version = create_and_register_model(
+              'cpu_predictor', cpu_model, '/tmp/cpu_predictor.pkl',
+              metadata={'mae': 2.1, 'rmse': 3.5, 'r2': 0.85},
+              description='Scheduled retraining - $(date)'
+          )
+          print(f'Registered CPU predictor: {cpu_version}')
 
-# Register anomaly detector
-class DummyAnomaly:
-    def __init__(self): pass
-    def save_model(self, path):
-        with open(path, 'wb') as f:
-            pickle.dump(self, f)
+          # Register anomaly detector
+          class DummyAnomaly:
+              def __init__(self): pass
+              def save_model(self, path):
+                  with open(path, 'wb') as f:
+                      pickle.dump(self, f)
 
-anomaly_model = DummyAnomaly()
-anomaly_version = create_and_register_model(
-    'isolation_forest', anomaly_model, '/tmp/isolation_forest_detector.pkl',
-    metadata={'roc_auc': 0.75, 'f1_score': 0.65, 'precision': 0.70, 'recall': 0.60},
-    description='Scheduled retraining - $(date)'
-)
-print(f'Registered anomaly detector: {anomaly_version}')
-"
+          anomaly_model = DummyAnomaly()
+          anomaly_version = create_and_register_model(
+              'isolation_forest', anomaly_model, '/tmp/isolation_forest_detector.pkl',
+              metadata={'roc_auc': 0.75, 'f1_score': 0.65, 'precision': 0.70, 'recall': 0.60},
+              description='Scheduled retraining - $(date)'
+          )
+          print(f'Registered anomaly detector: {anomaly_version}')
+          "
 
       - name: Promote models to champion (after validation)
         run: |
