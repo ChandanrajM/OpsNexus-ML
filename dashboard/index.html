@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OpsNexus-ML Real-time Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            color: white;
+            margin-bottom: 30px;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            opacity: 0.9;
+            font-size: 1.2rem;
+        }
+
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .card h2 {
+            color: #333;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+        }
+
+        .card h2 i {
+            margin-right: 10px;
+        }
+
+        .metric {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .metric:last-child {
+            border-bottom: none;
+        }
+
+        .metric-label {
+            font-weight: 600;
+            color: #555;
+        }
+
+        .metric-value {
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        .metric-value.normal { color: #27ae60; }
+        .metric-value.warning { color: #f39c12; }
+        .metric-value.critical { color: #e74c3c; }
+
+        .status-indicator {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            margin-left: 8px;
+        }
+
+        .status-healthy { background-color: #27ae60; }
+        .status-warning { background-color: #f39c12; }
+        .status-error { background-color: #e74c3c; }
+
+        .chart-container {
+            height: 250px;
+            margin: 20px 0;
+        }
+
+        .footer {
+            text-align: center;
+            color: rgba(255, 255, 255, 0.8);
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .last-update {
+            text-align: center;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+            margin-top: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .dashboard-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .header h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🚀 OpsNexus-ML Intelligence Dashboard</h1>
+            <p>Real-time system monitoring & ML-powered insights</p>
+        </div>
+
+        <div class="dashboard-grid">
+            <!-- System Health Card -->
+            <div class="card">
+                <h2><i class="fas fa-heartbeat"></i> System Health</h2>
+                <div class="metric">
+                    <span class="metric-label">API Status</span>
+                    <span class="metric-value" id="api-status">Checking...</span>
+                    <span class="status-indicator" id="health-indicator"></span>
+                </div>
+                <div class="metric">
+                    <span class="metric-label">Model Loaded</span>
+                    <span class="metric-value" id="model-status">Unknown</span>
+                </div>
+                <div class="metric">
+                    <span class="metric-label">Model Type</span>
+                    <span class="metric-value" id="model-type">-</span>
+                </div>
+                <div class="metric">
+                    <span class="metric-label">Features Used</span>
+                    <span class="metric-value" id="feature-count">-</span>
+                </div>
+            </div>
+
+            <!-- Current Metrics Card -->
+            <div class="card">
+                <h2><i class="fas fa-tachometer-alt"></i> Current Metrics</h2>
+                <div class="metric">
+                    <span class="metric-label">CPU Usage</span>
+                    <span class="metric-value" id="cpu-usage">0%</span>
+                </div>
+                <div class="metric">
+                    <span class="metric-label">Memory Usage</span>
+                    <span class="metric-value" id="memory-usage">0%</span>
+                </div>
+                <div class="metric">
+                    <span class="metric-label">Disk I/O</span>
+                    <span class="metric-value" id="disk-io">0 MB/s</span>
+                </div>
+                <div class="metric">
+                    <span class="metric-label">Network Traffic</span>
+                    <span class="metric-value" id="network-traffic">0 B/s</span>
+                </div>
+                <div class="metric">
+                    <span class="metric-label">Process Count</span>
+                    <span class="metric-value" id="process-count">0</span>
+                </div>
+                <div class="metric">
+                    <span class="metric-label">Uptime</span>
+                    <span class="metric-value" id="uptime">0h</span>
+                </div>
+            </div>
+
+            <!-- Prediction Card -->
+            <div class="card">
+                <h2><i class="fas fa-chart-line"></i> ML Prediction</h2>
+                <div class="metric">
+                    <span class="metric-label">Predicted CPU (10min)</span>
+                    <span class="metric-value" id="predicted-cpu">0%</span>
+                </div>
+                <div class="metric">
+                    <span class="metric-label">Actual CPU</span>
+                    <span class="metric-value" id="actual-cpu">0%</span>
+                </div>
+                <div class="metric">
+                    <span class="metric-label">Prediction Error</span>
+                    <span class="metric-value" id="prediction-error">0%</span>
+                </div>
+                <div class="metric">
+                    <span class="metric-label">Confidence Interval</span>
+                    <span class="metric-value" id="confidence-interval">[0%, 0%]</span>
+                </div>
+                <div class="metric">
+                    <span class="metric-label">Trend</span>
+                    <span class="metric-value" id="prediction-trend">➡️ Stable</span>
+                </div>
+            </div>
+
+            <!-- Anomaly Detection Card -->
+            <div class="card">
+                <h2><i class="fas fa-exclamation-triangle"></i> Anomaly Detection</h2>
+                <div class="metric">
+                    <span class="metric-label">Status</span>
+                    <span class="metric-value" id="anomaly-status">Normal</span>
+                    <span class="status-indicator" id="anomaly-indicator"></span>
+                </div>
+                <div class="metric">
+                    <span class="metric-label">Anomaly Score</span>
+                    <span class="metric-value" id="anomaly-score">0.000</span>
+                </div>
+                <div class="metric">
+                    <span class="metric-label">Confidence</span>
+                    <span class="metric-value" id="anomaly-confidence">0.000</span>
+                </div>
+                <div class="metric">
+                    <span class="metric-label">Threshold</span>
+                    <span class="metric-value">0.700</span>
+                </div>
+                <div class="metric">
+                    <span class="metric-label">Samples Analyzed</span>
+                    <span class="metric-value" id="anomaly-samples">0</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Charts Section -->
+        <div class="card">
+            <h2><i class="fas fa-chart-area"></i> Trends & Analytics</h2>
+            <div class="chart-container">
+                <canvas id="trends-chart"></canvas>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>OpsNexus-ML: Transforming system monitoring from observation to intelligent anticipation</p>
+            <p>Dashboard auto-refreshes every 5 seconds</p>
+        </div>
+        <div class="last-update" id="last-update">Last update: --</div>
+    </div>
+
+    <script>
+        // Dashboard JavaScript
+        const API_BASE_URL = 'http://localhost:5000';
+        const REFRESH_INTERVAL = 5000; // 5 seconds
+
+        // Chart.js setup
+        let trendsChart = null;
+        const cpuHistory = [];
+        const predictionHistory = [];
+        const timestamps = [];
+        const MAX_HISTORY = 20;
+
+        // Initialize dashboard
+        document.addEventListener('DOMContentLoaded', () => {
+            initChart();
+            updateDashboard();
+            setInterval(updateDashboard, REFRESH_INTERVAL);
+        });
+
+        function initChart() {
+            const ctx = document.getElementById('trends-chart').getContext('2d');
+            trendsChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: timestamps,
+                    datasets: [
+                        {
+                            label: 'Actual CPU Usage (%)',
+                            data: cpuHistory,
+                            borderColor: '#3498db',
+                            backgroundColor: 'rgba(52, 152, 219, 0.1)',
+                            tension: 0.3,
+                            fill: true
+                        },
+                        {
+                            label: 'Predicted CPU Usage (%)',
+                            data: predictionHistory,
+                            borderColor: '#e74c3c',
+                            backgroundColor: 'rgba(231, 76, 60, 0.1)',
+                            tension: 0.3,
+                            fill: false,
+                            borderDash: [5, 5]
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        title: {
+                            display: true,
+                            text: 'CPU Usage Trends (Actual vs Predicted)'
+                        },
+                        tooltip: {
+                            mode: 'index',
+                            intersect: false
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            suggestedMax: 100
+                        }
+                    }
+                }
+            });
+        }
+
+        async function updateDashboard() {
+            try {
+                // Fetch all data in parallel
+                const [healthResp, metricsResp, predictionResp, anomalyResp, modelInfoResp] = await Promise.all([
+                    fetch(`${API_BASE_URL}/health`),
+                    fetch(`${API_BASE_URL}/metrics/recent`),
+                    fetch(`${API_BASE_URL}/predict/cpu`, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                            agent_id: 'local-agent',
+                            horizon_minutes: 10,
+                            lookback_points: 10
+                        })
+                    }),
+                    fetch(`${API_BASE_URL}/detect/anomaly`, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                            agent_id: 'local-agent',
+                            lookback_minutes: 30,
+                            sensitivity: 'medium'
+                        })
+                    }),
+                    fetch(`${API_BASE_URL}/models/info/enhanced`)
+                ]);
+
+                const healthData = await healthResp.json();
+                const metricsData = await metricsResp.json();
+                const predictionData = await predictionResp.json();
+                const anomalyData = await anomalyResp.json();
+                const modelInfoData = await modelInfoResp.json();
+
+                // Update health status
+                const healthIndicator = document.getElementById('health-indicator');
+                const apiStatusEl = document.getElementById('api-status');
+                if (healthResp.ok && healthData.status === 'healthy') {
+                    apiStatusEl.textContent = 'Healthy';
+                    apiStatusEl.className = 'metric-value normal';
+                    healthIndicator.className = 'status-indicator status-healthy';
+                } else {
+                    apiStatusEl.textContent = 'Unhealthy';
+                    apiStatusEl.className = 'metric-value critical';
+                    healthIndicator.className = 'status-indicator status-error';
+                }
+
+                // Update model info
+                document.getElementById('model-status').textContent =
+                    healthData.model_loaded ? 'Loaded' : 'Not Loaded';
+                document.getElementById('model-type').textContent =
+                    modelInfoData.model_type || 'Unknown';
+                document.getElementById('feature-count').textContent =
+                    modelInfoData.feature_count || 0;
+
+                // Update metrics
+                if (metricsData && metricsData.cpu_usage_percent !== undefined) {
+                    document.getElementById('cpu-usage').textContent =
+                        `${metricsData.cpu_usage_percent.toFixed(2)}%`;
+                    document.getElementById('memory-usage').textContent =
+                        `${metricsData.memory_usage_percent.toFixed(2)}%`;
+
+                    // Disk I/O
+                    const diskRead = metricsData.disk_read_mbps || 0;
+                    const diskWrite = metricsData.disk_write_mbps || 0;
+                    document.getElementById('disk-io').textContent =
+                        `${(diskRead + diskWrite).toFixed(2)} MB/s`;
+
+                    // Network traffic
+                    const netSent = metricsData.network_bytes_sent || 0;
+                    const netRecv = metricsData.network_bytes_recv || 0;
+                    const totalBytes = netSent + netRecv;
+                    document.getElementById('network-traffic').textContent =
+                        formatBytes(totalBytes) + '/s';
+
+                    document.getElementById('process-count').textContent =
+                        metricsData.process_count || 0;
+
+                    const uptimeHours = (metricsData.uptime_seconds || 0) / 3600;
+                    document.getElementById('uptime').textContent =
+                        `${uptimeHours.toFixed(1)}h`;
+
+                    // Add to history for charts
+                    cpuHistory.push(metricsData.cpu_usage_percent);
+                    timestamps.push(new Date().toLocaleTimeString());
+
+                    // Keep history limited
+                    if (cpuHistory.length > MAX_HISTORY) {
+                        cpuHistory.shift();
+                        timestamps.shift();
+                    }
+
+                    // Update chart
+                    trendsChart.data.labels = timestamps;
+                    trendsChart.data.datasets[0].data = cpuHistory;
+                    trendsChart.update();
+                }
+
+                // Update prediction
+                if (predictionData && predictionData.predicted_cpu_usage_percent !== undefined) {
+                    const predicted = predictionData.predicted_cpu_usage_percent;
+                    const actual = metricsData.cpu_usage_percent || 0;
+                    const error = predicted - actual;
+
+                    document.getElementById('predicted-cpu').textContent =
+                        `${predicted.toFixed(2)}%`;
+                    document.getElementById('actual-cpu').textContent =
+                        `${actual.toFixed(2)}%`;
+                    document.getElementById('prediction-error').textContent =
+                        `${error.toFixed(2)}%`;
+
+                    // Set error color
+                    const errorEl = document.getElementById('prediction-error');
+                    if (Math.abs(error) < 2) {
+                        errorEl.className = 'metric-value normal';
+                    } else if (Math.abs(error) < 5) {
+                        errorEl.className = 'metric-value warning';
+                    } else {
+                        errorEl.className = 'metric-value critical';
+                    }
+
+                    const lower = predictionData.confidence_interval?.lower || 0;
+                    const upper = predictionData.confidence_interval?.upper || 0;
+                    document.getElementById('confidence-interval').textContent =
+                        `[${lower.toFixed(2)}%, ${upper.toFixed(2)}%]`;
+
+                    // Prediction trend
+                    if (predictionHistory.length >= 2) {
+                        const trend = predictionData.predicted_cpu_usage_percent -
+                                    predictionHistory[predictionHistory.length - 1];
+                        if (trend > 0.5) {
+                            document.getElementById('prediction-trend').textContent = '📈 Rising';
+                        } else if (trend < -0.5) {
+                            document.getElementById('prediction-trend').textContent = '📉 Falling';
+                        } else {
+                            document.getElementById('prediction-trend').textContent = '➡️ Stable';
+                        }
+                    }
+
+                    // Add to prediction history
+                    predictionHistory.push(predicted);
+                    if (predictionHistory.length > MAX_HISTORY) {
+                        predictionHistory.shift();
+                    }
+
+                    // Update prediction dataset in chart
+                    trendsChart.data.datasets[1].data = predictionHistory;
+                    trendsChart.update();
+                }
+
+                // Update anomaly detection
+                if (anomalyData && anomalyData.anomaly_score !== undefined) {
+                    const score = anomalyData.anomaly_score;
+                    const isAnomaly = anomalyData.is_anomaly || false;
+                    const confidence = anomalyData.confidence || 0;
+
+                    document.getElementById('anomaly-status').textContent =
+                        isAnomaly ? 'ANOMALY DETECTED' : 'Normal';
+                    document.getElementById('anomaly-status').className =
+                        isAnomaly ? 'metric-value critical' : 'metric-value normal';
+
+                    const anomalyIndicator = document.getElementById('anomaly-indicator');
+                    anomalyIndicator.className =
+                        `status-indicator ${isAnomaly ? 'status-error' : 'status-healthy'}`;
+
+                    document.getElementById('anomaly-score').textContent =
+                        score.toFixed(3);
+                    document.getElementById('anomaly-confidence').textContent =
+                        confidence.toFixed(3);
+                    document.getElementById('anomaly-samples').textContent =
+                        anomalyData.samples_analyzed || 0;
+                }
+
+                // Update timestamp
+                document.getElementById('last-update').textContent =
+                    `Last update: ${new Date().toLocaleTimeString()}`;
+
+            } catch (error) {
+                console.error('Dashboard update error:', error);
+                document.getElementById('api-status').textContent = 'Error';
+                document.getElementById('api-status').className = 'metric-value critical';
+            }
+        }
+
+        function formatBytes(bytes) {
+            if (bytes === 0) return '0 B';
+            const k = 1024;
+            const sizes = ['B', 'KB', 'MB', 'GB', 'TB'];
+            const i = Math.floor(Math.log(bytes) / Math.log(k));
+            return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
+        }
+    </script>
+    <!-- Font Awesome for icons -->
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+</body>
+</html>
