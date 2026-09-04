@@ -103,10 +103,23 @@ class OpsNexusDataPipeline:
 
                 # Memory metrics
                 memory_data = system.get('memory', {})
+                # Calculate memory usage percent from total and available bytes if usage_percent not provided
+                if 'usage_percent' in memory_data:
+                    memory_usage_percent = float(memory_data.get('usage_percent', 0.0))
+                elif 'total_bytes' in memory_data and 'available_bytes' in memory_data:
+                    total_bytes = float(memory_data.get('total_bytes', 0.0))
+                    available_bytes = float(memory_data.get('available_bytes', 0.0))
+                    if total_bytes > 0:
+                        memory_usage_percent = ((total_bytes - available_bytes) / total_bytes) * 100
+                    else:
+                        memory_usage_percent = 0.0
+                else:
+                    memory_usage_percent = 0.0
+
                 flat_record.update({
-                    'memory_usage_percent': float(memory_data.get('usage_percent', 0.0)),
-                    'memory_available_mb': float(memory_data.get('available_mb', 0.0)),
-                    'memory_used_mb': float(memory_data.get('used_mb', 0.0)),
+                    'memory_usage_percent': memory_usage_percent,
+                    'memory_available_mb': float(memory_data.get('available_mb', memory_data.get('available_bytes', 0.0)) / 1024 / 1024),
+                    'memory_used_mb': float(memory_data.get('used_mb', memory_data.get('used_bytes', 0.0)) / 1024 / 1024),
                 })
 
                 # Disk metrics

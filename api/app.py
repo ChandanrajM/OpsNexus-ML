@@ -27,6 +27,17 @@ logger = logging.getLogger(__name__)
 
 app = Flask(__name__)
 
+# Health check endpoint
+@app.route('/health', methods=['GET'])
+def health_check():
+    """Health check endpoint"""
+    return jsonify({
+        'status': 'healthy',
+        'service': 'OpsNexus-ML API',
+        'model_loaded': model_loaded,
+        'timestamp': datetime.utcnow().isoformat() + 'Z'
+    })
+
 # Global variables for models and pipeline
 cpu_predictor = None
 data_pipeline = None
@@ -80,29 +91,48 @@ def initialize_models():
         except Exception as e:
             logger.warning(f"Could not load CPU prediction model from versioning system: {e}")
             logger.info("Falling back to direct model loading")
-            # Fallback to original method
-            model_path = "/home/chandanraj-m/OpsNexus-ML/models/cpu_predictor.pkl"
-            if os.path.exists(model_path):
-                # Try enhanced model first
+            # Fallback to original method - prioritize real-data model
+            real_model_path = "/home/chandanraj-m/OpsNexus-ML/models/cpu_predictor_real_data.pkl"
+            baseline_model_path = "/home/chandanraj-m/OpsNexus-ML/models/cpu_predictor.pkl"
+
+            # Try to load the real-data model first
+            if os.path.exists(real_model_path):
                 try:
-                    cpu_predictor = EnhancedCPUUsagePredictor(model_path=model_path)
-                    cpu_predictor.load_model(model_path)
+                    cpu_predictor = EnhancedCPUUsagePredictor(model_path=real_model_path)
+                    cpu_predictor.load_model(real_model_path)
                     feature_names = cpu_predictor.feature_names
                     model_loaded = True
                     model_info = cpu_predictor.get_model_info()
-                    logger.info(f"Enhanced CPU prediction model ({model_info.get('model_type', 'unknown')}) loaded successfully from {model_path}")
+                    logger.info(f"Enhanced CPU prediction model (real data - {model_info.get('model_type', 'unknown')}) loaded successfully from {real_model_path}")
                     logger.info(f"Model features: {len(feature_names) if feature_names else 0}")
-                except Exception as enhanced_error:
-                    logger.warning(f"Could not load enhanced model from direct path, trying baseline: {enhanced_error}")
-                    # Fallback to baseline model
-                    cpu_predictor = CPUUsagePredictor(model_path=model_path)
-                    cpu_predictor.load_model(model_path)
+                except Exception as real_error:
+                    logger.warning(f"Could not load real-data model: {real_error}")
+                    # Fall through to try baseline model
+            else:
+                logger.warning(f"Real-data model not found at {real_model_path}")
+
+            # If we haven't loaded a model yet, try the baseline model
+            if not model_loaded and os.path.exists(baseline_model_path):
+                # Try enhanced model first (in case the baseline model path actually has an enhanced model)
+                try:
+                    cpu_predictor = EnhancedCPUUsagePredictor(model_path=baseline_model_path)
+                    cpu_predictor.load_model(baseline_model_path)
                     feature_names = cpu_predictor.feature_names
                     model_loaded = True
-                    logger.info(f"Baseline CPU prediction model loaded successfully from {model_path}")
+                    model_info = cpu_predictor.get_model_info()
+                    logger.info(f"Enhanced CPU prediction model ({model_info.get('model_type', 'unknown')}) loaded successfully from {baseline_model_path}")
+                    logger.info(f"Model features: {len(feature_names) if feature_names else 0}")
+                except Exception as enhanced_error:
+                    logger.warning(f"Could not load enhanced model from baseline path, trying baseline: {enhanced_error}")
+                    # Fallback to baseline model
+                    cpu_predictor = CPUUsagePredictor(model_path=baseline_model_path)
+                    cpu_predictor.load_model(baseline_model_path)
+                    feature_names = cpu_predictor.feature_names
+                    model_loaded = True
+                    logger.info(f"Baseline CPU prediction model loaded successfully from {baseline_model_path}")
                     logger.info(f"Model features: {len(feature_names) if feature_names else 0}")
             else:
-                logger.warning(f"No pre-trained model found at {model_path}")
+                logger.warning(f"No pre-trained model found at {baseline_model_path}")
                 logger.info("API will return mock predictions until model is trained")
 
         # Load the latest Isolation Forest anomaly detector using versioning system
@@ -129,20 +159,19 @@ def initialize_models():
         logger.error(traceback.format_exc())
         model_loaded = False
 
-def get_latest_features_from_synthetic_data(num_points=100):
+def get_latest_features_from_local_telemetry(num_points=100):
     """
-    Extract latest features from synthetic data for prediction
-    In a real implementation, this would come from OpsNexus API
+    Extract latest features from local telemetry file written by opsnexus-agent
+    This replaces the synthetic data function for local testing
     """
     try:
-        # Load recent synthetic data
-        data_path = "/home/chandanraj-m/OpsNexus-ML/data_pipeline/synthetic_telemetry_sample.json"
+        # Load recent telemetry data from local file written by opsnexus-agent
+        data_path = "/home/chandanraj-m/opsnexus-local-data/telemetry.json"
 
         if not os.path.exists(data_path):
-            # Fallback to generating a small sample
-            from data_pipeline.synthetic_data_generator import generate_metric_payload, save_synthetic_data
-            data = generate_metric_payload(num_points=num_points)
-            save_synthetic_data(data, data_path)
+            # Fallback to synthetic data if local file doesn't exist yet
+            logger.warning(f"Local telemetry file not found at {data_path}, falling back to synthetic data")
+            data_path = "/home/chandanraj-m/OpsNexus-ML/data_pipeline/synthetic_telemetry_sample.json"
 
         # Process through pipeline
         df = data_pipeline.load_data(data_path)
@@ -150,30 +179,37 @@ def get_latest_features_from_synthetic_data(num_points=100):
         featured_df = data_pipeline.engineer_features()
 
         # Get the latest feature vector (excluding target and non-feature columns)
-        exclude_cols = ['agent_id']
-        if 'target' in featured_df.columns:
-            exclude_cols.append('target')
+        exclude_cols = ["agent_id"]
+        if "target" in featured_df.columns:
+            exclude_cols.append("target")
+
+        feature_cols = [col for col in featured_df.columns if col not in exclude_cols]
+
+        # Get the most recent sample for prediction (single sample)
+        latest_features = featured_df[feature_cols].iloc[-1:].values
+
+        return latest_features, feature_cols
+
+    except Exception as e:
+        logger.error(f"Error processing local telemetry data: {e}")
+        # Fallback to synthetic data on error
+        logger.warning("Falling back to synthetic data due to error")
+        data_path = "/home/chandanraj-m/OpsNexus-ML/data_pipeline/synthetic_telemetry_sample.json"
+        
+        # Process through pipeline
+        df = data_pipeline.load_data(data_path)
+        cleaned_df = data_pipeline.clean_data()
+        featured_df = data_pipeline.engineer_features()
+
+        # Get the latest feature vector (excluding target and non-feature columns)
+        exclude_cols = ["agent_id"]
+        if "target" in featured_df.columns:
+            exclude_cols.append("target")
 
         feature_cols = [col for col in featured_df.columns if col not in exclude_cols]
         latest_features = featured_df[feature_cols].iloc[-1:].values  # Most recent sample
 
         return latest_features, feature_cols
-
-    except Exception as e:
-        logger.error(f"Error extracting features: {e}")
-        # Return dummy features matching expected shape
-        dummy_features = np.zeros((1, 51))  # Match the trained model's feature count
-        return dummy_features, [f'feature_{i}' for i in range(51)]
-
-@app.route('/health', methods=['GET'])
-def health_check():
-    """Health check endpoint"""
-    return jsonify({
-        'status': 'healthy',
-        'service': 'OpsNexus-ML API',
-        'model_loaded': model_loaded,
-        'timestamp': datetime.utcnow().isoformat() + 'Z'
-    })
 
 @app.route('/predict/cpu', methods=['POST'])
 def predict_cpu_usage():
@@ -207,7 +243,7 @@ def predict_cpu_usage():
         # 3. Make a prediction
 
         # For now, we'll use synthetic data to demonstrate the flow
-        latest_features, feature_cols = get_latest_features_from_synthetic_data(lookback_points)
+        latest_features, feature_cols = get_latest_features_from_local_telemetry(lookback_points)
 
         # Make prediction
         prediction = cpu_predictor.predict_next_cpu_usage(latest_features)
@@ -518,7 +554,7 @@ def compare_models_endpoint():
 
         # In a real implementation, we would fetch recent telemetry data
         # For now, we'll use synthetic data to demonstrate the flow
-        latest_features, feature_cols = get_latest_features_from_synthetic_data(lookback_points)
+        latest_features, feature_cols = get_latest_features_from_local_telemetry(lookback_points)
 
         # For model comparison, we need to generate training data
         # In production, this would use real historical data from OpsNexus
@@ -637,7 +673,7 @@ def predict_enhanced_cpu_usage():
         # 3. Make a prediction using the specified model type
 
         # For now, we'll use synthetic data to demonstrate the flow
-        latest_features, feature_cols = get_latest_features_from_synthetic_data(lookback_points)
+        latest_features, feature_cols = get_latest_features_from_local_telemetry(lookback_points)
 
         # Handle model selection
         prediction_model = cpu_predictor  # Default to loaded model
