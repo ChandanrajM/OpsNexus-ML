@@ -18,6 +18,7 @@ sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
 from pipeline import OpsNexusDataPipeline
 from baseline_model import CPUUsagePredictor
 from models.isolation_forest_detector import IsolationForestDetector
+from models.enhanced_model import EnhancedCPUUsagePredictor, ModelType
 from data_pipeline.opsnexus_client import OpsNexusClient
 from model_versioning import ModelVersionManager
 
@@ -58,24 +59,48 @@ def initialize_models():
         # Load the latest CPU prediction model using versioning system
         try:
             cpu_model_path = model_version_manager.get_latest_model_path("cpu_predictor")
-            cpu_predictor = CPUUsagePredictor(model_path=cpu_model_path)
-            cpu_predictor.load_model(cpu_model_path)
-            feature_names = cpu_predictor.feature_names
-            model_loaded = True
-            logger.info(f"CPU prediction model loaded successfully from {cpu_model_path}")
-            logger.info(f"Model features: {len(feature_names) if feature_names else 0}")
+            # Try to load as enhanced model first, fallback to baseline
+            try:
+                cpu_predictor = EnhancedCPUUsagePredictor(model_path=cpu_model_path)
+                cpu_predictor.load_model(cpu_model_path)
+                feature_names = cpu_predictor.feature_names
+                model_loaded = True
+                model_info = cpu_predictor.get_model_info()
+                logger.info(f"Enhanced CPU prediction model ({model_info.get('model_type', 'unknown')}) loaded successfully from {cpu_model_path}")
+                logger.info(f"Model features: {len(feature_names) if feature_names else 0}")
+            except Exception as enhanced_error:
+                logger.warning(f"Could not load enhanced model, trying baseline model: {enhanced_error}")
+                # Fallback to baseline model
+                cpu_predictor = CPUUsagePredictor(model_path=cpu_model_path)
+                cpu_predictor.load_model(cpu_model_path)
+                feature_names = cpu_predictor.feature_names
+                model_loaded = True
+                logger.info(f"Baseline CPU prediction model loaded successfully from {cpu_model_path}")
+                logger.info(f"Model features: {len(feature_names) if feature_names else 0}")
         except Exception as e:
             logger.warning(f"Could not load CPU prediction model from versioning system: {e}")
             logger.info("Falling back to direct model loading")
             # Fallback to original method
             model_path = "/home/chandanraj-m/OpsNexus-ML/models/cpu_predictor.pkl"
             if os.path.exists(model_path):
-                cpu_predictor = CPUUsagePredictor(model_path=model_path)
-                cpu_predictor.load_model(model_path)
-                feature_names = cpu_predictor.feature_names
-                model_loaded = True
-                logger.info(f"Model loaded successfully from {model_path}")
-                logger.info(f"Model features: {len(feature_names) if feature_names else 0}")
+                # Try enhanced model first
+                try:
+                    cpu_predictor = EnhancedCPUUsagePredictor(model_path=model_path)
+                    cpu_predictor.load_model(model_path)
+                    feature_names = cpu_predictor.feature_names
+                    model_loaded = True
+                    model_info = cpu_predictor.get_model_info()
+                    logger.info(f"Enhanced CPU prediction model ({model_info.get('model_type', 'unknown')}) loaded successfully from {model_path}")
+                    logger.info(f"Model features: {len(feature_names) if feature_names else 0}")
+                except Exception as enhanced_error:
+                    logger.warning(f"Could not load enhanced model from direct path, trying baseline: {enhanced_error}")
+                    # Fallback to baseline model
+                    cpu_predictor = CPUUsagePredictor(model_path=model_path)
+                    cpu_predictor.load_model(model_path)
+                    feature_names = cpu_predictor.feature_names
+                    model_loaded = True
+                    logger.info(f"Baseline CPU prediction model loaded successfully from {model_path}")
+                    logger.info(f"Model features: {len(feature_names) if feature_names else 0}")
             else:
                 logger.warning(f"No pre-trained model found at {model_path}")
                 logger.info("API will return mock predictions until model is trained")
@@ -192,6 +217,27 @@ def predict_cpu_usage():
         confidence_lower = max(0, prediction - 5.0)
         confidence_upper = min(100, prediction + 5.0)
 
+        # Prepare response with enhanced model information
+        model_info_response = {
+            'features_used': len(feature_cols),
+            'model_loaded': model_loaded
+        }
+
+        # Add model-specific information if available
+        if hasattr(cpu_predictor, 'get_model_info'):
+            try:
+                model_details = cpu_predictor.get_model_info()
+                model_info_response.update({
+                    'model_type': model_details.get('model_type', 'unknown'),
+                    'training_metrics': model_details.get('training_metrics', {})
+                })
+            except Exception as e:
+                logger.warning(f"Could not get enhanced model info: {e}")
+                model_info_response['model_type'] = 'unknown'
+        else:
+            # Fallback for baseline model
+            model_info_response['model_type'] = 'linear_regression'
+
         # Prepare response
         response = {
             'agent_id': agent_id,
@@ -202,11 +248,7 @@ def predict_cpu_usage():
                 'lower': round(confidence_lower, 2),
                 'upper': round(confidence_upper, 2)
             },
-            'model_info': {
-                'model_type': 'linear_regression',
-                'features_used': len(feature_cols),
-                'model_loaded': model_loaded
-            }
+            'model_info': model_info_response
         }
 
         return jsonify(response)
@@ -451,6 +493,301 @@ def model_info():
             'error': 'Failed to get model info',
             'message': str(e)
         }), 500
+
+@app.route('/models/compare', methods=['POST'])
+def compare_models_endpoint():
+    """
+    Compare all available models and return the best performing one
+    Expected JSON payload:
+    {
+        "lookback_points": 100   // Optional, how many points to use for comparison
+    }
+    """
+    try:
+        if not model_loaded:
+            return jsonify({
+                'error': 'Models not loaded',
+                'message': 'Please train and load models first'
+            }), 503
+
+        # Get request parameters
+        data = request.get_json() or {}
+        lookback_points = data.get('lookback_points', 100)
+
+        logger.info(f"Model comparison request with {lookback_points} lookback points")
+
+        # In a real implementation, we would fetch recent telemetry data
+        # For now, we'll use synthetic data to demonstrate the flow
+        latest_features, feature_cols = get_latest_features_from_synthetic_data(lookback_points)
+
+        # For model comparison, we need to generate training data
+        # In production, this would use real historical data from OpsNexus
+        try:
+            # Generate some synthetic training data for demonstration
+            from data_pipeline.synthetic_data_generator import generate_metric_payload, save_synthetic_data
+            import numpy as np
+
+            # Create a larger dataset for meaningful comparison
+            data = generate_metric_payload(num_points=500)
+            save_synthetic_data(data, "/home/chandanraj-m/OpsNexus-ML/data_pipeline/comparison_sample.json")
+
+            # Load and process the data
+            df = data_pipeline.load_data("/home/chandanraj-m/OpsNexus-ML/data_pipeline/comparison_sample.json")
+            cleaned_df = data_pipeline.clean_data()
+            featured_df = data_pipeline.engineer_features()
+
+            # Prepare training data
+            X, y, feature_names = data_pipeline.prepare_training_data(
+                target_column='cpu_usage_percent',
+                prediction_horizon=6
+            )
+
+            # Compare models using our enhanced model comparison function
+            from models.enhanced_model import compare_models
+            comparison_result = compare_models(
+                X, y,
+                feature_names=feature_names,
+                test_size=0.2,
+                random_state=42
+            )
+
+            # Prepare response
+            response = {
+                'comparison_timestamp': datetime.utcnow().isoformat() + 'Z',
+                'lookback_points': lookback_points,
+                'training_samples': len(X),
+                'test_samples': len(X) // 5,  # Approximately 20% for test
+                'feature_count': len(feature_names),
+                'best_model': {
+                    'model_type': comparison_result['best_model_type'],
+                    'test_mae': comparison_result['best_test_mae']
+                },
+                'all_models': {},
+                'recommendation': f"Use {comparison_result['best_model_type']} for best performance (MAE: {comparison_result['best_test_mae']:.4f})"
+            }
+
+            # Add results for each model
+            for model_type, result in comparison_result['all_results'].items():
+                if 'error' in result:
+                    response['all_models'][model_type] = {
+                        'status': 'error',
+                        'error': result['error']
+                    }
+                else:
+                    metrics = result['metrics']
+                    response['all_models'][model_type] = {
+                        'status': 'success',
+                        'test_mae': metrics.get('test_mae'),
+                        'test_rmse': metrics.get('test_rmse'),
+                        'test_r2': metrics.get('test_r2'),
+                        'train_mae': metrics.get('train_mae'),
+                        'train_r2': metrics.get('train_r2')
+                    }
+
+            return jsonify(response)
+
+        except Exception as comparison_error:
+            logger.error(f"Error in model comparison: {comparison_error}")
+            logger.error(traceback.format_exc())
+            return jsonify({
+                'error': 'Model comparison failed',
+                'message': str(comparison_error)
+            }), 500
+
+    except Exception as e:
+        logger.error(f"Error in model comparison endpoint: {e}")
+        logger.error(traceback.format_exc())
+        return jsonify({
+            'error': 'Model comparison endpoint failed',
+            'message': str(e)
+        }), 500
+
+
+@app.route('/predict/enhanced', methods=['POST'])
+def predict_enhanced_cpu_usage():
+    """
+    Predict CPU usage using the enhanced model system
+    Expected JSON payload:
+    {
+        "agent_id": "optional-agent-id",
+        "horizon_minutes": 10,  // Optional, defaults to 10 minutes
+        "lookback_points": 100,  // Optional, how many points to look back
+        "model_type": "auto"     // Optional: linear_regression, ridge, lasso, random_forest, auto (default: auto)
+    }
+    """
+    try:
+        if not model_loaded:
+            return jsonify({
+                'error': 'Models not loaded',
+                'message': 'Please train and load models first'
+            }), 503
+
+        # Get request parameters
+        data = request.get_json() or {}
+        agent_id = data.get('agent_id', 'unknown')
+        horizon_minutes = data.get('horizon_minutes', 10)
+        lookback_points = data.get('lookback_points', 100)
+        model_type = data.get('model_type', 'auto')  # auto, linear_regression, ridge, lasso, random_forest
+
+        logger.info(f"Enhanced CPU prediction request for agent {agent_id}, horizon {horizon_minutes}min, model_type: {model_type}")
+
+        # In a real implementation, we would:
+        # 1. Fetch recent telemetry from OpsNexus API for the given agent
+        # 2. Process it through our pipeline to get features
+        # 3. Make a prediction using the specified model type
+
+        # For now, we'll use synthetic data to demonstrate the flow
+        latest_features, feature_cols = get_latest_features_from_synthetic_data(lookback_points)
+
+        # Handle model selection
+        prediction_model = cpu_predictor  # Default to loaded model
+        actual_model_type = 'unknown'
+
+        if model_type != 'auto' and hasattr(cpu_predictor, 'model_type'):
+            # If a specific model type is requested and we have an enhanced model
+            if isinstance(cpu_predictor, EnhancedCPUUsagePredictor):
+                # Check if the requested model type matches current model
+                if cpu_predictor.model_type == model_type:
+                    prediction_model = cpu_predictor
+                    actual_model_type = model_type
+                else:
+                    # We would need to load/train the specific model type
+                    # For now, we'll use the current model and note this in the response
+                    prediction_model = cpu_predictor
+                    actual_model_type = cpu_predictor.model_type
+                    logger.info(f"Requested model type {model_type} differs from loaded model {cpu_predictor.model_type}. Using loaded model.")
+            else:
+                # We have a baseline model but requested a specific type
+                # For simplicity, we'll use the baseline model
+                prediction_model = cpu_predictor
+                actual_model_type = 'linear_regression'
+                logger.info(f"Requested model type {model_type} but using baseline model. Consider training enhanced models.")
+        else:
+            # Use the loaded model (could be baseline or enhanced)
+            if hasattr(cpu_predictor, 'get_model_info'):
+                try:
+                    model_info = cpu_predictor.get_model_info()
+                    actual_model_type = model_info.get('model_type', 'unknown')
+                except:
+                    actual_model_type = 'unknown'
+            else:
+                actual_model_type = 'linear_regression'
+
+        # Make prediction
+        prediction = prediction_model.predict_next_cpu_usage(latest_features)
+
+        # Calculate confidence interval (enhanced for better models)
+        # In reality, we'd use prediction intervals from the model
+        confidence_range = 5.0  # Default range
+
+        # Adjust confidence based on model type if available
+        if hasattr(prediction_model, 'get_model_info'):
+            try:
+                model_info = prediction_model.get_model_info()
+                if model_info.get('training_metrics'):
+                    test_mae = model_info['training_metrics'].get('test_mae', 5.0)
+                    # Scale confidence range based on model performance (better MAE = smaller range)
+                    confidence_range = max(2.0, min(10.0, test_mae * 1.5))
+            except:
+                pass  # Use default range
+
+        confidence_lower = max(0, prediction - confidence_range)
+        confidence_upper = min(100, prediction + confidence_range)
+
+        # Prepare response with enhanced model information
+        model_info_response = {
+            'features_used': len(feature_cols),
+            'model_loaded': model_loaded,
+            'requested_model_type': model_type,
+            'actual_model_type': actual_model_type
+        }
+
+        # Add model-specific information if available
+        if hasattr(prediction_model, 'get_model_info'):
+            try:
+                model_details = prediction_model.get_model_info()
+                model_info_response.update({
+                    'training_metrics': model_details.get('training_metrics', {}),
+                    'model_parameters': model_details.get('model_parameters', {})
+                })
+            except Exception as e:
+                logger.warning(f"Could not get enhanced model info for response: {e}")
+
+        # Prepare response
+        response = {
+            'agent_id': agent_id,
+            'prediction_timestamp': datetime.utcnow().isoformat() + 'Z',
+            'horizon_minutes': horizon_minutes,
+            'predicted_cpu_usage_percent': round(float(prediction), 2),
+            'confidence_interval': {
+                'lower': round(confidence_lower, 2),
+                'upper': round(confidence_upper, 2)
+            },
+            'model_info': model_info_response
+        }
+
+        return jsonify(response)
+
+    except Exception as e:
+        logger.error(f"Error in enhanced CPU prediction: {e}")
+        logger.error(traceback.format_exc())
+        return jsonify({
+            'error': 'Enhanced prediction failed',
+            'message': str(e)
+        }), 500
+
+
+@app.route('/models/info/enhanced', methods=['GET'])
+def model_info_enhanced():
+    """
+    Get comprehensive information about the loaded model(s)
+    """
+    try:
+        if not model_loaded:
+            return jsonify({
+                'error': 'No model loaded',
+                'model_loaded': False
+            }), 404
+
+        # Prepare base response
+        response = {
+            'model_loaded': model_loaded,
+            'timestamp': datetime.utcnow().isoformat() + 'Z'
+        }
+
+        # Get information from the loaded model
+        if hasattr(cpu_predictor, 'get_model_info'):
+            try:
+                model_details = cpu_predictor.get_model_info()
+                response.update(model_details)
+            except Exception as e:
+                logger.warning(f"Could not get enhanced model info: {e}")
+                response['error'] = 'Failed to get detailed model info'
+        else:
+            # Baseline model information
+            response.update({
+                'model_type': 'linear_regression',
+                'feature_count': len(feature_names) if feature_names else 0,
+                'feature_names': feature_names,
+                'training_metrics': {}  # Baseline model doesn't store training metrics in the same way
+            })
+
+            # Add feature importance if available
+            if cpu_predictor.is_trained:
+                importance = cpu_predictor.get_feature_importance()
+                if importance:
+                    response['feature_importance'] = importance
+
+        return jsonify(response)
+
+    except Exception as e:
+        logger.error(f"Error getting enhanced model info: {e}")
+        logger.error(traceback.format_exc())
+        return jsonify({
+            'error': 'Failed to get model info',
+            'message': str(e)
+        }), 500
+
 
 # Initialize models when the module loads
 initialize_models()
